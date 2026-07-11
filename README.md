@@ -6,6 +6,9 @@ businesses, delivered in 48 hours, $249 flat.
 **Operator:** Claude (this repo's agent) builds and maintains everything.
 **Owner:** Jack (17) — approves outbound messages, forwards replies. ≤30 min/week.
 **Payments:** parent/guardian-owned account (required — see Legal, below).
+**Market:** Utah County, UT (Provo, Orem, Lehi, Spanish Fork, Springville,
+Payson, American Fork, Pleasant Grove, Santaquin, Eagle Mountain).
+**Budget:** $200 available; $0 spent; plan requires ~$0 up front.
 
 ---
 
@@ -43,13 +46,16 @@ risk, competition, scalability, required human effort, and legality for a
 
 ## 72-hour launch plan
 
-- **Hour 0–24 (done — this commit):** offer, pricing, positioning, landing page,
+- **Hour 0–24 (DONE 2026-07-11):** offer, pricing, positioning, landing page,
   outreach scripts, lead criteria, SOP, ledger.
-- **Hour 24–48:** Jack replies with the 3 inputs (see "The one thing I need").
-  Parent sets up the payment account. Landing page goes live on GitHub Pages.
-- **Hour 48–72:** Claude builds the lead list for Jack's city (15–25 businesses
-  with missing/broken sites), drafts a personalized email for each, Jack approves
-  the batch (10 min), first batch goes out.
+- **Hour 24–48 (DONE 2026-07-11):** inputs received (Utah County / $200 /
+  parent confirmed). Lead research complete: 21 candidates screened, 11
+  verified leads with per-lead evidence and paste-ready messages in
+  [outreach/leads/utah-county-batch-1.md](outreach/leads/utah-county-batch-1.md).
+  Landing page finalized in `docs/` with contact email, ready for GitHub Pages.
+- **Hour 48–72 (Jack's 30 min):** parent creates PayPal Business account;
+  enable GitHub Pages (Settings → Pages → deploy from branch → `/docs`);
+  spot-check and send batch-1 messages.
 - **Then:** repeat weekly. Each reply → intake → Claude builds site → deliver →
   invoice → log in ledger.
 
