@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jackthorn722-web.github.io/All/sitemap.xml

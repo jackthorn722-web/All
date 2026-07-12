@@ -3,15 +3,37 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SiteSprint — We work nights. Your phone rings days.</title>
-<meta name="description" content="SiteSprint builds Utah County service businesses a one-page website in 48 hours. $249 once, nothing monthly — and you pay only after it's live and you love it.">
+<title>SiteSprint — One-Page Websites for Utah County Businesses, Built in 48 Hours</title>
+<meta name="description" content="SiteSprint builds Utah County service businesses a one-page website in 48 hours. $249 once, no monthly fees. Free draft first — you pay only after it's live.">
 <link rel="canonical" href="https://jackthorn722-web.github.io/All/">
+<meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="SiteSprint">
 <meta property="og:title" content="SiteSprint — your business online in 48 hours">
 <meta property="og:description" content="One-page websites for Utah County trades. $249 once, $0/month, built before you pay.">
 <meta property="og:url" content="https://jackthorn722-web.github.io/All/">
 <meta property="og:image" content="https://jackthorn722-web.github.io/All/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SiteSprint — your business online in 48 hours">
+<meta name="twitter:description" content="One-page websites for Utah County trades. $249 once, $0/month, built before you pay.">
+<meta name="twitter:image" content="https://jackthorn722-web.github.io/All/og.png">
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%230B0F1E"/><circle cx="32" cy="34" r="14" fill="%23FF7A50"/><rect y="40" width="64" height="24" fill="%230B0F1E"/><rect y="38" width="64" height="3" fill="%232A3352"/></svg>'>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "SiteSprint",
+  "url": "https://jackthorn722-web.github.io/All/",
+  "image": "https://jackthorn722-web.github.io/All/og.png",
+  "description": "One-page websites for Utah County service businesses, built in 48 hours. $249 flat, no monthly fees, free draft before payment.",
+  "slogan": "We work nights. Your phone rings days.",
+  "areaServed": { "@type": "AdministrativeArea", "name": "Utah County, Utah" },
+  "priceRange": "$249",
+  "founder": { "@type": "Person", "name": "Jack Thorn" }
+}
+</script>
 <style>
   /* ---------- fonts (self-hosted) ---------- */
   @font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/instrumentserif-400.woff2) format("woff2")}
@@ -22,17 +44,18 @@
 
   /* ---------- tokens: a night that warms into dawn ---------- */
   :root{
-    --night:#0B0F1E;          /* hour 00 ground */
-    --night-2:#101530;        /* hour 02+ ground */
-    --predawn:#171A38;        /* hour 24+ ground */
-    --dawn-paper:#F6EFE7;     /* hour 48 ground */
-    --dawn-ink:#2A2017;       /* text on dawn */
-    --dawn-mute:#7A6A58;
-    --star:#AFC2F5;           /* cold light, early page */
-    --moon:#E9EDF8;           /* primary text on night */
-    --dim:#98A2C0;            /* muted text on night */
-    --ember:#FF7A50;          /* the warm signal — CTAs and dawn */
-    --ember-deep:#E05A31;
+    --night:#0B0F1E;
+    --night-2:#101530;
+    --predawn:#171A38;
+    --dawn-paper:#F6EFE7;
+    --dawn-ink:#2A2017;
+    --dawn-mute:#6E5D4A;
+    --star:#AFC2F5;
+    --moon:#E9EDF8;
+    --dim:#9AA4C2;
+    --dim-2:#8B95B5;          /* small mono captions — raised contrast */
+    --ember:#FF7A50;
+    --ember-deep:#D14E27;
     --peach:#FFB489;
     --hairline:rgba(175,194,245,.16);
     --hairline-warm:rgba(255,180,137,.25);
@@ -51,7 +74,7 @@
   img,svg,canvas{max-width:100%;display:block}
 
   h1,h2{font-family:var(--serif);font-weight:400;letter-spacing:.002em;text-wrap:balance}
-  h1 em,h2 em,.gl{font-style:italic;color:var(--peach)}
+  h1 em,h2 em{font-style:italic;color:var(--peach)}
   .stamp{font-family:var(--mono);font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;
          color:var(--star);display:flex;align-items:center;gap:14px;margin-bottom:26px}
   .stamp::before{content:"";width:44px;height:1px;background:currentColor;opacity:.6;flex:none}
@@ -59,8 +82,8 @@
 
   /* ---------- buttons ---------- */
   .btn{display:inline-block;background:var(--ember);color:#1C0E06;font-weight:700;font-size:1rem;
-       text-decoration:none;padding:17px 30px;border-radius:999px;letter-spacing:.01em;
-       transition:transform .15s ease, background .15s ease}
+       text-decoration:none;padding:17px 30px;border-radius:999px;letter-spacing:.01em;border:0;cursor:pointer;
+       font-family:var(--sans);transition:transform .15s ease, background .15s ease}
   .btn:hover{background:var(--peach);transform:translateY(-2px)}
   .btn:active{transform:translateY(0)}
   .btn:focus-visible{outline:3px solid var(--peach);outline-offset:3px}
@@ -75,7 +98,7 @@
   .mark{font-family:var(--mono);font-weight:700;font-size:.95rem;letter-spacing:.08em;text-decoration:none}
   .mark b{color:var(--ember)}
   .nav a.cta-mini{font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-decoration:none;
-                  color:var(--moon);border:1px solid var(--hairline);border-radius:999px;padding:10px 18px;
+                  color:var(--moon);border:1px solid var(--hairline);border-radius:999px;padding:12px 18px;
                   transition:border-color .15s,color .15s}
   .nav a.cta-mini:hover{border-color:var(--ember);color:var(--peach)}
 
@@ -88,16 +111,16 @@
          pointer-events:none;user-select:none;font-style:italic}
   .hero-inner{position:relative;z-index:2;padding-block:96px 210px}
   .hero h1{font-size:clamp(3rem,7.4vw,5.6rem);line-height:1.02;max-width:13ch}
-  .hero .sub{margin:30px 0 40px;font-size:1.16rem;color:var(--dim);max-width:47ch}
+  .hero .sub{margin:30px 0 40px;font-size:1.16rem;color:var(--dim);max-width:46ch}
   .hero .sub b{color:var(--moon);font-weight:600}
   .cta-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
-  .trust{margin-top:26px;font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;color:#6E7A9E}
-  .trust b{color:var(--star);font-weight:400}
+  .assure{margin-top:18px;font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;color:var(--dim-2)}
+  .assure b{color:var(--star);font-weight:400}
   .ridge{position:absolute;bottom:-1px;left:0;right:0;z-index:1}
   .ridge svg{width:100%;height:130px}
 
-  /* ---------- shared section rhythm ---------- */
-  section{padding-block:110px}
+  /* ---------- shared rhythm ---------- */
+  section{padding-block:100px}
   .h2{font-size:clamp(2rem,4.6vw,3.4rem);line-height:1.08;margin-bottom:22px;max-width:22ch}
   .lede{color:var(--dim);font-size:1.1rem;max-width:56ch}
   .lede b{color:var(--moon);font-weight:600}
@@ -105,7 +128,7 @@
   /* ---------- problem ---------- */
   .problem{background:var(--night)}
   .problem-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
-  .problem p+p{margin-top:18px}
+  .problem p+p{margin-top:16px}
   .serp{background:var(--card);border:1px solid var(--hairline);border-radius:14px;padding:22px;
         box-shadow:0 30px 80px rgba(0,0,0,.45)}
   .serp .q{font-family:var(--mono);font-size:.78rem;color:var(--dim);border:1px solid var(--hairline);
@@ -114,44 +137,41 @@
   .hit{border:1px solid var(--hairline);border-radius:10px;padding:14px 16px;margin-bottom:10px}
   .hit .t{height:9px;width:62%;border-radius:5px;background:#2C355C}
   .hit .d{height:7px;width:84%;border-radius:4px;background:#1E2547;margin-top:8px}
-  .hit .lbl{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;color:#6E7A9E;margin-bottom:8px;text-transform:uppercase}
+  .hit .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;color:var(--dim-2);margin-bottom:8px;text-transform:uppercase}
   .hit.you{border-style:dashed;border-color:var(--hairline-warm);background:rgba(255,122,80,.04)}
   .hit.you .lbl{color:var(--peach)}
   .hit.you .msg{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--peach)}
 
-  /* ---------- solution ---------- */
-  .solution{background:var(--night-2)}
-  .sol-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
-  .sol-grid .h2{position:sticky;top:40px}
-  .spec{border-top:1px solid var(--hairline);padding:26px 0;display:grid;grid-template-columns:130px 1fr;gap:20px}
-  .spec:last-child{border-bottom:1px solid var(--hairline)}
-  .spec dt{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--star);padding-top:5px}
-  .spec dd{color:var(--dim)}
-  .spec dd b{color:var(--moon);font-weight:600}
-
-  /* ---------- benefits ledger ---------- */
-  .bene{background:var(--night-2)}
-  .row-b{border-top:1px solid var(--hairline);padding:44px 0;display:grid;
+  /* ---------- offer ledger ---------- */
+  .offer{background:var(--night-2)}
+  .row-b{border-top:1px solid var(--hairline);padding:38px 0;display:grid;
          grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) auto;gap:28px;align-items:baseline}
   .row-b:last-of-type{border-bottom:1px solid var(--hairline)}
-  .row-b h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.15}
+  .row-b h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.5rem,3vw,2.05rem);line-height:1.15}
   .row-b p{color:var(--dim)}
-  .row-b .tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;color:var(--star);
-              border:1px solid var(--hairline);padding:7px 12px;border-radius:999px;white-space:nowrap;justify-self:end}
+  .row-b .tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;color:var(--star);
+              border:1px solid var(--hairline);padding:8px 13px;border-radius:999px;white-space:nowrap;justify-self:end}
 
-  /* ---------- interactive build ---------- */
+  /* ---------- interactive build + sample ---------- */
   .build{background:var(--predawn);position:relative;overflow:hidden}
   .build::before{content:"";position:absolute;inset:auto -20% -55% -20%;height:80%;
                  background:radial-gradient(50% 60% at 50% 100%, rgba(255,122,80,.16), transparent 70%);pointer-events:none}
   .build-grid{display:grid;grid-template-columns:1fr 360px;gap:72px;align-items:center;position:relative;z-index:1}
-  .trades{display:flex;flex-wrap:wrap;gap:10px;margin:34px 0 22px}
+  .trades{display:flex;flex-wrap:wrap;gap:10px;margin:34px 0 26px}
   .trade{font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;color:var(--dim);cursor:pointer;
-         background:transparent;border:1px solid var(--hairline);border-radius:999px;padding:11px 18px;
-         transition:all .18s ease}
+         background:transparent;border:1px solid var(--hairline);border-radius:999px;padding:12px 18px;
+         transition:all .18s ease;min-height:44px}
   .trade:hover{color:var(--moon);border-color:var(--star)}
   .trade[aria-pressed="true"]{background:var(--ember);border-color:var(--ember);color:#1C0E06;font-weight:700}
   .trade:focus-visible{outline:3px solid var(--peach);outline-offset:3px}
-  .fine{font-family:var(--mono);font-size:.74rem;color:#6E7A9E;max-width:46ch;line-height:1.7}
+  .fine{font-family:var(--mono);font-size:.8rem;color:var(--dim-2);max-width:46ch;line-height:1.7}
+  .sample-link{margin-top:26px;display:inline-flex;align-items:center;gap:12px;text-decoration:none;
+               border:1px solid var(--hairline-warm);border-radius:12px;padding:16px 20px;
+               background:rgba(255,122,80,.05);transition:border-color .15s, background .15s}
+  .sample-link:hover{border-color:var(--ember);background:rgba(255,122,80,.1)}
+  .sample-link:focus-visible{outline:3px solid var(--peach);outline-offset:3px}
+  .sample-link .go{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;color:var(--peach);text-transform:uppercase}
+  .sample-link .tt{font-weight:600;color:var(--moon)}
   .phone{width:100%;max-width:340px;justify-self:center;background:#080B16;border:1px solid var(--hairline);
          border-radius:38px;padding:12px;box-shadow:0 40px 90px rgba(0,0,0,.5)}
   .screen{border-radius:28px;overflow:hidden;background:#FBF8F3;color:#1E2418}
@@ -161,7 +181,7 @@
   .p-call{margin:12px;padding:12px;border-radius:10px;background:var(--ember);color:#1C0E06;
           font-weight:700;font-size:.9rem;text-align:center}
   .p-sec{padding:0 12px 12px}
-  .p-lab{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;color:#8A8578;text-transform:uppercase;margin:6px 2px 7px}
+  .p-lab{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;color:#7A7568;text-transform:uppercase;margin:6px 2px 7px}
   .p-chips{display:flex;flex-wrap:wrap;gap:6px}
   .p-chip{background:#fff;border:1px solid #E4DDD0;border-radius:999px;font-size:.7rem;font-weight:600;padding:5px 11px}
   .p-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
@@ -170,13 +190,23 @@
   .p-line{height:7px;border-radius:4px;background:#E4DDD0;margin-top:5px}
   .p-line.s{width:58%}
 
-  /* ---------- proof ---------- */
-  .proof{background:var(--predawn)}
-  .proof-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
-  .p-card{border:1px solid var(--hairline);border-radius:16px;padding:30px 26px;background:rgba(11,15,30,.5)}
-  .p-card .no{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;color:var(--peach)}
-  .p-card h3{font-family:var(--serif);font-weight:400;font-size:1.45rem;margin:14px 0 10px}
-  .p-card p{color:var(--dim);font-size:.97rem}
+  /* ---------- who builds ---------- */
+  .who{background:var(--predawn)}
+  .who-grid{display:grid;grid-template-columns:auto 1fr;gap:52px;align-items:start}
+  .portrait{width:168px;height:168px;border-radius:20px;position:relative;flex:none;
+            background:linear-gradient(160deg,#1E2647,#12172E);border:1px solid var(--hairline);
+            display:flex;align-items:center;justify-content:center}
+  .portrait .init{font-family:var(--serif);font-style:italic;font-size:3.4rem;color:var(--peach)}
+  .portrait .ph-note{position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);white-space:nowrap;
+            font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;color:var(--dim-2);
+            background:var(--predawn);padding:2px 8px}
+  .who h3{font-family:var(--serif);font-weight:400;font-size:1.5rem;margin-bottom:4px}
+  .who .role{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;color:var(--peach);text-transform:uppercase;margin-bottom:16px}
+  .who p{color:var(--dim);max-width:58ch}
+  .who p+p{margin-top:14px}
+  .who p b{color:var(--moon);font-weight:600}
+  .who .reach{margin-top:22px;font-family:var(--mono);font-size:.8rem;color:var(--dim-2)}
+  .who .reach a{color:var(--star)}
 
   /* ---------- how ---------- */
   .how{background:var(--predawn)}
@@ -189,7 +219,7 @@
                 background:var(--night);border:2px solid var(--star)}
   .stop:nth-child(2)::before{border-color:var(--peach)}
   .stop:nth-child(3)::before{border-color:var(--ember);background:var(--ember)}
-  .stop .hr{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;color:var(--star)}
+  .stop .hr{font-family:var(--mono);font-size:.74rem;letter-spacing:.18em;color:var(--star)}
   .stop:nth-child(2) .hr{color:var(--peach)}
   .stop:nth-child(3) .hr{color:var(--ember)}
   .stop h3{font-family:var(--serif);font-weight:400;font-size:1.5rem;margin:10px 0 8px}
@@ -197,7 +227,10 @@
 
   /* ---------- compare ---------- */
   .compare{background:var(--predawn)}
-  .tbl-wrap{overflow-x:auto;margin-top:52px;border:1px solid var(--hairline);border-radius:16px}
+  .swipe-cue{display:none;font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;color:var(--peach);
+             margin:40px 0 10px;text-transform:uppercase}
+  .tbl-wrap{overflow-x:auto;margin-top:44px;border:1px solid var(--hairline);border-radius:16px;
+            -webkit-overflow-scrolling:touch}
   table{width:100%;border-collapse:collapse;min-width:680px;font-size:.95rem}
   th,td{text-align:left;padding:16px 20px;border-bottom:1px solid var(--hairline)}
   tr:last-child th,tr:last-child td{border-bottom:none}
@@ -206,31 +239,83 @@
   td{color:var(--dim);font-variant-numeric:tabular-nums}
   td.us{color:var(--moon);font-weight:600;background:rgba(255,122,80,.07);border-left:1px solid var(--hairline-warm);border-right:1px solid var(--hairline-warm)}
   thead th.us{color:var(--peach)}
-  .src{margin-top:14px;font-family:var(--mono);font-size:.68rem;color:#6E7A9E}
+  .src{margin-top:14px;font-family:var(--mono);font-size:.74rem;color:var(--dim-2);line-height:1.8}
+  .src a{color:var(--star);text-underline-offset:3px}
 
-  /* ---------- dawn / final ---------- */
+  /* ---------- faq ---------- */
+  .faq{background:var(--predawn)}
+  .faq-cols{margin-top:44px;columns:2;column-gap:56px}
+  .faq details{border-bottom:1px solid var(--hairline);break-inside:avoid}
+  .faq summary{font-weight:600;font-size:1.02rem;cursor:pointer;padding:18px 34px 18px 0;
+               list-style:none;position:relative;min-height:44px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font-family:var(--mono);position:absolute;right:4px;top:50%;
+                      transform:translateY(-50%);color:var(--ember);font-size:1.25rem;transition:transform .2s}
+  .faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+  .faq details p{color:var(--dim);padding:0 0 20px;font-size:.97rem}
+  .faq details p+p{margin-top:-8px}
+  .faq summary:focus-visible{outline:3px solid var(--peach);outline-offset:2px;border-radius:4px}
+
+  /* ---------- dawn / form ---------- */
   .dawn{background:linear-gradient(180deg,#F9E9D4 0%,var(--dawn-paper) 42%);color:var(--dawn-ink);
-        position:relative;overflow:hidden;padding-block:130px 120px}
+        position:relative;overflow:hidden;padding-block:120px 110px}
   .dawn::before{content:"";position:absolute;top:-160px;left:50%;transform:translateX(-50%);
                 width:560px;height:560px;border-radius:50%;
                 background:radial-gradient(circle, rgba(255,122,80,.5), rgba(255,122,80,0) 65%);pointer-events:none}
   .dawn .stamp{color:var(--ember-deep)}
-  .dawn h2{font-size:clamp(2.3rem,5.4vw,4rem);line-height:1.05;max-width:18ch;margin-inline:auto}
+  .dawn-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 460px;gap:72px;align-items:start}
+  .dawn h2{font-size:clamp(2.2rem,4.8vw,3.6rem);line-height:1.05;max-width:16ch}
   .dawn h2 em{color:var(--ember-deep)}
-  .dawn .lede{color:var(--dawn-mute);margin:22px auto 40px;max-width:46ch}
+  .dawn .lede{color:var(--dawn-mute);margin-top:20px;max-width:42ch}
   .dawn .lede b{color:var(--dawn-ink)}
-  .dawn .inner{position:relative;z-index:1;text-align:center;display:flex;flex-direction:column;align-items:center}
-  .dawn .btn{background:var(--ember-deep);color:#fff}
-  .dawn .btn:hover{background:var(--ember)}
-  .dawn .trust{color:var(--dawn-mute)}
-  .dawn .trust b{color:var(--ember-deep)}
+  .dawn .alt{margin-top:30px;font-family:var(--mono);font-size:.8rem;color:var(--dawn-mute);line-height:1.9}
+  .dawn .alt a{color:var(--ember-deep)}
+
+  .form-card{background:#FFFDF9;border:1px solid #E7DCCB;border-radius:18px;padding:34px 30px;
+             box-shadow:0 30px 70px rgba(42,32,23,.14)}
+  .form-card h3{font-family:var(--serif);font-weight:400;font-size:1.5rem;margin-bottom:4px}
+  .form-card .sub-note{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--dawn-mute);margin-bottom:22px}
+  .f-field{margin-bottom:16px}
+  .f-field label{display:block;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;
+                 text-transform:uppercase;color:var(--dawn-mute);margin-bottom:7px}
+  .f-field label b{color:var(--ember-deep);font-weight:400}
+  .f-field input,.f-field select{width:100%;font-family:var(--sans);font-size:1rem;color:var(--dawn-ink);
+        background:#fff;border:1px solid #D9CCB8;border-radius:10px;padding:13px 14px;min-height:48px}
+  .f-field input:focus-visible,.f-field select:focus-visible{outline:3px solid var(--ember);outline-offset:1px;border-color:var(--ember)}
+  .f-field input[aria-invalid="true"]{border-color:#C0392B}
+  .f-err{display:none;color:#A82F1F;font-size:.85rem;margin-top:6px}
+  .f-err.show{display:block}
+  .f-radios{display:flex;gap:10px;flex-wrap:wrap}
+  .f-radios label{display:flex;align-items:center;gap:8px;font-family:var(--sans);font-size:.95rem;
+        text-transform:none;letter-spacing:0;color:var(--dawn-ink);border:1px solid #D9CCB8;border-radius:999px;
+        padding:11px 18px;cursor:pointer;min-height:44px;margin:0}
+  .f-radios input{width:auto;min-height:0;accent-color:var(--ember-deep)}
+  .f-radios label:has(input:checked){border-color:var(--ember-deep);background:rgba(209,78,39,.07)}
+  .f-radios label:has(input:focus-visible){outline:3px solid var(--ember);outline-offset:1px}
+  .form-card .btn{width:100%;text-align:center;background:var(--ember-deep);color:#fff;margin-top:6px}
+  .form-card .btn:hover{background:var(--ember)}
+  .form-card .assure{color:var(--dawn-mute);text-align:center;margin-top:14px}
+  .form-card .assure b{color:var(--ember-deep)}
+  .f-panel{display:none;padding:18px;border-radius:12px;font-size:.97rem;margin-top:16px}
+  .f-panel.show{display:block}
+  .f-panel.ok{background:#EAF3E6;border:1px solid #BCD8AF;color:#2E4B22}
+  .f-panel.bad{background:#F8E9E4;border:1px solid #E3BBAC;color:#7C2D18}
 
   /* ---------- footer ---------- */
-  footer{background:var(--night);color:#6E7A9E;padding-block:44px;font-size:.88rem}
+  footer{background:var(--night);color:var(--dim-2);padding-block:44px;font-size:.88rem}
   footer .row{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center}
   footer a{color:var(--dim)}
   footer a:hover{color:var(--moon)}
-  footer .legal{font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;margin-top:18px;opacity:.75}
+  footer .f-mark{font-family:var(--mono);font-weight:700;letter-spacing:.08em;color:var(--moon)}
+  footer .f-mark b{color:var(--ember)}
+  footer .legal{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;margin-top:18px;opacity:.85}
+
+  /* ---------- utilities ---------- */
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+           clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+  /* ---------- sticky mobile CTA ---------- */
+  .bar-cta{display:none}
 
   /* ---------- motion ---------- */
   @media (prefers-reduced-motion: no-preference){
@@ -241,20 +326,31 @@
 
   /* ---------- responsive ---------- */
   @media (max-width:940px){
-    section{padding-block:78px}
-    .hero-inner{padding-block:64px 170px}
+    section{padding-block:72px}
+    .hero-inner{padding-block:60px 170px}
     .ghost{right:-18%;top:auto;bottom:4%;opacity:.7}
-    .problem-grid,.sol-grid,.build-grid{grid-template-columns:1fr;gap:48px}
-    .sol-grid .h2{position:static}
-    .row-b{grid-template-columns:1fr;gap:12px;padding:34px 0}
+    .problem-grid,.build-grid,.dawn-grid{grid-template-columns:1fr;gap:48px}
+    .row-b{grid-template-columns:1fr;gap:12px;padding:32px 0}
     .row-b .tag{justify-self:start}
-    .proof-cards{grid-template-columns:1fr;gap:14px}
     .stops{grid-template-columns:1fr;gap:36px}
     .clock::before{left:6px;right:auto;top:0;bottom:0;width:1px;height:auto;
                    background:linear-gradient(180deg,var(--star),var(--ember))}
     .stop{padding-top:0;padding-left:36px}
     .stop::before{top:6px}
     .build-grid .phone{max-width:300px}
+    .who-grid{grid-template-columns:1fr;gap:44px;justify-items:start}
+    .faq-cols{columns:1}
+    .swipe-cue{display:block}
+    .dawn{padding-block:88px 96px}
+  }
+  @media (max-width:640px){
+    .bar-cta{display:flex;align-items:center;justify-content:center;position:fixed;left:12px;right:12px;
+             bottom:12px;z-index:50;background:var(--ember);color:#1C0E06;font-weight:700;font-size:1rem;
+             min-height:52px;border-radius:999px;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.45);
+             transform:translateY(90px);transition:transform .3s ease}
+    .bar-cta.on{transform:translateY(0)}
+    .bar-cta:focus-visible{outline:3px solid var(--peach);outline-offset:3px}
+    body.bar-pad::after{content:"";display:block;height:76px}
   }
 </style>
 </head>
@@ -267,21 +363,21 @@
   <nav class="nav wrap" aria-label="Main">
     <div class="row">
       <a class="mark" href="#top">SITE<b>SPRINT</b></a>
-      <a class="cta-mini" href="mailto:jack.thorn722@gmail.com?subject=Website%20for%20my%20business">START MY FREE DRAFT</a>
+      <a class="cta-mini" href="#start">GET MY FREE DRAFT</a>
     </div>
   </nav>
 
   <div class="wrap hero-inner" id="top">
     <p class="stamp fade in" style="--i:0">Hour 00 · Utah County · After close</p>
     <h1 class="fade in" style="--i:1">We work <em>nights.</em><br>Your phone rings <em>days.</em></h1>
-    <p class="sub fade in" style="--i:2">SiteSprint builds your business a one-page website in 48 hours —
-      services, your photos, your reviews, and a tap-to-call button.
-      <b>$249 once. Nothing monthly. You pay after it's live, not before.</b></p>
+    <p class="sub fade in" style="--i:2">A one-page website for your business — your services, your
+      photos, a tap-to-call button — live in 48 hours.
+      <b>$249 once. Nothing monthly. Pay after it's live, not before.</b></p>
     <div class="cta-row fade in" style="--i:3">
-      <a class="btn" href="mailto:jack.thorn722@gmail.com?subject=Website%20for%20my%20business&body=Business%20name%3A%0APhone%3A%0AWhat%20you%20do%3A">Start my free draft</a>
+      <a class="btn" href="#start">Get my free draft</a>
       <a class="btn-ghost" href="#build">WATCH ONE GET BUILT ↓</a>
     </div>
-    <p class="trust fade in" style="--i:4"><b>Draft built before you pay a cent</b> · a student-run studio in Utah County</p>
+    <p class="assure fade in" style="--i:4"><b>Takes 60 seconds · No card required · We reply within two business hours</b></p>
   </div>
 
   <div class="ridge" aria-hidden="true">
@@ -292,19 +388,18 @@
 </div>
 
 <main>
-  <section class="problem" aria-labelledby="p-problem">
+  <section class="problem" aria-labelledby="t-problem">
     <div class="wrap problem-grid">
       <div>
         <p class="stamp fade">Hour 01 · Tuesday, 9:41 pm</p>
-        <h2 class="h2 fade" id="p-problem">Someone nearby just searched for <em>exactly what you do.</em></h2>
+        <h2 class="h2 fade" id="t-problem">Someone nearby just searched for <em>exactly what you do.</em></h2>
         <div class="lede">
           <p class="fade">They're on the couch, phone in hand, problem in mind. Google hands them
-          three names. Yours isn't one of them — your work lives on a Facebook page
-          Google barely shows, or nowhere at all.</p>
-          <p class="fade">So the job goes to whoever showed up. Not the best crew in the valley —
-          <b>the findable one.</b></p>
-          <p class="fade">Word of mouth still matters. But every referral gets checked in a search
-          bar first, and a referral who can't find you calls the name they can.</p>
+          three names — and yours isn't one, because your work lives on a Facebook page
+          or nowhere at all. The job goes to whoever showed up. Not the best crew in the
+          valley — <b>the findable one.</b></p>
+          <p class="fade">Word of mouth still matters. But every referral gets checked in a
+          search bar first, and a referral who can't find you calls the name they can.</p>
         </div>
       </div>
       <div class="serp fade" role="img" aria-label="Illustration of search results: two competitors with websites appear; your business is a missing result">
@@ -316,32 +411,13 @@
     </div>
   </section>
 
-  <section class="solution" aria-labelledby="p-solution">
-    <div class="wrap sol-grid">
-      <div>
-        <p class="stamp fade">Hour 02 · The fix</p>
-        <h2 class="h2 fade" id="p-solution">One page. Everything a customer needs to <em>say yes.</em></h2>
-      </div>
-      <dl>
-        <div class="spec fade"><dt>What</dt><dd>A single fast page: what you do, photos of your actual work,
-          your best reviews, your hours and service area — and a <b>tap-to-call button</b> a thumb can't miss.</dd></div>
-        <div class="spec fade"><dt>Who for</dt><dd>Utah County's working trades — lawn care, detailing, pressure
-          washing, hauling, cleaning. Businesses whose work is great and whose Google results aren't.</dd></div>
-        <div class="spec fade"><dt>How</dt><dd>You answer 8 questions by email — ten minutes, phone photos welcome.
-          We build the whole thing. You review it, ask for tweaks, and call it done.</dd></div>
-        <div class="spec fade"><dt>Why us</dt><dd>Built <b>for</b> you in 48 hours flat. Not a DIY builder that eats
-          your weekends. Not a $1,200 agency project with three meetings. One email, two days, done.</dd></div>
-        <div class="spec fade"><dt>Result</dt><dd>The next 9:41 searcher finds you, sees the proof,
-          and <b>taps your number</b> instead of the next one.</dd></div>
-      </dl>
-    </div>
-  </section>
-
-  <section class="bene" aria-labelledby="p-bene">
+  <section class="offer" aria-labelledby="t-offer">
     <div class="wrap">
-      <p class="stamp fade">Hour 03 · Standard equipment</p>
-      <h2 class="h2 fade" id="p-bene">Four decisions we already <em>made for you.</em></h2>
-      <div style="margin-top:48px">
+      <p class="stamp fade">Hour 02 · What $249 buys</p>
+      <h2 class="h2 fade" id="t-offer">One page. Everything a customer needs to <em>say yes.</em></h2>
+      <p class="lede fade">You answer 8 questions by email or text — ten minutes, phone photos
+      welcome. We build the whole thing. Here's what's already decided:</p>
+      <div style="margin-top:44px">
         <div class="row-b fade">
           <h3>Tap-to-call, front and center</h3>
           <p>Most visitors are one thumb away from being your customer. The call button sits where the thumb already is.</p>
@@ -349,30 +425,37 @@
         </div>
         <div class="row-b fade">
           <h3>Your photos, not stock</h3>
-          <p>Customers hire proof. Phone-camera before-and-afters of your real work beat any stock image ever taken.</p>
+          <p>Customers hire proof. Phone-camera shots of your real work beat any stock image ever taken.</p>
           <span class="tag">PROOF SELLS</span>
         </div>
         <div class="row-b fade">
           <h3>Loads before doubt does</h3>
-          <p>Hand-built, no plugins, no page builder bloat. Your page appears in under a second on a weak bar of LTE.</p>
+          <p>Hand-built, no page-builder bloat. Your page appears in under a second on a weak bar of LTE.</p>
           <span class="tag">NO BLOAT</span>
         </div>
         <div class="row-b fade">
-          <h3>$0 a month, forever</h3>
-          <p>Not an introductory rate. Hosting is free for good — there's simply nothing to keep charging you for.</p>
+          <h3>Ready for Google to read</h3>
+          <p>Clean structure, local-business metadata, a sitemap, and Search Console setup — a strong page for
+          Google to index. (No one can promise rankings; anyone who does is selling something else.)</p>
+          <span class="tag">SEARCH-READY</span>
+        </div>
+        <div class="row-b fade">
+          <h3>$0 a month to keep</h3>
+          <p>Hosted on modern static hosting with no monthly fee. The only recurring cost that can exist is
+          your domain's yearly renewal — paid to the registrar, not to us.</p>
           <span class="tag">NO SUBSCRIPTIONS</span>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="build" id="build" aria-labelledby="p-build">
+  <section class="build" id="build" aria-labelledby="t-build">
     <div class="wrap build-grid">
       <div>
         <p class="stamp warm fade">Hour 24 · Mid-build</p>
-        <h2 class="h2 fade" id="p-build">Pick a trade. Watch it turn into <em>a website.</em></h2>
-        <p class="lede fade">Every SiteSprint build shares this bone structure — then wears
-        your name, your colors, your photos, your reviews.</p>
+        <h2 class="h2 fade" id="t-build">Pick a trade. Watch it turn into <em>a website.</em></h2>
+        <p class="lede fade">Every build shares this bone structure — then wears your name,
+        your colors, your photos, your reviews.</p>
         <div class="trades fade" role="group" aria-label="Choose a sample trade">
           <button class="trade" aria-pressed="true"  data-t="lawn">Lawn care</button>
           <button class="trade" aria-pressed="false" data-t="detail">Auto detailing</button>
@@ -380,8 +463,12 @@
           <button class="trade" aria-pressed="false" data-t="clean">House cleaning</button>
           <button class="trade" aria-pressed="false" data-t="junk">Junk removal</button>
         </div>
-        <p class="fine fade">Sample mockup — your real draft is built from your answers,
-        free, before any money moves.</p>
+        <a class="sample-link fade" href="sample/lawn.html">
+          <span class="go">Open →</span>
+          <span class="tt">View a full sample build, page for page</span>
+        </a>
+        <p class="fine fade" style="margin-top:18px">Clearly labeled as a sample — your real draft is
+        built from your answers, free, before any money moves.</p>
       </div>
       <div class="phone fade" aria-live="polite">
         <div class="screen">
@@ -412,114 +499,249 @@
     </div>
   </section>
 
-  <section class="proof" aria-labelledby="p-proof">
+  <section class="who" aria-labelledby="t-who">
     <div class="wrap">
-      <p class="stamp warm fade">Hour 36 · Straight talk</p>
-      <h2 class="h2 fade" id="p-proof">We're brand new. Here's why that <em>costs you nothing.</em></h2>
-      <p class="lede fade">You won't find testimonials here yet, and we won't invent any.
-      What we can offer is better than borrowed praise — <b>terms no established shop will match:</b></p>
-      <div class="proof-cards">
-        <div class="p-card fade">
-          <span class="no">EXHIBIT A</span>
-          <h3>The draft comes first</h3>
-          <p>Your site gets built before any money moves. If it's not right, you walk away
-          owing nothing. Every ounce of risk sits with us, where it belongs.</p>
+      <p class="stamp warm fade">Hour 30 · Who's on the night shift</p>
+      <h2 class="h2 fade" id="t-who">Who builds <em>your site?</em></h2>
+      <div class="who-grid" style="margin-top:44px">
+        <div class="portrait fade" role="img" aria-label="Portrait placeholder for Jack Thorn — photo coming soon">
+          <span class="init">JT</span>
+          <span class="ph-note">PHOTO COMING SOON</span>
         </div>
-        <div class="p-card fade">
-          <span class="no">EXHIBIT B</span>
-          <h3>The math is public</h3>
-          <p>Industry pricing guides put a basic one-page business site at $900–$1,600.
-          Ours is $249 — modern tools do the heavy lifting, and no office rent is hiding in your invoice.</p>
-        </div>
-        <div class="p-card fade">
-          <span class="no">EXHIBIT C</span>
-          <h3>Run like a real shop</h3>
-          <p>Payments run through a registered, guardian-owned business account. Every invoice
-          tracked, every dollar accounted for. Small studio, grown-up bookkeeping.</p>
+        <div>
+          <h3 class="fade">Jack Thorn</h3>
+          <p class="role fade">Founder · Utah County, UT</p>
+          <p class="fade">I'm a student here in Utah County, and I started SiteSprint after noticing
+          something backwards: half the best crews in this valley — the ones with the five-star
+          reviews and the booked-out weeks — are invisible the moment someone Googles them.
+          Fixing that takes me two nights and modern tools. It takes an agency six weeks and $1,200.</p>
+          <p class="fade"><b>You'll get honest work, run properly:</b> a written quote up front, a professional
+          invoice on delivery, and documented payments on every job. And because the draft comes
+          first, you never pay for anything you haven't seen live.</p>
+          <p class="reach fade">Reach me directly: <a href="#start">the 60-second form below</a>
+          or <a class="em" data-em href="#start">email</a> · we reply within two business hours.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="how" aria-labelledby="p-how">
+  <section class="how" aria-labelledby="t-how">
     <div class="wrap">
       <p class="stamp warm fade">Hours 00–48 · The whole job, on one clock</p>
-      <h2 class="h2 fade" id="p-how">Your part takes <em>ten minutes.</em></h2>
+      <h2 class="h2 fade" id="t-how">Your part takes <em>ten minutes.</em></h2>
       <div class="clock">
         <div class="stops">
           <div class="stop fade">
             <span class="hr">HR 00</span>
             <h3>You answer 8 questions</h3>
-            <p>One email: your services, service area, hours, a few phone photos,
-            your best reviews. Ten minutes, tops.</p>
+            <p>Services, service area, hours, a few phone photos, your best reviews. Ten minutes, tops.</p>
           </div>
           <div class="stop fade">
             <span class="hr">HR 00–48</span>
             <h3>We build. You sleep.</h3>
-            <p>Design, copy, photos, the call button — all of it. You will not be
-            asked to review fonts or "hop on a quick call."</p>
+            <p>Design, copy, photos, the call button — all of it. No meetings, no "quick calls."</p>
           </div>
           <div class="stop fade">
             <span class="hr">HR 48</span>
             <h3>You approve. It goes live. Then you pay.</h3>
-            <p>Two rounds of tweaks included. $249 changes hands only when
-            it's live and you're glad it is.</p>
+            <p>Two revision rounds included. $249 changes hands only when it's live and you're glad it is.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="compare" aria-labelledby="p-compare">
+  <section class="compare" aria-labelledby="t-compare">
     <div class="wrap">
       <p class="stamp warm fade">Hour 40 · The alternatives</p>
-      <h2 class="h2 fade" id="p-compare">Four ways to get online. One respects <em>your week.</em></h2>
-      <div class="tbl-wrap fade">
+      <h2 class="h2 fade" id="t-compare">Four ways to get online. One respects <em>your week.</em></h2>
+      <p class="swipe-cue" aria-hidden="true">Swipe to compare →</p>
+      <div class="tbl-wrap fade" tabindex="0" role="region" aria-label="Comparison of website options — scrolls horizontally">
         <table>
           <thead>
-            <tr><th scope="col"></th><th scope="col">Web agency</th><th scope="col">DIY builder</th><th scope="col">Facebook only</th><th scope="col" class="us">SiteSprint</th></tr>
+            <tr><th scope="col"><span class="sr-only">Feature</span></th><th scope="col">Web agency</th><th scope="col">DIY builder</th><th scope="col">Facebook only</th><th scope="col" class="us">SiteSprint</th></tr>
           </thead>
           <tbody>
             <tr><th scope="row">Cost</th><td>$900–$1,600+</td><td>$144–$480 every year</td><td>$0</td><td class="us">$249, once</td></tr>
             <tr><th scope="row">Your time</th><td>Meetings & revisions</td><td>Your weekends</td><td>Constant posting</td><td class="us">10 minutes</td></tr>
             <tr><th scope="row">Live in</th><td>2–6 weeks</td><td>Whenever you finish</td><td>—</td><td class="us">48 hours</td></tr>
             <tr><th scope="row">Monthly fees</th><td>Often a retainer</td><td>$12–$40 forever</td><td>$0</td><td class="us">$0</td></tr>
-            <tr><th scope="row">Risk</th><td>Deposit up front</td><td>Your time, sunk</td><td>Invisible on Google</td><td class="us">None — pay after it's live</td></tr>
+            <tr><th scope="row">Risk</th><td>Deposit up front</td><td>Your time, sunk</td><td>Hard to find in search</td><td class="us">None — pay after it's live</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="src fade">AGENCY & BUILDER FIGURES: 2025–26 SMALL-BUSINESS WEBSITE PRICING GUIDES (MARKBRINKER.COM, WEBSITEBUILDEREXPERT.COM)</p>
+      <p class="src fade">Agency & builder figures: <a href="https://www.markbrinker.com/website-cost" rel="noopener">markbrinker.com (2025)</a> ·
+      <a href="https://www.websitebuilderexpert.com/building-websites/how-much-should-a-website-cost/" rel="noopener">websitebuilderexpert.com (2026)</a></p>
     </div>
   </section>
 
-  <div class="dawn">
-    <div class="wrap inner">
-      <p class="stamp fade">Hour 48 · Thursday, first light</p>
-      <h2 class="fade">By Thursday morning, the 9:41 search <em>finds you.</em></h2>
-      <p class="lede fade">One email tonight. A free draft in two days. The worst case is
-      you saw your business with a real website — <b>and said no thanks.</b></p>
-      <div class="fade">
-        <a class="btn" href="mailto:jack.thorn722@gmail.com?subject=Website%20for%20my%20business&body=Business%20name%3A%0APhone%3A%0AWhat%20you%20do%3A">Start my free draft</a>
-        <p class="trust" style="margin-top:22px"><b>jack.thorn722@gmail.com</b> · we reply fast · pay $0 until it's live</p>
+  <section class="faq" aria-labelledby="t-faq">
+    <div class="wrap">
+      <p class="stamp warm fade">Hour 44 · The fine print, out loud</p>
+      <h2 class="h2 fade" id="t-faq">Asked, answered, <em>in writing.</em></h2>
+      <div class="faq-cols fade">
+        <details>
+          <summary>What exactly does $249 include?</summary>
+          <p>Design and build of a one-page site: your services, photos, reviews, hours, service area,
+          a map, and a tap-to-call button. Copywriting included. Two revision rounds, connecting your
+          domain, search-engine-friendly structure, local-business structured data, a sitemap,
+          Search Console setup, and guidance for your Google Business Profile.</p>
+        </details>
+        <details>
+          <summary>Is a custom domain included?</summary>
+          <p>The $249 covers connecting one. The domain itself is bought from a registrar at cost —
+          typically $12–$20/year, registered <b>in your name</b>, renewed yearly with the registrar.
+          We add zero markup and you can start on a free web address if you'd rather not buy one yet.</p>
+        </details>
+        <details>
+          <summary>Who owns the site and domain?</summary>
+          <p>You do. The domain is registered in your name, and the site files are yours on delivery.
+          Any developer can take over from us at any time.</p>
+        </details>
+        <details>
+          <summary>What does "free hosting" actually mean?</summary>
+          <p>Your site is a small, fast static page hosted on platforms whose standing free tiers are built
+          for exactly this. No monthly fee from us or from them for a site this size. If a platform ever
+          changed its terms, the site is portable — we'd help you move it, and your only possible cost
+          remains the domain renewal.</p>
+        </details>
+        <details>
+          <summary>What do future edits cost?</summary>
+          <p>Small changes (new photos, prices, hours) are $20 flat per request, or $15/month for an
+          on-call plan with 48-hour turnaround. No contract either way — and since you own the files,
+          you're never locked in.</p>
+        </details>
+        <details>
+          <summary>What counts as one revision round?</summary>
+          <p>One consolidated list of changes — as many items as you like, sent together. Two rounds
+          are included, which covers nearly every build we've scoped.</p>
+        </details>
+        <details>
+          <summary>What if I don't like the draft?</summary>
+          <p>You say "no thanks," pay nothing, and we delete the draft. That's the whole procedure.
+          The free draft is the pitch — we only get paid when it's good enough to go live.</p>
+        </details>
+        <details>
+          <summary>What happens if SiteSprint stops operating?</summary>
+          <p>Nothing happens to your site. It doesn't run on us — it's yours, hosted independently,
+          with a plain-language handoff note delivered with every build so any developer can maintain it.</p>
+        </details>
+        <details>
+          <summary>Will my site rank on Google?</summary>
+          <p>Honest answer: no one can promise rankings, including us. What we deliver is a strong,
+          fast page for Google to index — clean structure, local metadata, a sitemap, Search Console
+          setup — plus guidance on your Google Business Profile, which does most of the heavy lifting
+          for local searches.</p>
+        </details>
       </div>
     </div>
-  </div>
+  </section>
+
+  <section class="dawn" id="start" aria-labelledby="t-start">
+    <div class="wrap dawn-grid">
+      <div>
+        <p class="stamp fade">Hour 48 · Thursday, first light</p>
+        <h2 class="fade" id="t-start">By Thursday morning, the 9:41 search <em>finds you.</em></h2>
+        <p class="lede fade">Sixty seconds of answers. A free draft in two days. The worst case is
+        you saw your business with a real website — <b>and said no thanks.</b></p>
+        <p class="alt fade">Prefer to skip the form?<br>
+          Email <a class="em" data-em href="#start">us directly</a> — same two-hour reply.<br>
+          <span data-phone-slot hidden>Or text/call: <a href="#start" data-phone-link>—</a></span>
+        </p>
+      </div>
+      <div class="form-card fade">
+        <h3>Get your free draft</h3>
+        <p class="sub-note">NO CARD · NO COMMITMENT · WE BUILD FIRST</p>
+        <form id="draft-form" novalidate>
+          <div class="f-field">
+            <label for="f-name">Your name <b>*</b></label>
+            <input id="f-name" name="name" type="text" autocomplete="name" maxlength="80" required>
+            <p class="f-err" id="e-name">Please tell us your name.</p>
+          </div>
+          <div class="f-field">
+            <label for="f-biz">Business name <b>*</b></label>
+            <input id="f-biz" name="business" type="text" autocomplete="organization" maxlength="120" required>
+            <p class="f-err" id="e-biz">Please tell us the business name.</p>
+          </div>
+          <div class="f-field">
+            <label for="f-trade">Type of work <b>*</b></label>
+            <select id="f-trade" name="trade" required>
+              <option value="">Choose one…</option>
+              <option>Lawn care / landscaping</option>
+              <option>Auto detailing</option>
+              <option>Pressure washing</option>
+              <option>House cleaning</option>
+              <option>Junk removal / hauling</option>
+              <option>Handyman / painting</option>
+              <option>Other service business</option>
+            </select>
+            <p class="f-err" id="e-trade">Please pick the closest match.</p>
+          </div>
+          <div class="f-field">
+            <label for="f-phone">Phone number <b>*</b></label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="20" required>
+            <p class="f-err" id="e-phone">A 10-digit phone number, please — it's how we send the draft link.</p>
+          </div>
+          <div class="f-field">
+            <label for="f-email">Email <span style="text-transform:none;letter-spacing:0">(optional)</span></label>
+            <input id="f-email" name="email" type="email" autocomplete="email" maxlength="120">
+            <p class="f-err" id="e-email">That email doesn't look complete — or leave it blank.</p>
+          </div>
+          <fieldset class="f-field" style="border:0">
+            <legend style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dawn-mute);margin-bottom:8px">How should we reply?</legend>
+            <div class="f-radios">
+              <label><input type="radio" name="contact" value="text" checked> Text</label>
+              <label><input type="radio" name="contact" value="call"> Call</label>
+              <label><input type="radio" name="contact" value="email"> Email</label>
+            </div>
+          </fieldset>
+          <button class="btn" type="submit" id="f-submit">Get my free draft</button>
+          <p class="assure">Takes 60 seconds · <b>No card required</b> · We reply within two business hours</p>
+          <p class="f-panel ok" id="f-ok" role="status">Got it — your email app just opened with your answers
+          filled in. <b>Hit send</b> and the 48-hour clock starts. Nothing opened? Use the email link on the left.</p>
+          <p class="f-panel bad" id="f-bad" role="alert">Something went wrong on our end — nothing you did.
+          Please use the email link on the left and we'll take it from there.</p>
+        </form>
+        <noscript><p class="f-panel bad show">This form needs JavaScript. No problem — email
+        <b>jack.thorn722 [at] gmail [dot] com</b> with your business name and phone number instead.</p></noscript>
+      </div>
+    </div>
+  </section>
 </main>
+
+<a class="bar-cta" id="bar-cta" href="#start">Get a free draft · No card</a>
 
 <footer>
   <div class="wrap">
     <div class="row">
-      <span class="mark">SITE<b>SPRINT</b></span>
-      <a href="mailto:jack.thorn722@gmail.com">jack.thorn722@gmail.com</a>
+      <span class="f-mark">SITE<b>SPRINT</b></span>
+      <a class="em" data-em href="#start">Email us</a>
       <span>A student-run web studio · Utah County, UT</span>
     </div>
-    <p class="legal">© 2026 SITESPRINT · PAYMENTS PROCESSED THROUGH A GUARDIAN-OWNED BUSINESS ACCOUNT · BUILT AT NIGHT, ON PURPOSE</p>
+    <p class="legal">© 2026 SITESPRINT · WRITTEN QUOTES, PROFESSIONAL INVOICES & DOCUMENTED PAYMENTS ON EVERY JOB · FULL TERMS AVAILABLE ON REQUEST · BUILT AT NIGHT, ON PURPOSE</p>
   </div>
 </footer>
 
 <script>
 (function(){
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* email assembly (kept out of static HTML to slow scrapers) */
+  var ADDR = ['jack','thorn722'].join('.') + '@' + 'gmail.com';
+  /* phone: set to e.g. '+18015551234' to enable text/call paths site-wide */
+  var PHONE = '';
+  /* form endpoint: set to a Formspree/Web3Forms URL to switch from email-compose to direct submit */
+  var ENDPOINT = '';
+
+  document.querySelectorAll('[data-em]').forEach(function(a){
+    a.href = 'mailto:' + ADDR + '?subject=' + encodeURIComponent('Website for my business');
+  });
+  if (PHONE){
+    document.querySelectorAll('[data-phone-slot]').forEach(function(s){ s.hidden = false; });
+    document.querySelectorAll('[data-phone-link]').forEach(function(a){
+      a.href = 'sms:' + PHONE; a.textContent = PHONE.replace('+1','');
+    });
+  }
 
   /* starfield — static points, denser near the top */
   var cv = document.getElementById('stars');
@@ -539,7 +761,7 @@
   paint();
   var rT; addEventListener('resize', function(){ clearTimeout(rT); rT=setTimeout(paint,150); });
 
-  /* gentle parallax on stars + ghost numeral */
+  /* gentle parallax */
   if (!reduce){
     var ghost = document.querySelector('.ghost'), ticking = false;
     addEventListener('scroll', function(){
@@ -553,7 +775,7 @@
     }, {passive:true});
   }
 
-  /* scroll reveals */
+  /* scroll reveals + failsafe */
   if (!reduce && 'IntersectionObserver' in window){
     var io = new IntersectionObserver(function(es){
       es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
@@ -562,7 +784,6 @@
   } else {
     document.querySelectorAll('.fade').forEach(function(el){ el.classList.add('in'); });
   }
-  /* failsafe: content must never stay hidden if reveals don't fire */
   setTimeout(function(){
     document.querySelectorAll('.fade:not(.in)').forEach(function(el){ el.classList.add('in'); });
   }, 6000);
@@ -586,23 +807,110 @@
              ph:['#9C6844,#6B3F26','#B07E52,#7A4A2E','#7A4A2E,#4A2B18']}
   };
   var btns = document.querySelectorAll('.trade');
+  function setTrade(key){
+    var t = TRADES[key]; if (!t) return;
+    document.getElementById('ph-biz').textContent = t.biz;
+    document.getElementById('ph-town').textContent = t.town;
+    document.getElementById('ph-head').style.background = t.head;
+    var chips = document.getElementById('ph-chips'); chips.textContent = '';
+    t.chips.forEach(function(c){
+      var s = document.createElement('span'); s.className = 'p-chip'; s.textContent = c; chips.appendChild(s);
+    });
+    ['pp1','pp2','pp3'].forEach(function(id,i){
+      document.getElementById(id).style.background = 'linear-gradient(135deg,'+t.ph[i]+')';
+    });
+  }
   btns.forEach(function(b){
     b.addEventListener('click', function(){
       btns.forEach(function(o){ o.setAttribute('aria-pressed', o===b ? 'true' : 'false'); });
-      var t = TRADES[b.dataset.t];
-      document.getElementById('ph-biz').textContent = t.biz;
-      document.getElementById('ph-town').textContent = t.town;
-      document.getElementById('ph-head').style.background = t.head;
-      document.getElementById('ph-chips').innerHTML =
-        t.chips.map(function(c){ return '<span class="p-chip">'+c+'</span>'; }).join('');
-      ['pp1','pp2','pp3'].forEach(function(id,i){
-        document.getElementById(id).style.background = 'linear-gradient(135deg,'+t.ph[i]+')';
-      });
+      setTrade(b.dataset.t);
     });
   });
-  document.getElementById('ph-head').style.background = TRADES.lawn.head;
-  ['pp1','pp2','pp3'].forEach(function(id,i){
-    document.getElementById(id).style.background = 'linear-gradient(135deg,'+TRADES.lawn.ph[i]+')';
+  setTrade('lawn');
+
+  /* sticky mobile CTA — show after hero, hide when the form section is on screen */
+  var bar = document.getElementById('bar-cta'), dawn = document.getElementById('start');
+  var pastHero = false, dawnVisible = false;
+  function syncBar(){
+    var on = pastHero && !dawnVisible;
+    bar.classList.toggle('on', on);
+    document.body.classList.toggle('bar-pad', on);
+  }
+  if ('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){
+      es.forEach(function(e){ pastHero = !e.isIntersecting; }); syncBar();
+    }, {threshold:0}).observe(document.querySelector('.hero'));
+    new IntersectionObserver(function(es){
+      es.forEach(function(e){ dawnVisible = e.isIntersecting; }); syncBar();
+    }, {threshold:.15}).observe(dawn);
+  }
+
+  /* ---------- form ---------- */
+  var form = document.getElementById('draft-form');
+  var okP = document.getElementById('f-ok'), badP = document.getElementById('f-bad');
+  function field(id){ return document.getElementById(id); }
+  function setErr(input, errId, bad){
+    input.setAttribute('aria-invalid', bad ? 'true' : 'false');
+    if (bad){ input.setAttribute('aria-describedby', errId); }
+    document.getElementById(errId).classList.toggle('show', bad);
+  }
+  function clean(v, max){ return String(v||'').replace(/[\r\n<>]/g,' ').trim().slice(0, max); }
+
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    okP.classList.remove('show'); badP.classList.remove('show');
+
+    var name  = clean(field('f-name').value, 80);
+    var biz   = clean(field('f-biz').value, 120);
+    var trade = clean(field('f-trade').value, 60);
+    var phone = clean(field('f-phone').value, 20);
+    var email = clean(field('f-email').value, 120);
+    var pref  = (form.querySelector('input[name="contact"]:checked')||{}).value || 'text';
+
+    var digits = phone.replace(/\D/g,'');
+    var badName  = !name,               badBiz = !biz, badTrade = !trade;
+    var badPhone = digits.length < 10 || digits.length > 11;
+    var badEmail = !!email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+    if (pref === 'email' && !email){ badEmail = true; }
+
+    setErr(field('f-name'),'e-name',badName);
+    setErr(field('f-biz'),'e-biz',badBiz);
+    setErr(field('f-trade'),'e-trade',badTrade);
+    setErr(field('f-phone'),'e-phone',badPhone);
+    setErr(field('f-email'),'e-email',badEmail);
+    if (pref === 'email' && badEmail){ document.getElementById('e-email').textContent =
+      'You chose an email reply — please add your email (or pick text/call).'; }
+
+    var firstBad = [ [badName,'f-name'], [badBiz,'f-biz'], [badTrade,'f-trade'],
+                     [badPhone,'f-phone'], [badEmail,'f-email'] ].find(function(x){ return x[0]; });
+    if (firstBad){ field(firstBad[1]).focus(); return; }
+
+    var payload = { name:name, business:biz, trade:trade, phone:phone, email:email, preferred_contact:pref };
+
+    try{
+      if (ENDPOINT){
+        var btn = document.getElementById('f-submit');
+        btn.disabled = true; btn.textContent = 'Sending…';
+        fetch(ENDPOINT, { method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
+                          body: JSON.stringify(payload) })
+          .then(function(r){ if(!r.ok) throw 0;
+            form.querySelectorAll('.f-field, button').forEach(function(el){ el.hidden = true; });
+            okP.textContent = 'Got it, ' + name.split(' ')[0] + ' — the 48-hour clock starts now. '
+              + 'We’ll ' + (pref==='call'?'call':'reach') + ' you within two business hours.';
+            okP.classList.add('show');
+          })
+          .catch(function(){ btn.disabled = false; btn.textContent = 'Get my free draft';
+            badP.classList.add('show'); });
+      } else {
+        var body = 'Name: ' + name + '\nBusiness: ' + biz + '\nType of work: ' + trade
+                 + '\nPhone: ' + phone + (email ? '\nEmail: ' + email : '')
+                 + '\nPreferred reply: ' + pref + '\n\n(Sent from the SiteSprint free-draft form)';
+        location.href = 'mailto:' + ADDR
+          + '?subject=' + encodeURIComponent('Free draft request — ' + biz)
+          + '&body=' + encodeURIComponent(body);
+        okP.classList.add('show');
+      }
+    } catch(e){ badP.classList.add('show'); }
   });
 })();
 </script>
