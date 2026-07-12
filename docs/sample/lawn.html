@@ -14,7 +14,7 @@
   @font-face{font-family:"Space Mono";font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/spacemono-400.woff2) format("woff2")}
   :root{
     --pine:#24503A; --leaf:#2E5C43; --mist:#EFF3EC; --paper:#FBFDF9; --ink:#1E2A22;
-    --mute:#5C6D60; --sun:#E8A13C; --line:#DCE5DA;
+    --mute:#55665A; --sun:#E8A13C; --line:#DCE5DA;
     --serif:"Instrument Serif", Georgia, serif;
     --sans:"Archivo", "Helvetica Neue", Arial, sans-serif;
     --mono:"Space Mono", "Courier New", monospace;
@@ -23,32 +23,40 @@
   html{scroll-behavior:smooth}
   body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.6;font-size:17px}
   .wrap{max-width:960px;margin-inline:auto;padding-inline:22px}
-  img,svg{max-width:100%;display:block}
+  img,svg{max-width:100%;height:auto;display:block}
   a{color:inherit}
 
-  .sample-band{background:#14312A;color:#DCEBDD;font-family:var(--mono);font-size:.72rem;
-      letter-spacing:.1em;text-align:center;padding:10px 16px;line-height:1.6}
+  .sample-band{background:#14312A;color:#DCEBDD;font-family:var(--mono);font-size:.7rem;
+      letter-spacing:.08em;text-align:center;padding:9px 14px;line-height:1.5}
   .sample-band a{color:#FFC98F}
 
-  header.site{background:var(--pine);color:#fff;padding-block:20px}
+  header.site{background:var(--pine);color:#fff;padding-block:18px}
   header.site .row{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
   .biz-mark{font-family:var(--serif);font-size:1.35rem;line-height:1}
   .call-pill{background:var(--sun);color:#2A1F08;font-weight:700;text-decoration:none;
-      border-radius:999px;padding:12px 22px;font-size:.95rem;min-height:44px;display:inline-flex;align-items:center}
+      border-radius:999px;padding:12px 22px;font-size:.95rem;min-height:44px;display:inline-flex;align-items:center;gap:8px}
   .call-pill:focus-visible{outline:3px solid #fff;outline-offset:2px}
 
-  .hero{background:linear-gradient(180deg,var(--pine) 0%, #3A6B4D 100%);color:#fff;padding-block:64px 0;overflow:hidden}
-  .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.06;max-width:17ch;text-wrap:balance}
+  .hero{background:linear-gradient(180deg,var(--pine) 0%, #3A6B4D 100%);color:#fff;padding-block:56px 60px;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:52px;align-items:center}
+  .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,6vw,3.4rem);line-height:1.06;max-width:17ch;text-wrap:balance}
   .hero h1 em{font-style:italic;color:#CDE8C6}
-  .hero p{margin:18px 0 28px;color:#D8E8D6;max-width:46ch}
+  .hero p{margin:18px 0 26px;color:#D8E8D6;max-width:44ch}
   .hero .meta{font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;color:#B9D6B4;
       text-transform:uppercase;margin-bottom:14px}
-  .hero-art{margin-top:48px}
-  .btn{display:inline-flex;align-items:center;background:var(--sun);color:#2A1F08;font-weight:700;
-      text-decoration:none;padding:15px 28px;border-radius:999px;min-height:48px}
+  .cta-pair{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--sun);color:#2A1F08;font-weight:700;
+      text-decoration:none;padding:14px 26px;border-radius:999px;min-height:48px}
   .btn:focus-visible{outline:3px solid #fff;outline-offset:2px}
+  .btn.ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.55)}
+  .btn.ghost:hover{border-color:#fff}
+  .hero-shot{position:relative;justify-self:end;max-width:440px;transform:rotate(1.5deg)}
+  .hero-shot img{border-radius:16px;box-shadow:0 30px 60px rgba(10,30,20,.45);border:5px solid #fff}
+  .hero-shot .chip{position:absolute;left:14px;bottom:-16px;background:#fff;color:var(--pine);
+      font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;padding:9px 14px;border-radius:8px;
+      box-shadow:0 8px 24px rgba(10,30,20,.35)}
 
-  section{padding-block:64px}
+  section{padding-block:60px}
   .kick{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
       color:var(--leaf);margin-bottom:10px}
   h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.7rem,4vw,2.4rem);line-height:1.12;margin-bottom:14px;text-wrap:balance}
@@ -62,6 +70,7 @@
   .work{background:var(--mist)}
   .gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:30px}
   .shot{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff}
+  .shot img{width:100%;height:210px;object-fit:cover}
   .shot figcaption{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;color:var(--mute);
       padding:10px 14px;text-transform:uppercase}
 
@@ -81,22 +90,35 @@
 
   .cta-end{text-align:center}
   .cta-end p{color:var(--mute);max-width:44ch;margin:12px auto 26px}
+  .cta-end .cta-pair{justify-content:center}
+  .cta-end .btn.ghost{color:var(--pine);border-color:var(--pine)}
 
   footer{background:#14312A;color:#B9D6B4;padding-block:34px;font-size:.88rem}
   footer .row{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
   footer a{color:#FFC98F}
   footer .credit{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em}
+  footer .photo-credits{margin-top:16px;font-size:.72rem;opacity:.8;line-height:1.8}
 
+  .bar{display:none}
   @media (max-width:720px){
-    section{padding-block:48px}
+    section{padding-block:46px}
+    .hero{padding-block:44px 52px}
+    .hero-grid{grid-template-columns:1fr;gap:36px}
+    .hero-shot{justify-self:center;transform:none;max-width:100%}
     .area-grid{grid-template-columns:1fr;gap:30px}
+    .bar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:12px;right:12px;bottom:12px;z-index:50}
+    .bar a{display:flex;align-items:center;justify-content:center;gap:8px;min-height:52px;border-radius:999px;
+        font-weight:700;text-decoration:none;box-shadow:0 10px 28px rgba(10,30,20,.4)}
+    .bar .b-call{background:var(--sun);color:#2A1F08}
+    .bar .b-text{background:#fff;color:var(--pine);border:2px solid var(--pine)}
+    .bar a:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+    body::after{content:"";display:block;height:80px}
   }
 </style>
 </head>
 <body>
 
-<p class="sample-band"><strong>SAMPLE BUILD</strong> — Wasatch Lawn Co. is a fictional business created by
-<a href="../index.html">SiteSprint</a> to show what a real $249 build looks like. All reviews below are sample content.</p>
+<p class="sample-band"><strong>FICTIONAL <a href="../index.html">SITESPRINT</a> SAMPLE</strong> · Reviews and business details are illustrative.</p>
 
 <header class="site">
   <div class="wrap row">
@@ -107,24 +129,24 @@
 
 <main>
   <div class="hero">
-    <div class="wrap">
-      <p class="meta">Lawn care · Spanish Fork & south Utah County · Since 2019</p>
-      <h1>A lawn your neighbors <em>slow down to look at.</em></h1>
-      <p>Weekly mowing, aeration, cleanups, and sprinkler work for homes from
-      Springville to Payson. Licensed, insured, and on time — or your visit is free.</p>
-      <a class="btn" href="tel:+18015550100">Get a free quote today</a>
-      <div class="hero-art" aria-hidden="true">
-        <svg viewBox="0 0 960 190" width="960" height="190" preserveAspectRatio="xMidYMax slice" role="img" aria-label="">
-          <path d="M0,110 L150,40 L290,95 L430,25 L560,85 L700,45 L830,90 L960,55 L960,190 L0,190 Z" fill="#2A5940"/>
-          <path d="M0,190 L0,130 Q240,100 480,130 T960,125 L960,190 Z" fill="#3F7A55"/>
-          <g fill="#4C8B62">
-            <path d="M0,190 L0,150 Q240,124 480,152 T960,146 L960,190 Z"/>
-          </g>
-          <g fill="#5EA173">
-            <rect x="0" y="168" width="960" height="22"/>
-            <path d="M60,168 l8,-16 l8,16 Z M140,168 l7,-13 l7,13 Z M820,168 l8,-15 l8,15 Z M900,168 l6,-11 l6,11 Z" />
-          </g>
-        </svg>
+    <div class="wrap hero-grid">
+      <div>
+        <p class="meta">Lawn care · Spanish Fork & south Utah County · Since 2019</p>
+        <h1>A lawn your neighbors <em>slow down to look at.</em></h1>
+        <p>Weekly mowing, aeration, cleanups, and sprinkler work for homes from
+        Springville to Payson. Licensed, insured, and on time — or your visit is free.</p>
+        <div class="cta-pair">
+          <a class="btn" href="tel:+18015550100">📞 Call for a quote</a>
+          <a class="btn ghost" href="sms:+18015550100">💬 Text for a quote</a>
+        </div>
+      </div>
+      <div class="hero-shot">
+        <img src="img/hero-mow-800.webp"
+             srcset="img/hero-mow-800.webp 800w, img/hero-mow-1400.webp 1400w"
+             sizes="(max-width:720px) 92vw, 440px"
+             width="800" height="532" fetchpriority="high"
+             alt="A crew member push-mowing a green suburban lawn in warm evening light">
+        <span class="chip">LICENSED · INSURED · FREE QUOTES</span>
       </div>
     </div>
   </div>
@@ -145,39 +167,21 @@
   <section class="work" aria-labelledby="t-work">
     <div class="wrap">
       <p class="kick">Recent work</p>
-      <h2 id="t-work">Stripes we're proud of</h2>
+      <h2 id="t-work">Jobs we're proud of</h2>
       <div class="gal">
         <figure class="shot">
-          <svg viewBox="0 0 320 200" width="320" height="200" role="img" aria-label="Illustration of a striped, freshly mowed lawn">
-            <rect width="320" height="200" fill="#8FBF8A"/>
-            <g><rect x="0" y="0" width="40" height="200" fill="#7FB278"/><rect x="80" y="0" width="40" height="200" fill="#7FB278"/><rect x="160" y="0" width="40" height="200" fill="#7FB278"/><rect x="240" y="0" width="40" height="200" fill="#7FB278"/></g>
-            <rect x="0" y="0" width="320" height="46" fill="#3F7A55"/>
-            <path d="M20,46 l14,-24 l14,24 Z M60,46 l11,-19 l11,19 Z M270,46 l13,-22 l13,22 Z" fill="#2A5940"/>
-          </svg>
-          <figcaption>Weekly stripe cut · Mapleton</figcaption>
+          <img src="img/cut-800.webp" width="800" height="600" loading="lazy"
+               alt="A freshly mowed backyard lawn with visible mowing stripes, bordered by flower beds">
+          <figcaption>Weekly cut · Mapleton</figcaption>
         </figure>
         <figure class="shot">
-          <svg viewBox="0 0 320 200" width="320" height="200" role="img" aria-label="Illustration of a yard cleanup, before and after halves">
-            <rect width="160" height="200" fill="#B9A67E"/>
-            <g fill="#8A7A54"><circle cx="40" cy="60" r="14"/><circle cx="95" cy="120" r="18"/><circle cx="60" cy="165" r="11"/><circle cx="125" cy="45" r="9"/></g>
-            <rect x="160" width="160" height="200" fill="#8FBF8A"/>
-            <rect x="200" y="0" width="36" height="200" fill="#7FB278"/><rect x="272" y="0" width="36" height="200" fill="#7FB278"/>
-            <rect x="150" y="0" width="20" height="200" fill="#FBFDF9"/>
-            <text x="155" y="106" font-family="monospace" font-size="11" fill="#5C6D60" transform="rotate(90 155 106)">BEFORE / AFTER</text>
-          </svg>
-          <figcaption>Fall cleanup · Spanish Fork</figcaption>
+          <img src="img/cleanup-800.webp" width="800" height="600" loading="lazy"
+               alt="A rake leaning against a wood fence beside a thick layer of fallen autumn leaves, mid-cleanup">
+          <figcaption>Fall cleanup, day one · Spanish Fork</figcaption>
         </figure>
         <figure class="shot">
-          <svg viewBox="0 0 320 200" width="320" height="200" role="img" aria-label="Illustration of a sprinkler watering a green lawn">
-            <rect width="320" height="200" fill="#8FBF8A"/>
-            <rect x="0" y="150" width="320" height="50" fill="#7FB278"/>
-            <rect x="154" y="128" width="12" height="26" rx="3" fill="#3E4A42"/>
-            <g stroke="#BFE0F5" stroke-width="4" stroke-linecap="round" fill="none">
-              <path d="M160,126 q-46,-58 -104,-64"/><path d="M160,126 q-20,-70 -52,-88"/>
-              <path d="M160,126 q0,-76 0,-96"/><path d="M160,126 q20,-70 52,-88"/>
-              <path d="M160,126 q46,-58 104,-64"/>
-            </g>
-          </svg>
+          <img src="img/sprinkler-800.webp" width="800" height="530" loading="lazy"
+               alt="Close-up of a pop-up sprinkler head spraying water across a lawn">
           <figcaption>Sprinkler retrofit · Salem</figcaption>
         </figure>
       </div>
@@ -236,15 +240,29 @@
       <p class="kick">Free quote</p>
       <h2 id="t-cta">Your Saturday back, starting this week.</h2>
       <p>Call or text and we'll walk the yard with you — quote on the spot, no obligation.</p>
-      <a class="btn" href="tel:+18015550100">📞 Call (801) 555-0100</a>
+      <div class="cta-pair">
+        <a class="btn" href="tel:+18015550100">📞 Call (801) 555-0100</a>
+        <a class="btn ghost" href="sms:+18015550100">💬 Text us a photo of your yard</a>
+      </div>
     </div>
   </section>
 </main>
 
+<nav class="bar" aria-label="Quick contact">
+  <a class="b-call" href="tel:+18015550100">📞 Call</a>
+  <a class="b-text" href="sms:+18015550100">💬 Text</a>
+</nav>
+
 <footer>
-  <div class="wrap row">
-    <span>Wasatch Lawn Co. · Spanish Fork, UT <em>(fictional sample business)</em></span>
-    <span class="credit">SAMPLE BUILT OVERNIGHT BY <a href="../index.html">SITESPRINT</a> — YOURS COULD LOOK LIKE THIS BY THURSDAY</span>
+  <div class="wrap">
+    <div class="row">
+      <span>Wasatch Lawn Co. · Spanish Fork, UT <em>(fictional sample business)</em></span>
+      <span class="credit">SAMPLE BUILT OVERNIGHT BY <a href="../index.html">SITESPRINT</a> — YOURS COULD LOOK LIKE THIS BY THURSDAY</span>
+    </div>
+    <p class="photo-credits">Photos: <a href="https://commons.wikimedia.org/wiki/File:Man_mowing_the_lawn_in_a_suburban_garden.jpg" rel="noopener">Shixart1985</a> (CC BY 2.0) ·
+      <a href="https://www.flickr.com/photos/29233640@N07/2787059277" rel="noopener">mer de glace</a> (CC BY 2.0) ·
+      <a href="https://www.flickr.com/photos/iowa_spirit_walker/1715630217" rel="noopener">iowa_spirit_walker</a> (CC BY 2.0) ·
+      sprinkler photo CC0. On a real build, these are your own project photos.</p>
   </div>
 </footer>
 </body>

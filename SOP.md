@@ -53,6 +53,19 @@
 - **A client asks for more than a one-page site:** quote separately or decline.
   Scope creep kills the 48-hour promise.
 
+## Template-to-client rule (never violated)
+
+The Wasatch Lawn Co. sample (docs/sample/lawn.html) is a TEMPLATE with
+fictional claims. When building a real client site from it, every claim is
+replaced or deleted — never carried over automatically:
+- "Licensed" / "insured" — only if the client confirms it in writing (intake)
+- "Since YYYY" — client's real founding year or omit
+- Prices — client's real prices or omit
+- Guarantees ("on time or free") — only if the client explicitly offers it
+- Reviews — client's real reviews with permission, or section omitted
+- Service areas, hours, phone — from intake, verbatim
+- Sample photos — replaced with the client's own project photos
+
 ## Standing boundaries (never violated, no exceptions)
 
 - No sending anything external without Jack pressing send (or his explicit
