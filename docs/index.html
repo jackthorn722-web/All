@@ -31,6 +31,7 @@
   "slogan": "We work nights. Your phone rings days.",
   "areaServed": { "@type": "AdministrativeArea", "name": "Utah County, Utah" },
   "priceRange": "$249",
+  "telephone": "+1-801-900-7804",
   "founder": { "@type": "Person", "name": "Jack Thorn" }
 }
 </script>
@@ -519,7 +520,7 @@
           invoice on delivery, and documented payments on every job. And because the draft comes
           first, you never pay for anything you haven't seen live.</p>
           <p class="reach fade">Reach me directly: <a href="#start">the 60-second form below</a>
-          or <a class="em" data-em href="#start">email</a> · we reply within two business hours.</p>
+          or <a class="em" data-em href="#start">email</a><span data-phone-slot hidden> · text/call <a href="#start" data-phone-link>—</a></span> · we reply within two business hours.</p>
         </div>
       </div>
     </div>
@@ -729,7 +730,7 @@
   /* email assembly (kept out of static HTML to slow scrapers) */
   var ADDR = ['jack','thorn722'].join('.') + '@' + 'gmail.com';
   /* phone: set to e.g. '+18015551234' to enable text/call paths site-wide */
-  var PHONE = '';
+  var PHONE = '+18019007804';
   /* form endpoint: set to a Formspree/Web3Forms URL to switch from email-compose to direct submit */
   var ENDPOINT = '';
 
@@ -738,8 +739,9 @@
   });
   if (PHONE){
     document.querySelectorAll('[data-phone-slot]').forEach(function(s){ s.hidden = false; });
+    var pretty = PHONE.replace(/^\+1(\d{3})(\d{3})(\d{4})$/, '($1) $2-$3');
     document.querySelectorAll('[data-phone-link]').forEach(function(a){
-      a.href = 'sms:' + PHONE; a.textContent = PHONE.replace('+1','');
+      a.href = 'sms:' + PHONE; a.textContent = pretty;
     });
   }
 
