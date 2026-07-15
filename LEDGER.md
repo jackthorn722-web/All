@@ -13,7 +13,7 @@ README.md and are labeled as projections.
 | Budget available | $200.00 |
 | Candidates screened | 35 |
 | Qualified leads (verified, ready to contact) | 20 (batch 1: 11, batch 2: 9) |
-| Leads contacted | 3 (2026-07-13: Western Skies Handyman, Diva Dog Spa, Pooch Cuts & Bathing) |
+| Leads contacted | 8 (2026-07-13: Western Skies, Diva Dog Spa, Pooch Cuts, Gleaming Auto Detail, Blanco's, SB Lawn & Landscape, Utah County Painters, American Painting) |
 | Replies | 0 |
 | Sales | 0 |
 | Refunds | 0 |

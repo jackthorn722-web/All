@@ -30,12 +30,12 @@ real account; the message identifies you honestly.
 |---|---|---|---|---|---|---|---|
 | 1 | Dutson Lawn Care | Lawn care | Spanish Fork | No website in dedicated search; FB page + Bizapedia LLC record only | HIGH | facebook.com/dutsonlawncare | new |
 | 2 | Platinum Lawn Service | Lawn care | Spanish Fork | No website; FB, Yelp, Thumbtack listings only | HIGH | facebook.com/PlatinumLawnService | new |
-| 3 | Gleaming Auto Detail | Mobile detailing | Utah County | No website in dedicated search; FB page only, ph 801-707-5573 | HIGH | facebook.com/p/Gleaming-Auto-Detail-100064025587838 | new |
+| 3 | Gleaming Auto Detail | Mobile detailing | Utah County | No website in dedicated search; FB page only, ph 801-707-5573 | HIGH | facebook.com/p/Gleaming-Auto-Detail-100064025587838 | contacted 2026-07-13 |
 | 4 | Sivad Power Washing, LLC | Pressure washing | Provo | No website in dedicated search; FB page only | HIGH | facebook.com/61566622441938 | new |
 | 5 | GG Auto Detailing | Detailing | Provo | No website in dedicated search; newer FB page only | HIGH | facebook.com/p/GG-Auto-Detailing-61575036136239 | new |
 | 6 | Utah County Junk Removal | Junk removal | Spanish Fork | No website in dedicated search; family-owned, FB only | HIGH | facebook.com/utahcountyjunkremoval | new |
-| 7 | Blanco's Family Cleaners | House cleaning | Spanish Fork | No website in dedicated search; FB only | HIGH | facebook.com/bfcleaners | new |
-| 8 | SB Lawn & Landscape Solutions | Landscaping | Spanish Fork | FB only in searches; licensed & insured per FB | MEDIUM | facebook.com/sblandscapesolutions | new |
+| 7 | Blanco's Family Cleaners | House cleaning | Spanish Fork | No website in dedicated search; FB only | HIGH | facebook.com/bfcleaners | contacted 2026-07-13 |
+| 8 | SB Lawn & Landscape Solutions | Landscaping | Spanish Fork | FB only in searches; licensed & insured per FB | MEDIUM | facebook.com/sblandscapesolutions | contacted 2026-07-13 |
 | 9 | Auto Detail Utah | Mobile detailing | Lehi | FB only in searches | MEDIUM | facebook.com/Autodetailutah | new |
 | 10 | See Green Lawn Care & Maintenance | Lawn care | Santaquin | FB only in searches | MEDIUM | facebook.com/SeeGreenUtah | new |
 | 11 | Provo Pressure Washing | Pressure washing | Orem | about.me page only; check page is still active before sending | MEDIUM | about.me/provopressure | new |
