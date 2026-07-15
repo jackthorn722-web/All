@@ -14,13 +14,13 @@ still no website link?). Messages are paste-ready Facebook page messages.
 |---|---|---|---|---|---|---|---|
 | 1 | Pooch Cuts & Bathing | Pet grooming | Saratoga Springs | Only web presence is a DaySmart booking link (poochcuts.myonlineappointment.com) that redirects straight to a software login screen — no landing page at all. Verified by Jack 2026-07-13. | HIGH | facebook.com/poochcuts | contacted 2026-07-13 |
 | 2 | Western Skies Handyman LLC | Handyman | Spanish Fork | No website in dedicated search; FB only | HIGH | facebook.com/westernskieshandyman | contacted 2026-07-13 |
-| 3 | Myjandyman | Handyman | Payson | No website in dedicated search; FB only | HIGH | m.facebook.com/Myjandyman | new |
+| 3 | Myjandyman | Handyman | Payson | Deep-dive 2026-07-13: no website, no directory phone found; FB page active | HIGH | FB message: m.facebook.com/Myjandyman | new |
 | 4 | ~~Sami's Pet Grooming~~ | Pet grooming | Lehi | DISQUALIFIED 2026-07-13 (Jack's spot-check): Yelp reports location closed; rebranded as Synergy Pet Salon (same phone), which has synergypetspa.com. Do not contact. | — | — | disqualified |
-| 5 | Doggy Style | Pet grooming | Lehi | FB only in sweeps; from $50, ph (801) 471-1245 | MEDIUM | facebook.com/doggystylegroom | new |
-| 6 | Utah County Painters | Painting | Utah County | No website in dedicated search; FB only | MEDIUM | facebook.com/UtahCountyPainters | new |
-| 7 | American Painting | Painting | Payson | No website in dedicated search; FB only | MEDIUM | facebook.com/AmPaOMelo | new |
+| 5 | Doggy Style | Pet grooming | Lehi | Deep-dive 2026-07-13: no website; active per recent Yelp reviews | HIGH | TEXT (801) 471-1245 or FB: facebook.com/doggystylegroom | new |
+| 6 | Utah County Painters | Painting | Utah County | No website; no directory listings found either — weakest lead, verify page is active before sending | MEDIUM | FB message: facebook.com/UtahCountyPainters | new |
+| 7 | American Painting | Painting | Payson | Deep-dive 2026-07-13: no website; active Yelp listing (updated Dec 2025) — grab their phone off the Yelp panel to text instead of FB | HIGH | Yelp panel phone (10-sec grab) or FB: facebook.com/AmPaOMelo | new |
 | 8 | Diva Dog Spa | Pet grooming | Lehi | Has a MoeGo booking link but NO website for searchers to land on | MEDIUM | facebook.com/DivaDogSpaLehi | contacted 2026-07-13 |
-| 9 | La Petite Grooming Salon | Pet grooming | Eagle Mountain | FB only in sweeps (lapetitepaw.com is a different business — verify before send) | MEDIUM | facebook.com/p/La-Petite-Grooming-Salon-100058095345048 | new |
+| 9 | La Petite Grooming Salon | Pet grooming | Eagle Mountain | Deep-dive 2026-07-13: HAS lapetitegrooming.com but it loads as a near-empty page with 'Salaon' typo in the header. Established 2015, owner is one of six certified Master Groomers in Utah (per Yelp), 15 reviews. Click the site once before sending to confirm what you see. | HIGH | TEXT (801) 836-0665 or FB page | new |
 
 ## Message drafts (paste-ready)
 
@@ -48,8 +48,8 @@ still no website link?). Messages are paste-ready Facebook page messages.
 ### 8 — Diva Dog Spa
 > Hi! I'm Jack — I run DialedIn Sites, a small student-run web studio here in Utah County. I noticed Diva Dog Spa has online booking set up (smart!) but no actual website — so people who Google you have nowhere to land before they book. A one-pager with your services, photos, and your booking link front and center makes that first impression for you. Live in 48 hours, $249 flat, no monthly fees — and the draft is free before you decide. Want to see it? (Not interested? Just say so and I won't message again.)
 
-### 9 — La Petite Grooming Salon
-> Hi! I'm Jack — I run DialedIn Sites, a small student-run web studio here in Utah County. I found La Petite while looking at Eagle Mountain groomers and couldn't find a website for you — just your Facebook page. A clean one-pager — services, prices, photos of your grooms, tap-to-call — catches the pet owners who Google before booking. Live in 48 hours, $249 flat, no monthly fees, free draft first. Want me to build yours? (If not, say the word and that's the last you'll hear from me.)
+### 9 — La Petite Grooming Salon (text or FB — confirm the broken site yourself first)
+> Hi! I'm Jack — I run DialedIn Sites, a small student-run web studio here in Utah County. I was looking at Eagle Mountain groomers and clicked through to lapetitegrooming.com — it comes up as an almost-empty page, so pet owners who Google you may assume the salon has closed. Someone with your credentials deserves better than that: a clean one-pager with your services, prices, photos of your grooms, and a tap-to-call button, with your reviews front and center. We build it in 48 hours, $249 flat, no monthly fees — and the draft comes first, free, so you only pay if you want it live. Sample build: dialedinsites.com/sample/lawn.html — want to see yours? (Not interested? Just say so and I won't message again.)
 
 ## Batch 3 pipeline (next session)
 
