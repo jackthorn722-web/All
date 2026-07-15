@@ -12,14 +12,14 @@ still no website link?). Messages are paste-ready Facebook page messages.
 
 | # | Business | Trade | Town | Evidence (2026-07-13) | Confidence | Contact | Status |
 |---|---|---|---|---|---|---|---|
-| 1 | Pooch Cuts & Bathing | Pet grooming | Saratoga Springs | Only web presence is a DaySmart booking link (poochcuts.myonlineappointment.com) that redirects straight to a software login screen — no landing page at all. Verified by Jack 2026-07-13. | HIGH | facebook.com/poochcuts | new |
-| 2 | Western Skies Handyman LLC | Handyman | Spanish Fork | No website in dedicated search; FB only | HIGH | facebook.com/westernskieshandyman | new |
+| 1 | Pooch Cuts & Bathing | Pet grooming | Saratoga Springs | Only web presence is a DaySmart booking link (poochcuts.myonlineappointment.com) that redirects straight to a software login screen — no landing page at all. Verified by Jack 2026-07-13. | HIGH | facebook.com/poochcuts | contacted 2026-07-13 |
+| 2 | Western Skies Handyman LLC | Handyman | Spanish Fork | No website in dedicated search; FB only | HIGH | facebook.com/westernskieshandyman | contacted 2026-07-13 |
 | 3 | Myjandyman | Handyman | Payson | No website in dedicated search; FB only | HIGH | m.facebook.com/Myjandyman | new |
 | 4 | Sami's Pet Grooming | Pet grooming | Lehi | No Utah website found (an unrelated RI business shares the name); FB only | MEDIUM | facebook.com/samispetgroominglehi | new |
 | 5 | Doggy Style | Pet grooming | Lehi | FB only in sweeps; from $50, ph (801) 471-1245 | MEDIUM | facebook.com/doggystylegroom | new |
 | 6 | Utah County Painters | Painting | Utah County | No website in dedicated search; FB only | MEDIUM | facebook.com/UtahCountyPainters | new |
 | 7 | American Painting | Painting | Payson | No website in dedicated search; FB only | MEDIUM | facebook.com/AmPaOMelo | new |
-| 8 | Diva Dog Spa | Pet grooming | Lehi | Has a MoeGo booking link but NO website for searchers to land on | MEDIUM | facebook.com/DivaDogSpaLehi | new |
+| 8 | Diva Dog Spa | Pet grooming | Lehi | Has a MoeGo booking link but NO website for searchers to land on | MEDIUM | facebook.com/DivaDogSpaLehi | contacted 2026-07-13 |
 | 9 | La Petite Grooming Salon | Pet grooming | Eagle Mountain | FB only in sweeps (lapetitepaw.com is a different business — verify before send) | MEDIUM | facebook.com/p/La-Petite-Grooming-Salon-100058095345048 | new |
 
 ## Message drafts (paste-ready)
