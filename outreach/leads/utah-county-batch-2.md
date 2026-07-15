@@ -15,7 +15,7 @@ still no website link?). Messages are paste-ready Facebook page messages.
 | 1 | Pooch Cuts & Bathing | Pet grooming | Saratoga Springs | Only web presence is a DaySmart booking link (poochcuts.myonlineappointment.com) that redirects straight to a software login screen — no landing page at all. Verified by Jack 2026-07-13. | HIGH | facebook.com/poochcuts | contacted 2026-07-13 |
 | 2 | Western Skies Handyman LLC | Handyman | Spanish Fork | No website in dedicated search; FB only | HIGH | facebook.com/westernskieshandyman | contacted 2026-07-13 |
 | 3 | Myjandyman | Handyman | Payson | No website in dedicated search; FB only | HIGH | m.facebook.com/Myjandyman | new |
-| 4 | Sami's Pet Grooming | Pet grooming | Lehi | No Utah website found (an unrelated RI business shares the name); FB only | MEDIUM | facebook.com/samispetgroominglehi | new |
+| 4 | ~~Sami's Pet Grooming~~ | Pet grooming | Lehi | DISQUALIFIED 2026-07-13 (Jack's spot-check): Yelp reports location closed; rebranded as Synergy Pet Salon (same phone), which has synergypetspa.com. Do not contact. | — | — | disqualified |
 | 5 | Doggy Style | Pet grooming | Lehi | FB only in sweeps; from $50, ph (801) 471-1245 | MEDIUM | facebook.com/doggystylegroom | new |
 | 6 | Utah County Painters | Painting | Utah County | No website in dedicated search; FB only | MEDIUM | facebook.com/UtahCountyPainters | new |
 | 7 | American Painting | Painting | Payson | No website in dedicated search; FB only | MEDIUM | facebook.com/AmPaOMelo | new |
@@ -33,8 +33,8 @@ still no website link?). Messages are paste-ready Facebook page messages.
 ### 3 — Myjandyman
 > Hi! I'm Jack — I run DialedIn Sites, a small student-run web studio here in Utah County. I found your handyman service while looking around Payson and couldn't find a website for you — just this Facebook page. "Handyman near me" searches go to whoever shows up with a page that builds a little trust — services, photos of your work, a call button. We build exactly that, live in 48 hours, $249 flat, no monthly fees, and the draft is free before you decide anything. Interested? (If not, just say so — no more messages.)
 
-### 4 — Sami's Pet Grooming
-> Hi! I'm Jack — I run DialedIn Sites, a small student-run web studio here in Utah County. I found Sami's Pet Grooming while looking at Lehi groomers and couldn't find a website for you — just your Facebook page. A one-pager with your services, prices, before/after photos, and a tap-to-call button gives Googling pet owners a reason to pick you. Live in 48 hours, $249 flat, no monthly fees — free draft first, pay only if you love it. Want to see what Sami's would look like? (Not interested? Just say so and that's the last message.)
+### 4 — Sami's Pet Grooming — DISQUALIFIED, do not send
+(Business closed/rebranded as Synergy Pet Salon, which has a website. Kept for the record.)
 
 ### 5 — Doggy Style
 > Hi! I'm Jack — I run DialedIn Sites, a small student-run web studio here in Utah County. I came across Doggy Style while looking at Lehi groomers and couldn't find a website for you — just your Facebook page. Your pricing and specialty (small and medium breeds) deserve a page Googlers can actually land on — services, prices, photos, tap-to-call. We build it in 48 hours, $249 flat, no monthly fees; the draft comes first, free. Want yours? (If not, just tell me and I won't message again.)
