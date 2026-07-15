@@ -1,6 +1,6 @@
-# SiteSprint — Operating Plan & Decision Log
+# DialedIn Sites — Operating Plan & Decision Log
 
-**Venture:** SiteSprint — professionally built one-page websites for local service
+**Venture:** DialedIn Sites — professionally built one-page websites for local service
 businesses, delivered in 48 hours, $249 flat.
 
 **Operator:** Claude (this repo's agent) builds and maintains everything.
@@ -8,7 +8,7 @@ businesses, delivered in 48 hours, $249 flat.
 **Payments:** parent/guardian-owned account (required — see Legal, below).
 **Market:** Utah County, UT (Provo, Orem, Lehi, Spanish Fork, Springville,
 Payson, American Fork, Pleasant Grove, Santaquin, Eagle Mountain).
-**Budget:** $200 available; $0 spent; plan requires ~$0 up front.
+**Budget:** $200 available; ~$11 spent (dialedinsites.com domain, 2026-07-13).
 
 ---
 
@@ -65,7 +65,7 @@ risk, competition, scalability, required human effort, and legality for a
 |---|---|
 | [LEDGER.md](LEDGER.md) | Verified revenue/expenses/profit. The scoreboard. |
 | [offer/OFFER.md](offer/OFFER.md) | Offer, pricing, positioning, objection handling |
-| [site/index.html](site/index.html) | SiteSprint landing page, ready for GitHub Pages |
+| [docs/index.html](docs/index.html) | DialedIn Sites landing page (live at dialedinsites.com) |
 | [outreach/templates.md](outreach/templates.md) | Outreach scripts (email, follow-ups, close, delivery) |
 | [outreach/lead-criteria.md](outreach/lead-criteria.md) | How leads are found and qualified |
 | [SOP.md](SOP.md) | The whole operation in 30 min/week, plus pivot rules |

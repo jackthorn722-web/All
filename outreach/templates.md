@@ -22,7 +22,7 @@ Google listing"}}. Your reviews are strong ({{review_detail}}), so people are
 clearly finding you — but anyone who Googles you and finds nothing usually
 calls the next result instead.
 
-I run SiteSprint, a small student-run web studio. We build clean one-page
+I run DialedIn Sites, a small student-run web studio. We build clean one-page
 sites — services, photos, reviews, tap-to-call — live in 48 hours, $249 flat,
 no monthly fees.
 
@@ -33,7 +33,7 @@ Want me to put your draft together? Just reply "sure" and I'll send over 8
 quick questions.
 
 {{jack_first_name}}
-SiteSprint · {{site_url}}
+DialedIn Sites · {{site_url}}
 (If you'd rather not hear from me again, reply "no thanks" and I won't email again.)
 
 ---
@@ -50,14 +50,14 @@ load properly on a phone" / "has a contact form that errors out" / "looks like
 it hasn't been touched in a while"}}. Since most customers now find you on
 their phone, that's likely costing you calls.
 
-I run SiteSprint, a small student-run studio: clean one-page sites, live in
+I run DialedIn Sites, a small student-run studio: clean one-page sites, live in
 48 hours, $249 flat, free hosting, no monthly fees. And we build your new
 draft first, free — you only pay if you want it live.
 
 Worth a look? Reply "sure" and I'll get started.
 
 {{jack_first_name}}
-SiteSprint · {{site_url}}
+DialedIn Sites · {{site_url}}
 (Reply "no thanks" to opt out — no hard feelings.)
 
 ---

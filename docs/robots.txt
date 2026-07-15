@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jackthorn722-web.github.io/All/sitemap.xml
+Sitemap: https://dialedinsites.com/sitemap.xml

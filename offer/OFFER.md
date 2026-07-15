@@ -2,7 +2,7 @@
 
 ## One-liner
 
-**SiteSprint: a professional one-page website for your business, live in 48
+**DialedIn Sites: a professional one-page website for your business, live in 48
 hours, $249 flat. No monthly fees. You don't lift a finger.**
 
 ## Who it's for
