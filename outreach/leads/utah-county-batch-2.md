@@ -12,7 +12,7 @@ still no website link?). Messages are paste-ready Facebook page messages.
 
 | # | Business | Trade | Town | Evidence (2026-07-13) | Confidence | Contact | Status |
 |---|---|---|---|---|---|---|---|
-| 1 | Pooch Cuts & Bathing | Pet grooming | Saratoga Springs | No website in dedicated search; FB only; ph (385) 352-7743 | HIGH | facebook.com/poochcuts | new |
+| 1 | Pooch Cuts & Bathing | Pet grooming | Saratoga Springs | Only web presence is a DaySmart booking link (poochcuts.myonlineappointment.com) that redirects straight to a software login screen — no landing page at all. Verified by Jack 2026-07-13. | HIGH | facebook.com/poochcuts | new |
 | 2 | Western Skies Handyman LLC | Handyman | Spanish Fork | No website in dedicated search; FB only | HIGH | facebook.com/westernskieshandyman | new |
 | 3 | Myjandyman | Handyman | Payson | No website in dedicated search; FB only | HIGH | m.facebook.com/Myjandyman | new |
 | 4 | Sami's Pet Grooming | Pet grooming | Lehi | No Utah website found (an unrelated RI business shares the name); FB only | MEDIUM | facebook.com/samispetgroominglehi | new |
@@ -25,7 +25,7 @@ still no website link?). Messages are paste-ready Facebook page messages.
 ## Message drafts (paste-ready)
 
 ### 1 — Pooch Cuts & Bathing
-> Hi! I'm Jack — I run SiteSprint, a small student-run web studio here in Utah County. I found Pooch Cuts while looking at groomers around Saratoga Springs and couldn't find a website for you — just this Facebook page. Pet owners almost always Google before trusting someone with their dog, and a clean one-pager — your services, prices, photos of fresh cuts, and a tap-to-call button — is what turns those searches into bookings. We build it in 48 hours, $249 flat, no monthly fees, and the draft comes first, free: you only pay if you want it live. Want to see yours? (Not interested? Just say so and I won't message again.) You can see a full sample build here: jackthorn722-web.github.io/All/sample/lawn.html
+> Hi! I'm Jack — I run SiteSprint, a small student-run web studio here in Utah County. I was looking at groomers around Saratoga Springs and tried the Pooch Cuts link that's out there — it goes straight to your booking system's login screen, so anyone who Googles you never sees your services, prices, or photos before being asked to sign in. A clean one-page site fixes that: your grooms, your prices, a tap-to-call button, and your existing booking link right where it belongs. We build it in 48 hours, $249 flat, no monthly fees — and the draft comes first, free, so you only pay if you want it live. Want to see what Pooch Cuts would look like? Here's a full sample build: jackthorn722-web.github.io/All/sample/lawn.html (Not interested? Just say so and I won't message again.)
 
 ### 2 — Western Skies Handyman LLC
 > Hi! I'm Jack — I run SiteSprint, a small student-run web studio here in Utah County. I came across Western Skies while looking at Spanish Fork handymen and couldn't find a website for you — just your Facebook page. With the range you cover (flooring, tile, drywall, paint, HVAC), a one-pager that lists it all with photos and a tap-to-call button catches the people who Google before hiring. Live in 48 hours, $249 flat, no monthly fees — draft first, free, pay only if you want it live. Want me to build yours? (If not, say the word and I won't message again.)
