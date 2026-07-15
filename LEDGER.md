@@ -13,7 +13,7 @@ README.md and are labeled as projections.
 | Budget available | $200.00 |
 | Candidates screened | 35 |
 | Qualified leads (verified, ready to contact) | 20 (batch 1: 11, batch 2: 9) |
-| Leads contacted | 0 |
+| Leads contacted | 3 (sent by Jack 2026-07-13; which three TBD — statuses to be marked) |
 | Replies | 0 |
 | Sales | 0 |
 | Refunds | 0 |
