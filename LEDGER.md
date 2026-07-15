@@ -14,7 +14,7 @@ README.md and are labeled as projections.
 | Candidates screened | 35 |
 | Qualified leads (verified, ready to contact) | 20 (batch 1: 11, batch 2: 9) |
 | Leads contacted | 8 (2026-07-13: Western Skies, Diva Dog Spa, Pooch Cuts, Gleaming Auto Detail, Blanco's, SB Lawn & Landscape, Utah County Painters, American Painting) |
-| Replies | 0 |
+| Replies | 1 (Gleaming Auto Detail — business dissolved, closed politely) |
 | Sales | 0 |
 | Refunds | 0 |
 | Jack's time spent | ~45 min (setup: Formspree, phone, photo sourcing) |
@@ -34,3 +34,4 @@ README.md and are labeled as projections.
 | 2026-07-11 | Per-lead verification before outreach | 10 of 21 candidates excluded (9 had websites, 1 closed) | Nearly half of "no-website" candidates actually have sites — skipping verification would have made ~50% of outreach embarrassing and untrue. Always verify. |
 | 2026-07-13 | Infrastructure week: landing page (3 design iterations), working lead form (Formspree, tested end-to-end), sample client site with real photos, SEO files | Complete conversion machine live; $0 spent | Infrastructure is done — it cannot produce revenue until outreach is sent. Leads contacted is still 0; that is now the only bottleneck. |
 | 2026-07-13 | Batch-2 sourcing: pet grooming, handyman, painting in NW/S Utah County | 9 qualified of ~14 screened | Pet groomers are a strong niche: emotional purchase, Google-first customers, and many operate FB-only. |
+| 2026-07-15 | First reply (Gleaming Auto Detail): polite, but business dissolved | Not a prospect | Some FB-only pages are dead businesses that never deleted the page — expect a dissolved-business rate in outreach and treat fast polite "no"s as pipeline hygiene, not failure. |
