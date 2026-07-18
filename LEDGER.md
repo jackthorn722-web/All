@@ -3,7 +3,7 @@
 Nothing is recorded here until money has actually moved. Projections live in
 README.md and are labeled as projections.
 
-**As of 2026-07-13 (weekly session):**
+**As of 2026-07-20 (batch-3 session):**
 
 | Metric | Value |
 |---|---|
@@ -11,8 +11,8 @@ README.md and are labeled as projections.
 | Expenses | $0.00 |
 | **Verified net profit** | **$0.00** |
 | Budget available | $200.00 |
-| Candidates screened | 35 |
-| Qualified leads (verified, ready to contact) | 20 (batch 1: 11, batch 2: 9) |
+| Candidates screened | 49 |
+| Qualified leads (verified) | 27 (batch 1: 11, batch 2: 8 after Sami disqual, batch 3: 8) |
 | Leads contacted | 8 (2026-07-13: Western Skies, Diva Dog Spa, Pooch Cuts, Gleaming Auto Detail, Blanco's, SB Lawn & Landscape, Utah County Painters, American Painting) |
 | Replies | 1 (Gleaming Auto Detail — business dissolved, closed politely) |
 | Sales | 0 |
@@ -35,3 +35,4 @@ README.md and are labeled as projections.
 | 2026-07-13 | Infrastructure week: landing page (3 design iterations), working lead form (Formspree, tested end-to-end), sample client site with real photos, SEO files | Complete conversion machine live; $0 spent | Infrastructure is done — it cannot produce revenue until outreach is sent. Leads contacted is still 0; that is now the only bottleneck. |
 | 2026-07-13 | Batch-2 sourcing: pet grooming, handyman, painting in NW/S Utah County | 9 qualified of ~14 screened | Pet groomers are a strong niche: emotional purchase, Google-first customers, and many operate FB-only. |
 | 2026-07-15 | First reply (Gleaming Auto Detail): polite, but business dissolved | Not a prospect | Some FB-only pages are dead businesses that never deleted the page — expect a dissolved-business rate in outreach and treat fast polite "no"s as pipeline hygiene, not failure. |
+| 2026-07-20 | Batch-3 sourcing: barbers + repair trades, Orem/Provo/S-county | 8 qualified of ~14; 4 with text numbers | Barbershops are the Pooch Cuts pattern at scale: they live on Booksy/Fresha booking links with no landing page — a whole niche of "booking page ≠ website" pitches with phone numbers published. |
