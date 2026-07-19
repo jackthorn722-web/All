@@ -11,7 +11,7 @@ Movers (chain), Wasatch Moving (established).
 
 | # | Business | Trade | Town | Evidence (2026-07-20) | Confidence | Contact | Status |
 |---|---|---|---|---|---|---|---|
-| 1 | Mitchell's Mobile Mechanics, LLC | Mobile mechanic | Spanish Fork | No website — only a Square booking page; listing says "text to book," so they already run on texting. Newer business. | HIGH | TEXT (385) 233-7036 | new |
+| 1 | Mitchell's Mobile Mechanics, LLC | Mobile mechanic | Spanish Fork | No website — only a Square booking page; listing says "text to book," so they already run on texting. Newer business. | HIGH | TEXT (385) 233-7036 | contacted (text) 2026-07-20 |
 
 ### 1 — Mitchell's Mobile Mechanics (text)
 > Hi! I'm Jack — I run DialedIn Sites, a small student-run web studio here in Utah County. I found Mitchell's while looking at mobile mechanics around Spanish Fork — you've got the Square booking page, but no website for the people who Google "mobile mechanic near me" to land on first. A clean one-pager — your services, service area, reviews, tap-to-call, with your booking link built in — is what turns those searches into jobs. Live in 48 hours, $249 flat, no monthly fees, and the draft comes first, free: you only pay if you want it live. Sample: dialedinsites.com/sample/lawn.html — want to see yours? (Not interested? Just say so and I won't text again.)

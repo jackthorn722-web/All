@@ -13,7 +13,7 @@ README.md and are labeled as projections.
 | Budget available | $200.00 |
 | Candidates screened | 61 |
 | Qualified leads (verified) | 22 total; 15 contacted or closed; 1 new text-ready (Mitchell's Mobile Mechanics); ~17 parked awaiting phone numbers |
-| Leads contacted | 14 (8 on 2026-07-13; State Street, Una's, La Petite, Doggy Style, Vicio, Lino's texted 2026-07-20) |
+| Leads contacted | 15 (8 on 2026-07-13; 7 texted 2026-07-20: State Street, Una's, La Petite, Doggy Style, Vicio, Lino's, Mitchell's Mobile Mechanics) |
 | Replies | 1 (Gleaming Auto Detail — business dissolved, closed politely) |
 | Sales | 0 |
 | Refunds | 0 |
