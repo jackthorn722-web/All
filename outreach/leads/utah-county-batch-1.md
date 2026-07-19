@@ -29,15 +29,15 @@ real account; the message identifies you honestly.
 | # | Business | Trade | Town | Evidence (2026-07-11) | Confidence | Contact | Status |
 |---|---|---|---|---|---|---|---|
 | 1 | Dutson Lawn Care | Lawn care | Spanish Fork | No website in dedicated search; FB page + Bizapedia LLC record only | HIGH | facebook.com/dutsonlawncare | new |
-| 2 | Platinum Lawn Service | Lawn care | Spanish Fork | No website; FB, Yelp, Thumbtack listings only | HIGH | facebook.com/PlatinumLawnService | new |
+| 2 | ~~Platinum Lawn Service~~ | Lawn care | Spanish Fork | DISQUALIFIED 2026-07-20: platinumlawnservice.com is live. Do not contact. | — | — | disqualified |
 | 3 | Gleaming Auto Detail | Mobile detailing | Utah County | No website in dedicated search; FB page only, ph 801-707-5573 | HIGH | facebook.com/p/Gleaming-Auto-Detail-100064025587838 | replied 2026-07-15 — business dissolved, not a prospect; polite close sent |
-| 4 | Sivad Power Washing, LLC | Pressure washing | Provo | No website in dedicated search; FB page only | HIGH | facebook.com/61566622441938 | new |
+| 4 | Sivad Power Washing, LLC | Pressure washing | Provo | UPGRADED 2026-07-20: they HAD sivadpowerwashing.com but the domain is now dead (doesn't resolve) — searchers find a broken link. Strongest evidence type. No phone found; FB-only contact — parked under phone-first rule. | HIGH | FB: facebook.com/61566622441938 (parked) | new |
 | 5 | GG Auto Detailing | Detailing | Provo | No website in dedicated search; newer FB page only | HIGH | facebook.com/p/GG-Auto-Detailing-61575036136239 | new |
-| 6 | Utah County Junk Removal | Junk removal | Spanish Fork | No website in dedicated search; family-owned, FB only | HIGH | facebook.com/utahcountyjunkremoval | new |
+| 6 | ~~Utah County Junk Removal~~ | Junk removal | Spanish Fork | DISQUALIFIED 2026-07-20: utahcountyjunkremoval.com is live (they solved it themselves). Do not contact. | — | — | disqualified |
 | 7 | Blanco's Family Cleaners | House cleaning | Spanish Fork | No website in dedicated search; FB only | HIGH | facebook.com/bfcleaners | contacted 2026-07-13 |
 | 8 | SB Lawn & Landscape Solutions | Landscaping | Spanish Fork | FB only in searches; licensed & insured per FB | MEDIUM | facebook.com/sblandscapesolutions | contacted 2026-07-13 |
 | 9 | Auto Detail Utah | Mobile detailing | Lehi | FB only in searches | MEDIUM | facebook.com/Autodetailutah | new |
-| 10 | See Green Lawn Care & Maintenance | Lawn care | Santaquin | FB only in searches | MEDIUM | facebook.com/SeeGreenUtah | new |
+| 10 | ~~See Green Lawn Care & Maintenance~~ | Lawn care | Santaquin | DISQUALIFIED 2026-07-20: seegreenutah.com is live. Do not contact. | — | — | disqualified |
 | 11 | Provo Pressure Washing | Pressure washing | Orem | about.me page only; check page is still active before sending | MEDIUM | about.me/provopressure | new |
 
 ## Message drafts (paste-ready)
@@ -54,8 +54,8 @@ verified — none of these mention reviews or anything else unchecked.
 ### 3 — Gleaming Auto Detail
 > Hi! I'm Jack — I run DialedIn Sites, a small student-run web studio here in Utah County. I was looking at mobile detailers in the area and couldn't find a website for Gleaming Auto Detail — just this Facebook page. For a mobile business, a simple site with your packages, photos of your work, and a tap-to-call button is usually the difference between a Googler booking you or the next detailer. We build exactly that, live in 48 hours, $249 flat, no monthly fees — and the draft comes first, free. You only pay if you want it live. Want to see yours? (If not, say the word and I won't message again.)
 
-### 4 — Sivad Power Washing, LLC
-> Hi! I'm Jack — I run DialedIn Sites, a small student-run web studio here in Utah County. I came across Sivad Power Washing while looking at Provo pressure washing companies and couldn't find a website for you — just this Facebook page. Homeowners comparing washers almost always Google first, and no site usually means they call the next result. We build clean one-page sites — services, before/after photos, service area, tap-to-call — live in 48 hours, $249 flat, no monthly fees. Draft first, free: you only pay if you want it live. Want me to build yours? (Not interested? Just say so — no more messages.)
+### 4 — Sivad Power Washing, LLC (dead-site angle — updated 2026-07-20)
+> Hi! I'm Jack — I run DialedIn Sites, a small student-run web studio here in Utah County. I was looking at Provo pressure washing companies and tried sivadpowerwashing.com — the link that's out there for you is dead, so anyone who Googles Sivad hits an error page and assumes you're gone. We build clean one-page sites — services, before/after photos, service area, tap-to-call — live in 48 hours, $249 flat, no monthly fees, and we can put it on your existing domain or a fresh one. Draft first, free: you only pay if you want it live. Sample: dialedinsites.com/sample/lawn.html — want me to fix that link? (Not interested? Just say so — no more messages.)
 
 ### 5 — GG Auto Detailing
 > Hi! I'm Jack — I run DialedIn Sites, a small student-run web studio here in Utah County. I spotted GG Auto Detailing while looking at Provo detailers and couldn't find a website for you — just your Facebook page. Especially for a newer business, a clean one-pager with your packages, photos, and a tap-to-call button makes you look established and catches the people who Google before booking. We build it in 48 hours, $249 flat, no monthly fees — draft first, free, and you only pay if you want it live. Want to see what yours would look like? (If not, just say so and I won't message again.)

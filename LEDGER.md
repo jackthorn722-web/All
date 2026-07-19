@@ -12,8 +12,8 @@ README.md and are labeled as projections.
 | **Verified net profit** | **$0.00** |
 | Budget available | $200.00 |
 | Candidates screened | 49 |
-| Qualified leads (verified) | 27 (batch 1: 11, batch 2: 8 after Sami disqual, batch 3: 8) |
-| Leads contacted | 8 (2026-07-13: Western Skies, Diva Dog Spa, Pooch Cuts, Gleaming Auto Detail, Blanco's, SB Lawn & Landscape, Utah County Painters, American Painting) |
+| Qualified leads (verified, after 2026-07-20 re-verification) | 23 (4 more disqualified: Platinum, Utah County Junk Removal, See Green — live sites appeared; Sami earlier) |
+| Leads contacted | 10 (8 on 2026-07-13; State Street Barbers + Una's Barber Shop texted 2026-07-20) |
 | Replies | 1 (Gleaming Auto Detail — business dissolved, closed politely) |
 | Sales | 0 |
 | Refunds | 0 |
@@ -36,3 +36,4 @@ README.md and are labeled as projections.
 | 2026-07-13 | Batch-2 sourcing: pet grooming, handyman, painting in NW/S Utah County | 9 qualified of ~14 screened | Pet groomers are a strong niche: emotional purchase, Google-first customers, and many operate FB-only. |
 | 2026-07-15 | First reply (Gleaming Auto Detail): polite, but business dissolved | Not a prospect | Some FB-only pages are dead businesses that never deleted the page — expect a dissolved-business rate in outreach and treat fast polite "no"s as pipeline hygiene, not failure. |
 | 2026-07-20 | Batch-3 sourcing: barbers + repair trades, Orem/Provo/S-county | 8 qualified of ~14; 4 with text numbers | Barbershops are the Pooch Cuts pattern at scale: they live on Booksy/Fresha booking links with no landing page — a whole niche of "booking page ≠ website" pitches with phone numbers published. |
+| 2026-07-20 | Re-verification during phone hunt: 3 of 8 unsent batch-1 leads got websites in the 9 days since sourcing (one DIY'd it, one launched, one was hidden); Sivad's site DIED in the same window | 3 disqualified, 1 upgraded to dead-link pitch | Leads rot in days, both directions. Re-verify everything older than a week before sending — and a competitor (or DIY builder) gets every lead we sit on. |
