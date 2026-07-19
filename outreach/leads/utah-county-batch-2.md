@@ -20,7 +20,7 @@ still no website link?). Messages are paste-ready Facebook page messages.
 | 6 | Utah County Painters | Painting | Utah County | No website; no directory listings found either — weakest lead, verify page is active before sending | MEDIUM | FB message: facebook.com/UtahCountyPainters | contacted 2026-07-13 |
 | 7 | American Painting | Painting | Payson | Deep-dive 2026-07-13: no website; active Yelp listing (updated Dec 2025) — grab their phone off the Yelp panel to text instead of FB | HIGH | Yelp panel phone (10-sec grab) or FB: facebook.com/AmPaOMelo | contacted 2026-07-13 |
 | 8 | Diva Dog Spa | Pet grooming | Lehi | Has a MoeGo booking link but NO website for searchers to land on | MEDIUM | facebook.com/DivaDogSpaLehi | contacted 2026-07-13 |
-| 9 | La Petite Grooming Salon | Pet grooming | Eagle Mountain | CONFIRMED by Jack 2026-07-20 (screenshot): lapetitegrooming.com loads a fully functional but ©2011-era site — dated design, phone-only booking. Owner Emma Belle Izatt, Certified Master Groomer, 2510 Cedar Dr. Phone on site matches directory: 801-836-0665. | HIGH | TEXT (801) 836-0665 | new |
+| 9 | La Petite Grooming Salon | Pet grooming | Eagle Mountain | CONFIRMED by Jack 2026-07-20 (screenshot): lapetitegrooming.com loads a fully functional but ©2011-era site — dated design, phone-only booking. Owner Emma Belle Izatt, Certified Master Groomer, 2510 Cedar Dr. Phone on site matches directory: 801-836-0665. | HIGH | TEXT (801) 836-0665 | contacted (text) 2026-07-20 |
 
 ## Message drafts (paste-ready)
 

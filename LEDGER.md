@@ -13,7 +13,7 @@ README.md and are labeled as projections.
 | Budget available | $200.00 |
 | Candidates screened | 49 |
 | Qualified leads (verified, after 2026-07-20 re-verification) | 23 (4 more disqualified: Platinum, Utah County Junk Removal, See Green — live sites appeared; Sami earlier) |
-| Leads contacted | 10 (8 on 2026-07-13; State Street Barbers + Una's Barber Shop texted 2026-07-20) |
+| Leads contacted | 11 (8 on 2026-07-13; State Street, Una's, La Petite texted 2026-07-20) |
 | Replies | 1 (Gleaming Auto Detail — business dissolved, closed politely) |
 | Sales | 0 |
 | Refunds | 0 |
