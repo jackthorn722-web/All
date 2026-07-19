@@ -16,7 +16,7 @@ still no website link?). Messages are paste-ready Facebook page messages.
 | 2 | Western Skies Handyman LLC | Handyman | Spanish Fork | No website in dedicated search; FB only | HIGH | facebook.com/westernskieshandyman | contacted 2026-07-13 |
 | 3 | Myjandyman | Handyman | Payson | Deep-dive 2026-07-13: no website, no directory phone found; FB page active | HIGH | FB message: m.facebook.com/Myjandyman | new |
 | 4 | ~~Sami's Pet Grooming~~ | Pet grooming | Lehi | DISQUALIFIED 2026-07-13 (Jack's spot-check): Yelp reports location closed; rebranded as Synergy Pet Salon (same phone), which has synergypetspa.com. Do not contact. | — | — | disqualified |
-| 5 | Doggy Style | Pet grooming | Lehi | Deep-dive 2026-07-13: no website; active per recent Yelp reviews | HIGH | TEXT (801) 471-1245 or FB: facebook.com/doggystylegroom | new |
+| 5 | Doggy Style | Pet grooming | Lehi | Deep-dive 2026-07-13: no website; active per recent Yelp reviews | HIGH | TEXT (801) 471-1245 or FB: facebook.com/doggystylegroom | contacted (text) 2026-07-20 |
 | 6 | Utah County Painters | Painting | Utah County | No website; no directory listings found either — weakest lead, verify page is active before sending | MEDIUM | FB message: facebook.com/UtahCountyPainters | contacted 2026-07-13 |
 | 7 | American Painting | Painting | Payson | Deep-dive 2026-07-13: no website; active Yelp listing (updated Dec 2025) — grab their phone off the Yelp panel to text instead of FB | HIGH | Yelp panel phone (10-sec grab) or FB: facebook.com/AmPaOMelo | contacted 2026-07-13 |
 | 8 | Diva Dog Spa | Pet grooming | Lehi | Has a MoeGo booking link but NO website for searchers to land on | MEDIUM | facebook.com/DivaDogSpaLehi | contacted 2026-07-13 |

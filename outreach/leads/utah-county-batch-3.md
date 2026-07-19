@@ -19,11 +19,11 @@ reviews, with your booking link right where it belongs.
 |---|---|---|---|---|---|---|---|
 | 1 | State Street Barbers | Barber | Orem | No website; Booksy + Fresha booking pages only; 18 Yelp reviews; traditional cuts + straight razor | HIGH | TEXT (385) 375-2932 | contacted 2026-07-20 |
 | 2 | Una's Barber Shop | Barber | Orem | No website; Fresha only; 40 Yelp reviews, 28 photos — established shop | HIGH | TEXT (801) 607-1072 | contacted 2026-07-20 |
-| 3 | Vicio Barber Company | Barber | Orem | No website; FB + Yelp only; full-service 10-barber shop at 250 N State | HIGH | TEXT (801) 910-6695 | new |
-| 4 | Lino's Barber Shop | Barber | Orem | No website; FB only; family-friendly shop | HIGH | TEXT (801) 655-3712 | new |
-| 5 | Derrell's Barber Shop / "Low Valley Barbershop" | Barber | Orem | CAUTION: Yelp listing at same address now reads "Low Valley Barbershop" — possible rebrand/sale (Derrell = Master Barber since 1967, may have retired). Verify current name at the shop's FB/Yelp before sending; address the current name. | MEDIUM | TEXT (801) 375-5892 after verifying name | new |
+| 3 | Vicio Barber Company | Barber | Orem | No website; FB + Yelp only; full-service 10-barber shop at 250 N State | HIGH | TEXT (801) 910-6695 | contacted (text) 2026-07-20 |
+| 4 | Lino's Barber Shop | Barber | Orem | No website; FB only; family-friendly shop | HIGH | TEXT (801) 655-3712 | contacted (text) 2026-07-20 |
+| 5 | ~~Derrell's / Low Valley Barbershop~~ | Barber | Orem | DISQUALIFIED 2026-07-20 (Jack's spot-check): now Low Valley Barbershop, has a website. Do not contact. | — | — | disqualified |
 | 6 | Payson Appliance Repair | Appliance repair | Payson (serves Spanish Fork, Salem, Springville, Santaquin) | No website in dedicated search; FB only | HIGH | FB: facebook.com/PaysonApplianceRepair | new |
-| 7 | Lavish by Minor Details | Salon/beauty | Orem | FB only in sweep; phone listed. Verify no site + still active before sending | MEDIUM | TEXT (801) 709-1171 after spot-check | new |
+| 7 | ~~Lavish by Minor Details~~ | Salon/beauty | Orem | DISQUALIFIED 2026-07-20 (Jack's spot-check): has a website. Do not contact. | — | — | disqualified |
 | 8 | Appliance Repair Center | Appliance repair | Provo | FB only in sweep (repairs all major brands). Verify page active before sending | MEDIUM | FB: facebook.com/maury8a | new |
 
 ## Message drafts (paste-ready)

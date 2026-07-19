@@ -12,8 +12,8 @@ README.md and are labeled as projections.
 | **Verified net profit** | **$0.00** |
 | Budget available | $200.00 |
 | Candidates screened | 49 |
-| Qualified leads (verified, after 2026-07-20 re-verification) | 23 (4 more disqualified: Platinum, Utah County Junk Removal, See Green — live sites appeared; Sami earlier) |
-| Leads contacted | 11 (8 on 2026-07-13; State Street, Una's, La Petite texted 2026-07-20) |
+| Qualified leads (verified, after 2026-07-20 re-verification) | 21 (disqualified to date: Sami, Platinum, UC Junk Removal, See Green, Lavish, Low Valley — all had/got sites or closed) |
+| Leads contacted | 14 (8 on 2026-07-13; State Street, Una's, La Petite, Doggy Style, Vicio, Lino's texted 2026-07-20) |
 | Replies | 1 (Gleaming Auto Detail — business dissolved, closed politely) |
 | Sales | 0 |
 | Refunds | 0 |
