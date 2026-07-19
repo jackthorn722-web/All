@@ -11,8 +11,8 @@ README.md and are labeled as projections.
 | Expenses | $0.00 |
 | **Verified net profit** | **$0.00** |
 | Budget available | $200.00 |
-| Candidates screened | 49 |
-| Qualified leads (verified, after 2026-07-20 re-verification) | 21 (disqualified to date: Sami, Platinum, UC Junk Removal, See Green, Lavish, Low Valley — all had/got sites or closed) |
+| Candidates screened | 61 |
+| Qualified leads (verified) | 22 total; 15 contacted or closed; 1 new text-ready (Mitchell's Mobile Mechanics); ~17 parked awaiting phone numbers |
 | Leads contacted | 14 (8 on 2026-07-13; State Street, Una's, La Petite, Doggy Style, Vicio, Lino's texted 2026-07-20) |
 | Replies | 1 (Gleaming Auto Detail — business dissolved, closed politely) |
 | Sales | 0 |
