@@ -20,7 +20,7 @@ still no website link?). Messages are paste-ready Facebook page messages.
 | 6 | Utah County Painters | Painting | Utah County | No website; no directory listings found either — weakest lead, verify page is active before sending | MEDIUM | FB message: facebook.com/UtahCountyPainters | contacted 2026-07-13 |
 | 7 | American Painting | Painting | Payson | Deep-dive 2026-07-13: no website; active Yelp listing (updated Dec 2025) — grab their phone off the Yelp panel to text instead of FB | HIGH | Yelp panel phone (10-sec grab) or FB: facebook.com/AmPaOMelo | contacted 2026-07-13 |
 | 8 | Diva Dog Spa | Pet grooming | Lehi | Has a MoeGo booking link but NO website for searchers to land on | MEDIUM | facebook.com/DivaDogSpaLehi | contacted 2026-07-13 |
-| 9 | La Petite Grooming Salon | Pet grooming | Eagle Mountain | Deep-dive 2026-07-13: HAS lapetitegrooming.com but it loads as a near-empty page with 'Salaon' typo in the header. Established 2015, owner is one of six certified Master Groomers in Utah (per Yelp), 15 reviews. Click the site once before sending to confirm what you see. | HIGH | TEXT (801) 836-0665 or FB page | new |
+| 9 | La Petite Grooming Salon | Pet grooming | Eagle Mountain | CONFIRMED by Jack 2026-07-20 (screenshot): lapetitegrooming.com loads a fully functional but ©2011-era site — dated design, phone-only booking. Owner Emma Belle Izatt, Certified Master Groomer, 2510 Cedar Dr. Phone on site matches directory: 801-836-0665. | HIGH | TEXT (801) 836-0665 | new |
 
 ## Message drafts (paste-ready)
 
@@ -48,8 +48,8 @@ still no website link?). Messages are paste-ready Facebook page messages.
 ### 8 — Diva Dog Spa
 > Hi! I'm Jack — I run DialedIn Sites, a small student-run web studio here in Utah County. I noticed Diva Dog Spa has online booking set up (smart!) but no actual website — so people who Google you have nowhere to land before they book. A one-pager with your services, photos, and your booking link front and center makes that first impression for you. Live in 48 hours, $249 flat, no monthly fees — and the draft is free before you decide. Want to see it? (Not interested? Just say so and I won't message again.)
 
-### 9 — La Petite Grooming Salon (text or FB — confirm the broken site yourself first)
-> Hi! I'm Jack — I run DialedIn Sites, a small student-run web studio here in Utah County. I was looking at Eagle Mountain groomers and clicked through to lapetitegrooming.com — it comes up as an almost-empty page, so pet owners who Google you may assume the salon has closed. Someone with your credentials deserves better than that: a clean one-pager with your services, prices, photos of your grooms, and a tap-to-call button, with your reviews front and center. We build it in 48 hours, $249 flat, no monthly fees — and the draft comes first, free, so you only pay if you want it live. Sample build: dialedinsites.com/sample/lawn.html — want to see yours? (Not interested? Just say so and I won't message again.)
+### 9 — La Petite Grooming Salon (text — ready to send)
+> Hi! I'm Jack — I run DialedIn Sites, a small student-run web studio here in Utah County. I was looking at Eagle Mountain groomers and visited lapetitegrooming.com — it still says ©2011 at the bottom, and it shows its age next to what pet owners see everywhere else now. A Certified Master Groomer deserves a first impression as good as the grooms: a clean, modern one-pager with your services, prices, photos of your work, your reviews, and a tap-to-call button — and we can put it right on the domain you already own. Live in 48 hours, $249 flat, no monthly fees. The draft comes first, free: you only pay if you want it live. Sample: dialedinsites.com/sample/lawn.html — want to see the new La Petite? (Not interested? Just say so and I won't text again.)
 
 ## Batch 3 pipeline (next session)
 
