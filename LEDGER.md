@@ -14,7 +14,7 @@ README.md and are labeled as projections.
 | Candidates screened | 61 |
 | Qualified leads (verified) | 22 total; 15 contacted or closed; 1 new text-ready (Mitchell's Mobile Mechanics); ~17 parked awaiting phone numbers |
 | Leads contacted | 15 (8 on 2026-07-13; 7 texted 2026-07-20: State Street, Una's, La Petite, Doggy Style, Vicio, Lino's, Mitchell's Mobile Mechanics) |
-| Replies | 1 (Gleaming Auto Detail — business dissolved, closed politely) |
+| Replies | 2 (Gleaming: dissolved; La Petite: not interested — both closed, do-not-contact honored) |
 | Sales | 0 |
 | Refunds | 0 |
 | Jack's time spent | ~45 min (setup: Formspree, phone, photo sourcing) |
