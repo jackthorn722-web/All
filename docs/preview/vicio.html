@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vicio Barber Company — Draft Preview by DialedIn Sites</title>
+<meta name="description" content="Free draft website preview built for Vicio Barber Company, Orem UT, by DialedIn Sites. Nothing is final; everything is editable.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%231C1B1A"/><rect x="28" y="10" width="8" height="44" rx="4" fill="%23C8A24B"/></svg>'>
+<style>
+  @font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/instrumentserif-400.woff2) format("woff2")}
+  @font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(../fonts/instrumentserif-400i.woff2) format("woff2")}
+  @font-face{font-family:"Archivo";font-style:normal;font-weight:100 900;font-display:swap;src:url(../fonts/archivo-var.woff2) format("woff2")}
+  @font-face{font-family:"Space Mono";font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/spacemono-400.woff2) format("woff2")}
+  :root{
+    --ink:#1C1B1A; --coal:#242220; --cream:#F3EEE6; --brass:#C8A24B; --brass-soft:#E3CE9C;
+    --mute:#8A857C; --line:rgba(200,162,75,.25);
+    --serif:"Instrument Serif", Georgia, serif;
+    --sans:"Archivo", Arial, sans-serif;
+    --mono:"Space Mono", monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);background:var(--ink);color:var(--cream);line-height:1.6;font-size:17px}
+  .wrap{max-width:920px;margin-inline:auto;padding-inline:22px}
+  img,svg{max-width:100%;height:auto;display:block}
+  a{color:inherit}
+
+  .draft-band{background:var(--brass);color:#241C08;font-family:var(--mono);font-size:.72rem;
+      letter-spacing:.08em;text-align:center;padding:10px 14px;line-height:1.6}
+  .draft-band b{letter-spacing:.14em}
+
+  header.site{border-bottom:1px solid var(--line);padding-block:20px}
+  header.site .row{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+  .mark{font-family:var(--serif);font-size:1.5rem;letter-spacing:.02em}
+  .mark em{font-style:italic;color:var(--brass)}
+  .call-pill{background:var(--brass);color:#241C08;font-weight:700;text-decoration:none;
+      border-radius:999px;padding:12px 22px;font-size:.95rem;min-height:44px;display:inline-flex;align-items:center;gap:8px}
+  .call-pill:focus-visible{outline:3px solid var(--cream);outline-offset:2px}
+
+  .hero{padding-block:72px 64px;text-align:center;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;
+      background:repeating-linear-gradient(135deg, transparent 0 34px, rgba(200,162,75,.05) 34px 38px)}
+  .hero>*{position:relative}
+  .hero .kick{font-family:var(--mono);font-size:.74rem;letter-spacing:.22em;color:var(--brass);text-transform:uppercase;margin-bottom:18px}
+  .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,7vw,4.2rem);line-height:1.04;letter-spacing:.01em;text-wrap:balance}
+  .hero h1 em{font-style:italic;color:var(--brass)}
+  .hero p{margin:20px auto 30px;color:var(--brass-soft);max-width:44ch}
+  .cta-pair{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--brass);color:#241C08;font-weight:700;
+      text-decoration:none;padding:15px 28px;border-radius:999px;min-height:48px}
+  .btn.ghost{background:transparent;color:var(--cream);border:2px solid var(--line)}
+  .btn:focus-visible{outline:3px solid var(--cream);outline-offset:2px}
+
+  section{padding-block:58px;border-top:1px solid var(--line)}
+  .kick{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);margin-bottom:10px}
+  h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.7rem,4vw,2.4rem);line-height:1.12;margin-bottom:14px;text-wrap:balance}
+  .lede{color:var(--mute)}
+
+  .menu{margin-top:26px}
+  .m-row{display:flex;align-items:baseline;gap:14px;padding:15px 0;border-bottom:1px dashed var(--line)}
+  .m-row .name{font-weight:600}
+  .m-row .dots{flex:1;border-bottom:1px dotted rgba(200,162,75,.35);transform:translateY(-4px)}
+  .m-row .pr{font-family:var(--mono);font-size:.85rem;color:var(--brass)}
+  .menu-note{margin-top:14px;font-family:var(--mono);font-size:.72rem;color:var(--mute)}
+
+  .slots{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:26px}
+  .slot{aspect-ratio:4/3;border:2px dashed var(--line);border-radius:12px;display:flex;align-items:center;
+      justify-content:center;text-align:center;padding:14px;background:var(--coal)}
+  .slot span{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;color:var(--mute);text-transform:uppercase;line-height:1.8}
+
+  .info{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  .hours{font-family:var(--mono);font-size:.85rem;line-height:2.1;color:var(--brass-soft)}
+  .hours b{color:var(--cream);font-weight:400}
+  .addr{font-size:1.05rem;line-height:1.9}
+  .addr .big{font-family:var(--serif);font-size:1.5rem}
+
+  .cta-end{text-align:center;padding-block:64px}
+  .cta-end p{color:var(--mute);max-width:44ch;margin:10px auto 26px}
+
+  footer{border-top:1px solid var(--line);padding-block:30px;font-size:.85rem;color:var(--mute)}
+  footer .row{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+  footer a{color:var(--brass)}
+
+  .bar{display:none}
+  @media (max-width:680px){
+    .info{grid-template-columns:1fr;gap:28px}
+    .bar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:12px;right:12px;bottom:12px;z-index:50}
+    .bar a{display:flex;align-items:center;justify-content:center;gap:8px;min-height:52px;border-radius:999px;
+        font-weight:700;text-decoration:none;box-shadow:0 10px 28px rgba(0,0,0,.5)}
+    .bar .b-call{background:var(--brass);color:#241C08}
+    .bar .b-book{background:var(--cream);color:var(--ink)}
+    body::after{content:"";display:block;height:80px}
+  }
+</style>
+</head>
+<body>
+
+<p class="draft-band"><b>FREE DRAFT PREVIEW</b> — built for Vicio Barber Company by
+<a href="../index.html" style="color:#241C08">DialedIn Sites</a>. Nothing is final: your photos, prices,
+reviews, and hours drop in on approval. Not affiliated unless you say yes — and deleted on request.</p>
+
+<header class="site">
+  <div class="wrap row">
+    <span class="mark">VICIO <em>Barber Co.</em></span>
+    <a class="call-pill" href="tel:+18019106695">📞 (801) 910-6695</a>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <p class="kick">Est. 2020 · 250 N State St, Orem</p>
+      <h1>Ten chairs. <em>Zero</em> wasted Saturdays.</h1>
+      <p>Walk-ins and appointments, fades to straight razors — a full-service shop
+      with a barber ready when you are.</p>
+      <div class="cta-pair">
+        <a class="btn" href="tel:+18019106695">📞 Call the shop</a>
+        <a class="btn ghost" href="https://booksy.com/en-us/861322_vicio-barber-company_barber-shop_37868_orem">Book on Booksy</a>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <p class="kick">The menu</p>
+      <h2>Cuts, fades, shaves.</h2>
+      <div class="menu">
+        <div class="m-row"><span class="name">Haircut</span><span class="dots"></span><span class="pr">YOUR PRICE</span></div>
+        <div class="m-row"><span class="name">Skin fade</span><span class="dots"></span><span class="pr">YOUR PRICE</span></div>
+        <div class="m-row"><span class="name">Haircut + beard</span><span class="dots"></span><span class="pr">YOUR PRICE</span></div>
+        <div class="m-row"><span class="name">Hot towel shave</span><span class="dots"></span><span class="pr">YOUR PRICE</span></div>
+        <div class="m-row"><span class="name">Line-up</span><span class="dots"></span><span class="pr">YOUR PRICE</span></div>
+        <div class="m-row"><span class="name">Kids cut</span><span class="dots"></span><span class="pr">YOUR PRICE</span></div>
+      </div>
+      <p class="menu-note">STANDARD MENU SHOWN — WE SWAP IN YOUR REAL SERVICES AND PRICES BEFORE ANYTHING GOES LIVE.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="kick">The work</p>
+      <h2>Your cuts belong here.</h2>
+      <p class="lede">Six phone photos from your chairs and this section sells the shop for you.</p>
+      <div class="slots">
+        <div class="slot"><span>Your photo<br>Fade</span></div>
+        <div class="slot"><span>Your photo<br>Beard work</span></div>
+        <div class="slot"><span>Your photo<br>The shop</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="kick">Reviews</p>
+      <h2>What your regulars say.</h2>
+      <div class="slots">
+        <div class="slot"><span>Your Google or Yelp<br>review goes here</span></div>
+        <div class="slot"><span>Your Google or Yelp<br>review goes here</span></div>
+        <div class="slot"><span>Your Google or Yelp<br>review goes here</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap info">
+      <div class="addr">
+        <p class="kick">Find the shop</p>
+        <p class="big">250 N State Street</p>
+        <p>Orem, Utah<br><a href="tel:+18019106695">(801) 910-6695</a></p>
+      </div>
+      <div>
+        <p class="kick">Hours</p>
+        <p class="hours"><b>Your hours go here</b> ·<br>we copy them straight<br>from your answers.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-end">
+    <div class="wrap">
+      <p class="kick">Fresh cut, no waiting</p>
+      <h2>Grab a chair.</h2>
+      <p>Call, or book straight into a barber's schedule on Booksy.</p>
+      <div class="cta-pair">
+        <a class="btn" href="tel:+18019106695">📞 (801) 910-6695</a>
+        <a class="btn ghost" href="https://booksy.com/en-us/861322_vicio-barber-company_barber-shop_37868_orem">Book on Booksy</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<nav class="bar" aria-label="Quick contact">
+  <a class="b-call" href="tel:+18019106695">📞 Call</a>
+  <a class="b-book" href="https://booksy.com/en-us/861322_vicio-barber-company_barber-shop_37868_orem">✂️ Book</a>
+</nav>
+
+<footer>
+  <div class="wrap row">
+    <span>Vicio Barber Company · Orem, UT</span>
+    <span>DRAFT PREVIEW BY <a href="../index.html">DIALEDIN SITES</a> · LIVE IN 48H FOR $249 · <a href="sms:+18019007804">TEXT JACK</a></span>
+  </div>
+</footer>
+</body>
+</html>
