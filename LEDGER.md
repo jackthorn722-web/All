@@ -3,7 +3,7 @@
 Nothing is recorded here until money has actually moved. Projections live in
 README.md and are labeled as projections.
 
-**As of 2026-07-27 (weekly session):**
+**As of 2026-08-03 (weekly session — day 23):**
 
 | Metric | Value |
 |---|---|
@@ -37,4 +37,5 @@ README.md and are labeled as projections.
 | 2026-07-15 | First reply (Gleaming Auto Detail): polite, but business dissolved | Not a prospect | Some FB-only pages are dead businesses that never deleted the page — expect a dissolved-business rate in outreach and treat fast polite "no"s as pipeline hygiene, not failure. |
 | 2026-07-20 | Batch-3 sourcing: barbers + repair trades, Orem/Provo/S-county | 8 qualified of ~14; 4 with text numbers | Barbershops are the Pooch Cuts pattern at scale: they live on Booksy/Fresha booking links with no landing page — a whole niche of "booking page ≠ website" pitches with phone numbers published. |
 | 2026-07-20 | Re-verification during phone hunt: 3 of 8 unsent batch-1 leads got websites in the 9 days since sourcing (one DIY'd it, one launched, one was hidden); Sivad's site DIED in the same window | 3 disqualified, 1 upgraded to dead-link pitch | Leads rot in days, both directions. Re-verify everything older than a week before sending — and a competitor (or DIY builder) gets every lead we sit on. |
-| 2026-07-27 | Show-don't-ask experiment: built real unsolicited draft sites for 2 strongest quiet leads (Vicio, Pooch Cuts) at /preview/, follow-ups now link to a live draft instead of describing one | Launched; results pending | 15 contacted, 0 interested — the "free draft" offer as WORDS isn't converting. Fulfillment costs us nothing, so spend it up front: a live draft is proof, not promise. Day-21 fallback (template kit) stages Friday if this doesn't move. |
+| 2026-07-27 | Show-don't-ask experiment: built real unsolicited draft sites for 2 strongest quiet leads (Vicio, Pooch Cuts) at /preview/, follow-ups now link to a live draft instead of describing one | Launched; no replies as of 08-03 (send status of preview links unconfirmed) | 15 contacted, 0 interested — the "free draft" offer as WORDS isn't converting. Fulfillment costs us nothing, so spend it up front: a live draft is proof, not promise. |
+| 2026-08-03 | Day-21 pivot rule ACTIVATED (SOP): built the Local Service Website Kit — 3 debranded templates (lawn, barber, groomer) + README + Gumroad listing copy in templates/ | Ready to list; blocked on guardian-owned Gumroad account (Jack/parent, ~15 min) | The service pipeline is blocked on replies and owner time; the kit is the one revenue path that needs neither outreach nor replies — but it still needs the 18+ payment rail, which was and remains the binding constraint. |

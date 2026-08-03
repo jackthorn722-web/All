@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pet Groomer — One-Page Website Template</title>
+<meta name="description" content="One-page pet grooming website template. Replace the placeholders with your salon's details and go live.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%232B6777"/><circle cx="24" cy="28" r="6" fill="%23F6B26B"/><circle cx="40" cy="28" r="6" fill="%23F6B26B"/><ellipse cx="32" cy="42" rx="11" ry="9" fill="%23F6B26B"/></svg>'>
+<style>
+  @font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/instrumentserif-400.woff2) format("woff2")}
+  @font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(fonts/instrumentserif-400i.woff2) format("woff2")}
+  @font-face{font-family:"Archivo";font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/archivo-var.woff2) format("woff2")}
+  @font-face{font-family:"Space Mono";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/spacemono-400.woff2) format("woff2")}
+  :root{
+    --teal:#2B6777; --teal-deep:#1E4C58; --sand:#FAF6EF; --ink:#22333B;
+    --mute:#5F7480; --apricot:#F6B26B; --apricot-deep:#E29542; --line:#E2DBCD;
+    --serif:"Instrument Serif", Georgia, serif;
+    --sans:"Archivo", Arial, sans-serif;
+    --mono:"Space Mono", monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);background:var(--sand);color:var(--ink);line-height:1.6;font-size:17px}
+  .wrap{max-width:920px;margin-inline:auto;padding-inline:22px}
+  img,svg{max-width:100%;height:auto;display:block}
+  a{color:inherit}
+
+  .draft-band{background:var(--apricot);color:#3A2A10;font-family:var(--mono);font-size:.72rem;
+      letter-spacing:.08em;text-align:center;padding:10px 14px;line-height:1.6}
+  .draft-band b{letter-spacing:.14em}
+
+  header.site{background:var(--teal);color:#fff;padding-block:18px}
+  header.site .row{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+  .mark{font-family:var(--serif);font-size:1.4rem}
+  .mark em{font-style:italic;color:var(--apricot)}
+  .call-pill{background:var(--apricot);color:#3A2A10;font-weight:700;text-decoration:none;
+      border-radius:999px;padding:12px 22px;font-size:.95rem;min-height:44px;display:inline-flex;align-items:center;gap:8px}
+  .call-pill:focus-visible{outline:3px solid #fff;outline-offset:2px}
+
+  .hero{background:linear-gradient(180deg,var(--teal) 0%,var(--teal-deep) 100%);color:#fff;padding-block:64px;text-align:center}
+  .hero .kick{font-family:var(--mono);font-size:.74rem;letter-spacing:.2em;color:var(--apricot);text-transform:uppercase;margin-bottom:16px}
+  .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,6.4vw,3.8rem);line-height:1.05;text-wrap:balance}
+  .hero h1 em{font-style:italic;color:var(--apricot)}
+  .hero p{margin:18px auto 28px;color:#D3E2E4;max-width:44ch}
+  .cta-pair{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--apricot);color:#3A2A10;font-weight:700;
+      text-decoration:none;padding:15px 28px;border-radius:999px;min-height:48px}
+  .btn.ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5)}
+  .btn:focus-visible{outline:3px solid #fff;outline-offset:2px}
+
+  section{padding-block:56px}
+  section+section{border-top:1px solid var(--line)}
+  .kick{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
+  h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.7rem,4vw,2.4rem);line-height:1.12;margin-bottom:14px;text-wrap:balance}
+  .lede{color:var(--mute)}
+
+  .svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:26px}
+  .svc-card{border:1px solid var(--line);border-radius:14px;padding:22px;background:#fff}
+  .svc-card h3{font-size:1.05rem;font-weight:700;margin-bottom:6px}
+  .svc-card p{color:var(--mute);font-size:.93rem}
+  .svc-card .pr{font-family:var(--mono);font-size:.78rem;color:var(--teal);margin-top:12px}
+  .svc-note{margin-top:14px;font-family:var(--mono);font-size:.72rem;color:var(--mute)}
+
+  .slots{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:26px}
+  .slot{aspect-ratio:4/3;border:2px dashed #C9D6CF;border-radius:12px;display:flex;align-items:center;
+      justify-content:center;text-align:center;padding:14px;background:#fff}
+  .slot span{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;color:var(--mute);text-transform:uppercase;line-height:1.8}
+
+  .book{background:var(--teal);color:#fff;text-align:center}
+  .book h2{color:#fff}
+  .book p{color:#D3E2E4;max-width:46ch;margin:10px auto 26px}
+
+  .info{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  .hours{font-family:var(--mono);font-size:.85rem;line-height:2.1;color:var(--mute)}
+  .addr .big{font-family:var(--serif);font-size:1.4rem}
+  .addr p{line-height:1.9}
+
+  footer{background:var(--teal-deep);color:#B9D2D6;padding-block:30px;font-size:.85rem}
+  footer .row{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+  footer a{color:var(--apricot)}
+
+  .bar{display:none}
+  @media (max-width:680px){
+    .info{grid-template-columns:1fr;gap:28px}
+    .bar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:12px;right:12px;bottom:12px;z-index:50}
+    .bar a{display:flex;align-items:center;justify-content:center;gap:8px;min-height:52px;border-radius:999px;
+        font-weight:700;text-decoration:none;box-shadow:0 10px 28px rgba(0,0,0,.35)}
+    .bar .b-call{background:var(--apricot);color:#3A2A10}
+    .bar .b-book{background:#fff;color:var(--teal-deep)}
+    body::after{content:"";display:block;height:80px}
+  }
+</style>
+</head>
+<body>
+
+
+<header class="site">
+  <div class="wrap row">
+    <span class="mark">Your Grooming <em>Salon</em></span>
+    <a class="call-pill" href="tel:+18015550100">📞 (801) 555-0100</a>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <p class="kick">Dog grooming · Your town</p>
+      <h1>Fresh cuts for <em>good dogs.</em></h1>
+      <p>Baths, trims, and full grooms in Saratoga Springs — with online booking
+      that takes thirty seconds.</p>
+      <div class="cta-pair">
+        <a class="btn" href="#your-booking-link">🐾 Book online</a>
+        <a class="btn ghost" href="tel:+18015550100">📞 Call the salon</a>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <p class="kick">Services</p>
+      <h2>From splash to show-ready.</h2>
+      <div class="svc">
+        <div class="svc-card"><h3>Bath &amp; brush</h3><p>Shampoo, blow-dry, brush-out, nails, and ears.</p><p class="pr">YOUR PRICE</p></div>
+        <div class="svc-card"><h3>Full groom</h3><p>The works: bath, haircut to your spec, nails, ears, finish spray.</p><p class="pr">YOUR PRICE</p></div>
+        <div class="svc-card"><h3>Nail trim</h3><p>Quick, calm, and done right — walk-ins welcome.</p><p class="pr">YOUR PRICE</p></div>
+        <div class="svc-card"><h3>De-shedding</h3><p>Undercoat treatment that keeps the fur off your couch.</p><p class="pr">YOUR PRICE</p></div>
+      </div>
+      <p class="svc-note">STANDARD MENU SHOWN — WE SWAP IN YOUR REAL SERVICES AND PRICES BEFORE ANYTHING GOES LIVE.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="kick">The proof</p>
+      <h2>Before &amp; after belongs here.</h2>
+      <p class="lede">Your phone photos of fresh grooms — nothing sells a groomer like a good before-and-after.</p>
+      <div class="slots">
+        <div class="slot"><span>Your photo<br>Before / after</span></div>
+        <div class="slot"><span>Your photo<br>Fresh groom</span></div>
+        <div class="slot"><span>Your photo<br>Happy client</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="kick">Reviews</p>
+      <h2>What the humans say.</h2>
+      <div class="slots">
+        <div class="slot"><span>Your Google review<br>goes here</span></div>
+        <div class="slot"><span>Your Google review<br>goes here</span></div>
+        <div class="slot"><span>Your Google review<br>goes here</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="book">
+    <div class="wrap">
+      <h2>Booking, front and center.</h2>
+      <p>Link your existing booking system here — this page gives customers a real front door before it.</p>
+      <a class="btn" href="#your-booking-link">🐾 Book an appointment</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap info">
+      <div class="addr">
+        <p class="kick">Find us</p>
+        <p class="big">123 S Main Street</p>
+        <p>Your Town, Utah<br><a href="tel:+18015550100">(801) 555-0100</a></p>
+      </div>
+      <div>
+        <p class="kick">Hours</p>
+        <p class="hours">Your hours go here —<br>we copy them straight<br>from your answers.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<nav class="bar" aria-label="Quick contact">
+  <a class="b-call" href="tel:+18015550100">📞 Call</a>
+  <a class="b-book" href="#your-booking-link">🐾 Book</a>
+</nav>
+
+<footer>
+  <div class="wrap row">
+    <span>Your Grooming Salon · Your Town, UT</span>
+    <span>YOUR FOOTER LINE HERE</span>
+  </div>
+</footer>
+</body>
+</html>

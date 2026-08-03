@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lawn Care — One-Page Website Template</title>
+<meta name="description" content="One-page lawn care website template. Replace the placeholders with your company's details and go live.">
+<meta name="robots" content="noindex,follow">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%232E5C43"/><path d="M14 44 L24 24 L32 38 L40 20 L50 44 Z" fill="%23A8D5A2"/></svg>'>
+<style>
+  @font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/instrumentserif-400.woff2) format("woff2")}
+  @font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(fonts/instrumentserif-400i.woff2) format("woff2")}
+  @font-face{font-family:"Archivo";font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/archivo-var.woff2) format("woff2")}
+  @font-face{font-family:"Space Mono";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/spacemono-400.woff2) format("woff2")}
+  :root{
+    --pine:#24503A; --leaf:#2E5C43; --mist:#EFF3EC; --paper:#FBFDF9; --ink:#1E2A22;
+    --mute:#55665A; --sun:#E8A13C; --line:#DCE5DA;
+    --serif:"Instrument Serif", Georgia, serif;
+    --sans:"Archivo", "Helvetica Neue", Arial, sans-serif;
+    --mono:"Space Mono", "Courier New", monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.6;font-size:17px}
+  .wrap{max-width:960px;margin-inline:auto;padding-inline:22px}
+  img,svg{max-width:100%;height:auto;display:block}
+  a{color:inherit}
+
+  header.site{background:var(--pine);color:#fff;padding-block:18px}
+  header.site .row{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+  .biz-mark{font-family:var(--serif);font-size:1.35rem;line-height:1}
+  .call-pill{background:var(--sun);color:#2A1F08;font-weight:700;text-decoration:none;
+      border-radius:999px;padding:12px 22px;font-size:.95rem;min-height:44px;display:inline-flex;align-items:center;gap:8px}
+  .call-pill:focus-visible{outline:3px solid #fff;outline-offset:2px}
+
+  .hero{background:linear-gradient(180deg,var(--pine) 0%, #3A6B4D 100%);color:#fff;padding-block:56px 60px;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:52px;align-items:center}
+  .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,6vw,3.4rem);line-height:1.06;max-width:17ch;text-wrap:balance}
+  .hero h1 em{font-style:italic;color:#CDE8C6}
+  .hero p{margin:18px 0 26px;color:#D8E8D6;max-width:44ch}
+  .hero .meta{font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;color:#B9D6B4;
+      text-transform:uppercase;margin-bottom:14px}
+  .cta-pair{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--sun);color:#2A1F08;font-weight:700;
+      text-decoration:none;padding:14px 26px;border-radius:999px;min-height:48px}
+  .btn:focus-visible{outline:3px solid #fff;outline-offset:2px}
+  .btn.ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.55)}
+  .btn.ghost:hover{border-color:#fff}
+  .hero-shot{position:relative;justify-self:end;max-width:440px;transform:rotate(1.5deg)}
+  .hero-shot img{border-radius:16px;box-shadow:0 30px 60px rgba(10,30,20,.45);border:5px solid #fff}
+  .hero-shot .chip{position:absolute;left:14px;bottom:-16px;background:#fff;color:var(--pine);
+      font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;padding:9px 14px;border-radius:8px;
+      box-shadow:0 8px 24px rgba(10,30,20,.35)}
+
+  section{padding-block:60px}
+  .kick{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+      color:var(--leaf);margin-bottom:10px}
+  h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.7rem,4vw,2.4rem);line-height:1.12;margin-bottom:14px;text-wrap:balance}
+
+  .svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:30px}
+  .svc-card{border:1px solid var(--line);border-radius:14px;padding:22px;background:#fff}
+  .svc-card h3{font-size:1.05rem;font-weight:700;margin-bottom:6px}
+  .svc-card p{color:var(--mute);font-size:.93rem}
+  .svc-card .pr{font-family:var(--mono);font-size:.8rem;color:var(--leaf);margin-top:12px}
+
+  .work{background:var(--mist)}
+  .gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:30px}
+  .shot{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff}
+  .shot img{width:100%;height:210px;object-fit:cover}
+  .shot figcaption{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;color:var(--mute);
+      padding:10px 14px;text-transform:uppercase}
+
+  .rev{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:30px}
+  .rev-card{border:1px solid var(--line);border-radius:14px;padding:22px;background:#fff}
+  .rev-card .stars{color:var(--sun);letter-spacing:2px;margin-bottom:8px}
+  .rev-card p{font-size:.95rem;color:var(--ink)}
+  .rev-card .by{margin-top:12px;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;color:var(--mute);text-transform:uppercase}
+
+  .area{background:var(--pine);color:#fff}
+  .area-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+  .area h2{color:#fff}
+  .towns{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .town{border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:8px 16px;font-size:.88rem}
+  .hours{font-family:var(--mono);font-size:.85rem;line-height:2.1;color:#D8E8D6}
+  .hours b{color:#fff;font-weight:400}
+
+  .cta-end{text-align:center}
+  .cta-end p{color:var(--mute);max-width:44ch;margin:12px auto 26px}
+  .cta-end .cta-pair{justify-content:center}
+  .cta-end .btn.ghost{color:var(--pine);border-color:var(--pine)}
+
+  footer{background:#14312A;color:#B9D6B4;padding-block:34px;font-size:.88rem}
+  footer .row{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
+  footer a{color:#FFC98F}
+  footer .credit{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em}
+  footer .photo-credits{margin-top:16px;font-size:.72rem;opacity:.8;line-height:1.8}
+
+  .bar{display:none}
+  @media (max-width:720px){
+    section{padding-block:46px}
+    .hero{padding-block:44px 52px}
+    .hero-grid{grid-template-columns:1fr;gap:36px}
+    .hero-shot{justify-self:center;transform:none;max-width:100%}
+    .area-grid{grid-template-columns:1fr;gap:30px}
+    .bar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:12px;right:12px;bottom:12px;z-index:50}
+    .bar a{display:flex;align-items:center;justify-content:center;gap:8px;min-height:52px;border-radius:999px;
+        font-weight:700;text-decoration:none;box-shadow:0 10px 28px rgba(10,30,20,.4)}
+    .bar .b-call{background:var(--sun);color:#2A1F08}
+    .bar .b-text{background:#fff;color:var(--pine);border:2px solid var(--pine)}
+    .bar a:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+    body::after{content:"";display:block;height:80px}
+  }
+</style>
+</head>
+<body>
+
+
+<header class="site">
+  <div class="wrap row">
+    <span class="biz-mark">Your Lawn Co.</span>
+    <a class="call-pill" href="tel:+18015550100" aria-label="Call Your Lawn Co.">📞 (801) 555-0100</a>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="meta">Lawn care · Your service area · Since 20XX</p>
+        <h1>A lawn your neighbors <em>slow down to look at.</em></h1>
+        <p>Weekly mowing, aeration, cleanups, and sprinkler work for homes from
+        Springville to Payson. Licensed, insured, and on time — or your visit is free.</p>
+        <div class="cta-pair">
+          <a class="btn" href="tel:+18015550100">📞 Call for a quote</a>
+          <a class="btn ghost" href="sms:+18015550100">💬 Text for a quote</a>
+        </div>
+      </div>
+      <div class="hero-shot">
+        <div style="aspect-ratio:4/3;border:2px dashed rgba(255,255,255,.45);border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px">
+          <span style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;color:#D8E8D6">YOUR BEST PROJECT PHOTO HERE</span>
+        </div>
+        <span class="chip">LICENSED · INSURED · FREE QUOTES</span>
+      </div>
+    </div>
+  </div>
+
+  <section aria-labelledby="t-svc">
+    <div class="wrap">
+      <p class="kick">Services</p>
+      <h2 id="t-svc">What we take off your plate</h2>
+      <div class="svc">
+        <div class="svc-card"><h3>Weekly mowing</h3><p>Mow, edge, trim, and blow-off — same crew, same day each week.</p><p class="pr">FROM $35 / VISIT</p></div>
+        <div class="svc-card"><h3>Aeration & fertilizing</h3><p>Spring and fall programs matched to Utah County soil and water rules.</p><p class="pr">FROM $89</p></div>
+        <div class="svc-card"><h3>Yard cleanups</h3><p>Spring thaw-out or fall leaf haul — bagged, hauled, gone the same day.</p><p class="pr">QUOTED FLAT</p></div>
+        <div class="svc-card"><h3>Sprinkler repair</h3><p>Startups, blowouts, broken heads, and timers that finally behave.</p><p class="pr">FROM $60</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="work" aria-labelledby="t-work">
+    <div class="wrap">
+      <p class="kick">Recent work</p>
+      <h2 id="t-work">Jobs we're proud of</h2>
+      <div class="gal">
+        <figure class="shot">
+          <div style="height:210px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center;background:#fff">
+            <span style="font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;color:var(--mute)">YOUR WORK PHOTO</span>
+          </div>
+          <figcaption>Your caption · Your town</figcaption>
+        </figure>
+        <figure class="shot">
+          <div style="height:210px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center;background:#fff">
+            <span style="font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;color:var(--mute)">YOUR WORK PHOTO</span>
+          </div>
+          <figcaption>Your caption · Your town</figcaption>
+        </figure>
+        <figure class="shot">
+          <div style="height:210px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center;background:#fff">
+            <span style="font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;color:var(--mute)">YOUR WORK PHOTO</span>
+          </div>
+          <figcaption>Your caption · Your town</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-rev">
+    <div class="wrap">
+      <p class="kick">Reviews</p>
+      <h2 id="t-rev">What customers say</h2>
+      <div class="rev">
+        <div class="rev-card">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p>"Your customer review goes here."</p>
+          <p class="by">Customer name · Your town</p>
+        </div>
+        <div class="rev-card">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p>"Your customer review goes here."</p>
+          <p class="by">Customer name · Your town</p>
+        </div>
+        <div class="rev-card">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p>"Your customer review goes here."</p>
+          <p class="by">Customer name · Your town</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="area" aria-labelledby="t-area">
+    <div class="wrap area-grid">
+      <div>
+        <p class="kick" style="color:#B9D6B4">Service area & hours</p>
+        <h2 id="t-area">Your whole area, covered.</h2>
+        <div class="towns">
+          <span class="town">Your town</span><span class="town">Your town</span>
+          <span class="town">Your town</span><span class="town">Your town</span>
+          <span class="town">Your town</span><span class="town">Your town</span>
+        </div>
+      </div>
+      <p class="hours">
+        <b>Mon–Fri</b> · 7:00 am – 6:00 pm<br>
+        <b>Saturday</b> · 8:00 am – 2:00 pm<br>
+        <b>Sunday</b> · Closed<br><br>
+        <b>Licensed & insured</b> · Free quotes
+      </p>
+    </div>
+  </section>
+
+  <section class="cta-end" aria-labelledby="t-cta">
+    <div class="wrap">
+      <p class="kick">Free quote</p>
+      <h2 id="t-cta">Your Saturday back, starting this week.</h2>
+      <p>Call or text and we'll walk the yard with you — quote on the spot, no obligation.</p>
+      <div class="cta-pair">
+        <a class="btn" href="tel:+18015550100">📞 Call (801) 555-0100</a>
+        <a class="btn ghost" href="sms:+18015550100">💬 Text us a photo of your yard</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<nav class="bar" aria-label="Quick contact">
+  <a class="b-call" href="tel:+18015550100">📞 Call</a>
+  <a class="b-text" href="sms:+18015550100">💬 Text</a>
+</nav>
+
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <span>Your Lawn Co. · Your Town, UT</span>
+      <span class="credit">YOUR FOOTER LINE HERE</span>
+    </div>
+    
+  </div>
+</footer>
+</body>
+</html>
