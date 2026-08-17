@@ -3,14 +3,14 @@
 Nothing is recorded here until money has actually moved. Projections live in
 README.md and are labeled as projections.
 
-**As of 2026-08-03 (weekly session — day 23):**
+**FINAL — challenge closed 2026-08-10 (report filed 2026-08-17):**
 
 | Metric | Value |
 |---|---|
 | Verified revenue | $0.00 |
-| Expenses | $0.00 |
-| **Verified net profit** | **$0.00** |
-| Budget available | $200.00 |
+| Expenses | $11.00 (domain, paid by Jack ~2026-07-13) |
+| **Verified net profit** | **–$11.00** |
+| Budget available | $189.00 of $200 |
 | Candidates screened | 61 |
 | Qualified leads (verified) | 22 total; 15 contacted or closed; 1 new text-ready (Mitchell's Mobile Mechanics); ~17 parked awaiting phone numbers |
 | Leads contacted | 15 (8 on 2026-07-13; 7 texted 2026-07-20: State Street, Una's, La Petite, Doggy Style, Vicio, Lino's, Mitchell's Mobile Mechanics) |
@@ -23,7 +23,7 @@ README.md and are labeled as projections.
 
 | Date | Type | Description | Amount | Verified by |
 |---|---|---|---|---|
-| — | — | none yet | — | — |
+| ~2026-07-13 | Expense | dialedinsites.com domain, 1 yr (registrar) | –$11.00 | Jack's purchase confirmation in session |
 
 ## Experiments & lessons
 
