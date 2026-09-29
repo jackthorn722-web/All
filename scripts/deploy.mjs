@@ -8,7 +8,9 @@
 // CLOUDFLARE_API_TOKEN in .env, otherwise it prints the exact steps).
 import { enterRepoRoot, slugArgs, validateAndReport, fail, bold, green, yellow, dim } from '../lib/cli.js';
 import { buildSite, printSummary, lockSlug } from '../lib/build.js';
-import { formKeyFor, formKeyName } from '../lib/client.js';
+import fs from 'node:fs';
+import path from 'node:path';
+import { formKeyFor, formKeyName, clientDir } from '../lib/client.js';
 import { wrangler, wranglerInstalled, findProject, createProject, deployDir, cloudflareApi } from '../lib/cloudflare.js';
 import { connectDomain, printSteps } from '../lib/domains.js';
 
@@ -93,9 +95,19 @@ if (wrongBranch) {
   fail(`${what}: project "${slug}" uses "${deployed.productionBranch}" as its production branch, not "main".\n${fix}`);
 }
 
-// 5. Where it is.
+// 5. Where it is. Also remembered in clients/<slug>/deploys.json (the dashboard shows it).
+function remember(kind, info) {
+  const file = path.join(clientDir(slug), 'deploys.json');
+  let log = {};
+  try {
+    log = JSON.parse(fs.readFileSync(file, 'utf8'));
+  } catch {}
+  log[kind] = { ...info, at: new Date().toISOString() };
+  fs.writeFileSync(file, JSON.stringify(log, null, 2) + '\n');
+}
 if (!prod) {
   const link = deployed.alias ?? siteUrl;
+  remember('preview', { url: link });
   console.log(green(`\nPreview is up: ${bold(link)}`));
   console.log(`Send that link to the client for approval. It stays the same for every preview deploy.`);
   if (deployed.url) console.log(dim(`This exact version: ${deployed.url}`));
@@ -105,6 +117,7 @@ if (!prod) {
 }
 
 console.log(green(`\nProduction is up: ${bold(`https://${project.subdomain}`)}`));
+remember('production', { url: `https://${project.subdomain}`, domain: data.domain ?? null });
 if (!data.domain) {
   console.log(`No "domain" in site.json yet, so this is the site's address. Add one later and deploy --prod again.\n`);
   process.exit(0);

@@ -75,6 +75,28 @@ risk, competition, scalability, required human effort, and legality for a
 | `lib/`, `scripts/` | Spec schema/validation and the `npm run` commands |
 | [kit/](kit/) | The standalone HTML template kit (Gumroad product, not the pipeline) |
 
+## The dashboard (easiest way)
+
+```
+npm run dashboard
+```
+
+Opens http://localhost:4400 in your browser. Keep that PowerShell window open while you use it.
+Everything below can be done from there:
+
+- **Home:** every client with a status badge, how far along they are, and their preview/live links.
+  **+ New client** creates one from a template.
+- **Client page:** the five steps (details, photos, form key, preview, live) and three buttons:
+  *Preview on my computer*, *Send preview to client* (prints the link to text them) and *Go live*
+  (unlocks when the to-do list is empty).
+- **To-do tab:** everything still missing, in plain English, each with a *Fix* button that jumps to it.
+- **Details tab:** a form for everything in site.json. Yellow = still a placeholder, red = must fix.
+  Save with the button or Ctrl+S.
+- **Photos tab:** drag in the client's photos, then pick where each goes on the Details tab.
+
+It only works on your own computer (nobody else on your network can open it), and it runs the same
+commands described below, so you can mix it with the terminal freely.
+
 ## Add a new client in 30 minutes
 
 The site pipeline turns one filled-out `site.json` into a finished static site. You need

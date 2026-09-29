@@ -7,6 +7,7 @@ Node >= 22.12. Keep dependencies minimal: no React, UI kits, CMS, database or te
 ## Commands
 
 ```
+npm run dashboard                           # local web UI at http://localhost:4400 (dashboard/)
 npm run new -- <slug> --template detailer   # clients/<slug>/ + placeholder photos + intake checklist
 npm run check -- <slug>                     # errors + placeholders by exact field path; exit 1 unless clean
 npm run dev -- <slug>                       # live preview, hot reloads site.json and templates
@@ -31,6 +32,9 @@ Not built yet: `build:all` + the pressure-washer / lawn-care / general variants 
   hero style, schema.org type, form extra field). Register it in `templates/index.js`. A variant can replace a
   whole section with `templates/<variant>/components/<BaseName>.astro`.
 - `src/pages/`: thin Astro entry points (page, 404, sitemap, robots, favicons).
+- `dashboard/`: `server.mjs` (node:http, 127.0.0.1 only, Host/Origin checked) + `index.html` (vanilla JS form
+  over site.json, photo upload, buttons that run the npm scripts). Deploy writes `clients/<slug>/deploys.json`
+  (last preview/production link) for it.
 - `scripts/`: the npm commands. `kit/`: the old standalone HTML template kit (not part of the pipeline).
 - `docs/`: the dialedinsites.com landing page (GitHub Pages). Don't mix pipeline output into it.
 
