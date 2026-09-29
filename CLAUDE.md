@@ -35,13 +35,15 @@ Not built yet: `deploy` (Phase 2), `build:all` + the pressure-washer / lawn-care
 ## Conventions
 
 - The client is selected by the `CLIENT_SLUG` env var, set by the scripts. `lib/vite-client.js` serves
-  `virtual:client`: that client's site.json plus lazy imports of ONLY the images site.json references. Never
+  `virtual:client`: that client's site.json (read by `readSpec`) plus lazy imports of ONLY the images
+  site.json references; in dev it regenerates whenever anything in the client's folder changes. Never
   glob `clients/*`: other clients' files would leak into the build. Output goes to `dist/<slug>/` (built in
   `dist/.building-<slug>/` and swapped in only on success).
 - Copy precedence: `site.json` `copy`/`business.tagline` > variant copy > base defaults. Copy, tagline, faq and
   seo text may use tokens `{business} {industry} {city} {state} {cities} {citiesShort} {owner} {ownerFirst}
   {phone} {callOrText}`. Use `{callOrText}` instead of writing "call or text" (some numbers take no texts).
-- Placeholders: text containing `TODO`, a 555-01xx phone, example.com emails/links, `placeholder-*` images.
+- Placeholders: text containing `TODO`, a 555-01xx phone, example.com emails/links, `placeholder-*` images,
+  and an unanswered `business.textsOk` (the site shows no Text buttons until it is set).
   `check` fails on them; dev/build only warn (so previews work), and deploy --prod must refuse them.
 - Never invent claims for a real client: reviews must be real and word for word; licensed/insured only if
   confirmed. Sample reviews always carry TODO.

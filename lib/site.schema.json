@@ -35,8 +35,8 @@
           "description": "Main phone number customers call, e.g. (801) 555-1234"
         },
         "textsOk": {
-          "type": "boolean",
-          "description": "Does that number take texts? (shows the Text buttons)"
+          "description": "Does that number take texts? (shows the Text buttons)",
+          "type": "boolean"
         },
         "email": {
           "type": "string",
@@ -187,7 +187,6 @@
       "required": [
         "name",
         "phone",
-        "textsOk",
         "email",
         "serviceArea",
         "hours",
@@ -289,6 +288,10 @@
       }
     },
     "reviews": {
+      "default": {
+        "items": []
+      },
+      "description": "Reviews",
       "type": "object",
       "properties": {
         "googleRating": {
@@ -306,10 +309,11 @@
         "googleReviewsUrl": {
           "type": "string",
           "format": "uri",
-          "description": "Link to their Google reviews"
+          "description": "Link that opens their Google reviews (Google Maps: their listing > Reviews > Share)"
         },
         "items": {
-          "minItems": 1,
+          "default": [],
+          "description": "3-6 of their best real reviews; none yet = the reviews section is hidden",
           "type": "array",
           "items": {
             "type": "object",
@@ -343,15 +347,10 @@
               "rating"
             ],
             "additionalProperties": false
-          },
-          "description": "3-6 of their best reviews"
+          }
         }
       },
-      "required": [
-        "items"
-      ],
-      "additionalProperties": false,
-      "description": "Reviews"
+      "additionalProperties": false
     },
     "gallery": {
       "type": "object",
@@ -693,7 +692,6 @@
     "template",
     "business",
     "brand",
-    "reviews",
     "gallery",
     "seo"
   ],

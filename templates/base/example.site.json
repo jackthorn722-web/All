@@ -4,7 +4,6 @@
   "business": {
     "name": "TODO Business Name",
     "phone": "(801) 555-0100",
-    "textsOk": true,
     "email": "TODO@example.com",
     "serviceArea": {
       "homeCity": "TODO City",

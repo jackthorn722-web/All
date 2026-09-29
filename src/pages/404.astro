@@ -11,9 +11,8 @@ const site = await getSite();
     <p class="eyebrow">404</p>
     <h1 class="h2 mt-2">That page does not exist.</h1>
     <p class="mx-auto mt-4 max-w-md text-lg text-muted">But we are easy to reach. Head back to the home page, or call us now.</p>
-    <div class="mt-8 flex flex-wrap justify-center gap-3">
-      <CtaButtons site={site} class="contents" />
+    <CtaButtons site={site} class="mt-8 justify-center">
       <a href="/" class="btn btn-outline">Home page</a>
-    </div>
+    </CtaButtons>
   </section>
 </Site>

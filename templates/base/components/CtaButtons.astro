@@ -1,5 +1,6 @@
 ---
 // Call / Text / Book buttons. The primary action (cta.primary) is filled.
+// Extra buttons can be passed as children and join the same row.
 import Icon from './Icon.astro';
 interface Props {
   site: any;
@@ -22,4 +23,5 @@ const { site, class: cls = '' } = Astro.props;
       </a>
     ))
   }
+  <slot />
 </div>

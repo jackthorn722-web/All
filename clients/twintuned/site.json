@@ -4,7 +4,6 @@
   "business": {
     "name": "TwinTuned Detailing",
     "phone": "(801) 555-0142",
-    "textsOk": true,
     "email": "TODO@example.com",
     "serviceArea": {
       "homeCity": "Woodland Hills",
