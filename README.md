@@ -87,7 +87,7 @@ Every command works the same in PowerShell, cmd or VS Code's terminal on Windows
 npm run new -- twintuned --template detailer
 ```
 
-This creates `clients/twintuned/site.json` (every unknown is a `TODO`), labeled placeholder photos
+(If PowerShell ever says "Missing --template", `npm run new -- twintuned detailer` does the same.) This creates `clients/twintuned/site.json` (every unknown is a `TODO`), labeled placeholder photos
 in `clients/twintuned/images/`, and prints the **intake checklist**: every field to collect, required
 ones starred. Keep it open during the call.
 

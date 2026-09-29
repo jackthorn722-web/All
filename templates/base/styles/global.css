@@ -40,7 +40,7 @@
     @apply bg-bg font-sans text-ink antialiased;
   }
   :focus-visible {
-    outline: 3px solid var(--c-accent);
+    outline: 3px solid var(--c-focus);
     outline-offset: 2px;
   }
   @media (prefers-reduced-motion: reduce) {

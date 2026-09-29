@@ -3,6 +3,7 @@
 //
 // Copy strings can use these tokens, filled in from site.json at build time:
 //   {business} {industry} {city} {state} {owner} {ownerFirst} {phone}
+//   {callOrText}   "Call or text", or just "Call" when the number takes no texts
 //   {cities}       every city: "Woodland Hills, Salem, Payson, and Elk Ridge"
 //   {citiesShort}  at most three: "Woodland Hills, Salem, Payson, and nearby"
 
@@ -22,7 +23,7 @@ export const SECTION_IDS = [
 
 export const HERO_STYLES = ['photo', 'split', 'solid'];
 
-export const TOKENS = ['business', 'industry', 'city', 'state', 'cities', 'citiesShort', 'owner', 'ownerFirst', 'phone'];
+export const TOKENS = ['business', 'industry', 'city', 'state', 'cities', 'citiesShort', 'owner', 'ownerFirst', 'phone', 'callOrText'];
 
 export const baseDefaults = {
   industry: 'Local Services',
@@ -47,16 +48,16 @@ export const baseDefaults = {
       '{owner} started {business} to give people in {city} a local business they can actually reach. When you call, you talk to the owner, and every job gets the same care {ownerFirst} would want for their own home.',
     areaTitle: 'Proudly serving {city} and nearby',
     areaText:
-      'We work across {cities}. Not sure if you are in range? Call or text and we will let you know right away.',
+      'We work across {cities}. Not sure if you are in range? {callOrText} and we will let you know right away.',
     faqTitle: 'Questions, answered',
     contactTitle: 'Get a free quote',
-    contactText: 'Tell us what you need and we will get back to you quickly. Prefer to talk? Call or text {phone}.',
+    contactText: 'Tell us what you need and we will get back to you quickly. Prefer to talk? {callOrText} {phone}.',
     ctaCall: 'Call now',
     ctaText: 'Text us',
     ctaBook: 'Book online',
     smsBody: "Hi! I'd like a quote.",
     metaDescription:
-      '{business} offers {industry} in {city}, {state} and nearby. Friendly, local, and easy to reach. Call or text {phone} for a free quote.',
+      '{business}: {industry} in {city}, {state} and nearby. Friendly, local, easy to reach. {callOrText} {phone} for a free quote.',
   },
   services: [
     {
@@ -68,7 +69,7 @@ export const baseDefaults = {
   faq: [
     {
       q: 'How do I get a quote?',
-      a: 'Call, text, or use the form on this page. Tell us a little about the job and we will get back to you quickly with a price.',
+      a: 'Use the form on this page or give us a call. Tell us a little about the job and we will get back to you quickly with a price.',
     },
     {
       q: 'What areas do you serve?',

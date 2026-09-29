@@ -15,16 +15,17 @@ const LABELS: Record<string, string> = {
   faq: 'FAQ',
   contact: 'Contact',
 };
-const links = site.sections.filter((id: string) => LABELS[id]).map((id: string) => ({ href: `#${id}`, label: LABELS[id] }));
+// "/#id" (not "#id") so the links also work from the 404 page.
+const links = site.sections.filter((id: string) => LABELS[id]).map((id: string) => ({ href: `/#${id}`, label: LABELS[id] }));
 ---
 
 <header class="sticky top-0 z-40 border-b border-line bg-bg/90 backdrop-blur supports-[backdrop-filter]:bg-bg/75">
   <div class="container-x flex h-16 items-center justify-between gap-4">
-    <a href="#top" class="flex min-w-0 items-center gap-3" aria-label={`${site.business.name} home`}>
-      <Logo site={site} class="truncate" />
+    <a href="/" class="flex min-w-0 items-center gap-3" aria-label={`${site.business.name} home`}>
+      <Logo site={site} />
     </a>
-    <nav aria-label="Sections" class="hidden lg:block">
-      <ul class="flex items-center gap-6 text-sm font-semibold text-muted">
+    <nav aria-label="Sections" class="hidden shrink-0 xl:block">
+      <ul class="flex items-center gap-6 text-sm font-semibold whitespace-nowrap text-muted">
         {links.map((l: any) => (
           <li>
             <a href={l.href} class="hover:text-ink">{l.label}</a>

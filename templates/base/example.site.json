@@ -20,6 +20,7 @@
       "sat": "09:00-15:00",
       "sun": "closed"
     },
+    "hoursNote": "TODO confirm hours with the client, then delete this line or write a real note",
     "ownerName": "TODO Owner Name",
     "licensed": false,
     "insured": false

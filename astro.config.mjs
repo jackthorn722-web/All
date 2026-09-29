@@ -3,6 +3,7 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import { loadEnv, readSpec, siteUrl, SLUG_RE } from './lib/client.js';
+import { clientPlugin } from './lib/vite-client.js';
 
 loadEnv();
 const slug = process.env.CLIENT_SLUG;
@@ -24,6 +25,7 @@ export default defineConfig({
   },
   devToolbar: { enabled: false },
   vite: {
-    plugins: [tailwindcss()],
+    // clientPlugin exposes only this client's site.json + images (virtual:client).
+    plugins: [tailwindcss(), clientPlugin(slug)],
   },
 });

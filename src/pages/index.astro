@@ -35,5 +35,6 @@ const sections = site.sections.map((id: string) => {
 ---
 
 <Site site={site}>
+  {!site.sections.includes('hero') && <h1 class="sr-only">{site.business.name}: {site.business.industry} in {site.business.serviceArea.homeCity}</h1>}
   {sections.map((Section: any) => <Section site={site} />)}
 </Site>

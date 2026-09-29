@@ -26,10 +26,10 @@ export default {
       'We bring the detail shop to your driveway, office parking lot, or apartment complex anywhere in {cities}. Not sure if you are in range? Just ask.',
     contactTitle: 'Get a detailing quote',
     contactText:
-      'Tell us about your vehicle and what it needs. We will reply with a price and the next open time. Prefer to talk? Call or text {phone}.',
+      'Tell us about your vehicle and what it needs. We will reply with a price and the next open time. Prefer to talk? {callOrText} {phone}.',
     smsBody: "Hi! I'd like a quote for detailing my car.",
     metaDescription:
-      'Mobile car detailing in {city}, {state}. {business} comes to your home or office for interior details, wash and wax, and ceramic coating. Call or text {phone}.',
+      'Mobile car detailing in {city}, {state}. {business} comes to your home or office. {callOrText} {phone} for a free quote.',
   },
   services: [
     {
@@ -76,7 +76,7 @@ export default {
   faq: [
     {
       q: 'Do I need to be home?',
-      a: 'No. As long as we can get to the vehicle and it is unlocked (or you leave us the keys), you can go about your day. We will text you when it is done.',
+      a: 'No. As long as we can get to the vehicle and it is unlocked (or you leave us the keys), you can go about your day. We will let you know when it is done.',
     },
     {
       q: 'Do you need water or power from me?',
@@ -88,7 +88,7 @@ export default {
     },
     {
       q: 'What if the weather is bad?',
-      a: 'If rain or snow rolls in, we will reschedule at no charge. Just reply to our text.',
+      a: 'If rain or snow rolls in, we will reach out and reschedule at no charge.',
     },
     {
       q: 'Where do you work?',

@@ -1,6 +1,8 @@
 // npm run build -- <slug>
 // Static site in dist/<slug>/. Errors block; placeholders only warn
-// (deploy --prod will refuse them). Prints what was produced.
+// (deploy --prod will refuse them). The build goes to a temp folder that
+// replaces dist/<slug>/ only when it succeeds, so a failed build never
+// leaves a half-finished site behind.
 import fs from 'node:fs';
 import path from 'node:path';
 import { enterRepoRoot, slugArgs, validateAndReport, fail, green, dim, bold } from '../lib/cli.js';
@@ -12,18 +14,29 @@ if (errors.length) process.exit(1);
 
 process.env.CLIENT_SLUG = slug;
 const out = path.join('dist', slug);
-fs.rmSync(out, { recursive: true, force: true });
+const tmp = path.join('dist', `.building-${slug}`);
+fs.rmSync(tmp, { recursive: true, force: true });
 const { build } = await import('astro');
-await build({ root: process.cwd(), logLevel: 'warn' });
+try {
+  await build({ root: process.cwd(), outDir: tmp, logLevel: 'warn' });
+} catch (e) {
+  fs.rmSync(tmp, { recursive: true, force: true });
+  fail(`Build failed; ${out}${path.sep} was left as it was.\n${e.message}`);
+}
 
-// Confirm the output has everything a site needs.
+// Confirm the output has everything a site needs before swapping it in.
 const required = ['index.html', '404.html', 'sitemap.xml', 'robots.txt', 'favicon.ico', 'icon-192.png', 'apple-touch-icon.png'];
-const missing = required.filter((f) => !fs.existsSync(path.join(out, f)));
-if (missing.length) fail(`Build finished but ${out} is missing: ${missing.join(', ')}`);
+const missing = required.filter((f) => !fs.existsSync(path.join(tmp, f)));
+if (missing.length) {
+  fs.rmSync(tmp, { recursive: true, force: true });
+  fail(`Build output is missing ${missing.join(', ')}; ${out}${path.sep} was left as it was.`);
+}
+fs.rmSync(out, { recursive: true, force: true });
+fs.renameSync(tmp, out);
 
 const files = fs.readdirSync(out, { recursive: true, withFileTypes: true }).filter((d) => d.isFile());
 const size = (f) => fs.statSync(path.join(f.parentPath, f.name)).size;
-const images = files.filter((f) => /\.(webp|avif|jpe?g|png)$/i.test(f.name) && f.parentPath.includes('_astro'));
+const images = files.filter((f) => /\.(webp|avif|jpe?g|png|gif|svg)$/i.test(f.name) && f.parentPath.includes('_astro'));
 const kb = (n) => `${Math.round(n / 1024)} KB`;
 console.log(green(`\nBuilt ${bold(out + path.sep)}`));
 console.log(dim(`  ${files.length} files, ${kb(files.reduce((t, f) => t + size(f), 0))} total`));

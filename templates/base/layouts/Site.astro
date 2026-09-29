@@ -19,7 +19,7 @@ const canonical = abs(Astro.url.pathname);
 
 // Social share image: hero photo, else the first work photo, cropped to 1200x630.
 const g = site.gallery;
-const ogFile = site.images.hero ?? g.photos[0]?.src ?? g.beforeAfter[0]?.after;
+const ogFile = [site.images.hero, ...g.photos.map((p: any) => p.src), ...g.beforeAfter.map((p: any) => p.after)].find((f) => f && !isSvg(f));
 const og = ogFile ? await getImage({ src: await clientImage(site.slug, ogFile), width: 1200, height: 630, fit: 'cover', format: 'jpg' }) : null;
 const logoFile = site.images.logo;
 const logoImg = await clientImage(site.slug, logoFile);
@@ -63,7 +63,7 @@ const style = Object.entries(site.theme.tokens)
     }
     {!noindex && <script type="application/ld+json" set:html={ldJson} />}
   </head>
-  <body class="pb-20 md:pb-0">
+  <body>
     <a href="#main" class="sr-only z-50 rounded-full bg-accent px-4 py-2 font-bold text-on-accent focus:not-sr-only focus:fixed focus:top-3 focus:left-3">
       Skip to content
     </a>

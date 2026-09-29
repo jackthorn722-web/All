@@ -14,10 +14,10 @@ const img = await clientImage(site.slug, file);
 
 {
   !img ? (
-    <span class:list={['text-lg leading-tight font-extrabold tracking-tight', cls]}>{site.business.name}</span>
+    <span class:list={['truncate text-lg leading-tight font-extrabold tracking-tight', cls]}>{site.business.name}</span>
   ) : isSvg(file) ? (
-    <img src={img.src} alt={site.business.name} height={height} width={Math.round((img.width / img.height) * height)} class:list={['w-auto', cls]} style={`height:${height}px`} />
+    <img src={img.src} alt={site.business.name} height={height} width={Math.round((img.width / img.height) * height)} class:list={['w-auto max-w-[min(60vw,280px)] object-contain object-left', cls]} style={`height:${height}px`} />
   ) : (
-    <Image src={img} alt={site.business.name} height={height} densities={[1, 2]} class:list={['w-auto', cls]} style={`height:${height}px`} />
+    <Image src={img} alt={site.business.name} height={height} densities={[1, 2]} class:list={['w-auto max-w-[min(60vw,280px)] object-contain object-left', cls]} style={`height:${height}px`} />
   )
 }

@@ -21,11 +21,14 @@ export async function iconPng(site, size, { solid = false } = {}) {
   const bg = solid ? site.theme.tokens.bg : { r: 0, g: 0, b: 0, alpha: 0 };
   if (!logo || !fs.existsSync(logo)) return sharp(letterMark(site, size)).png().toBuffer();
   const pad = solid ? Math.round(size * 0.12) : 0;
-  const img = sharp(logo, { density: 300 })
-    .rotate()
-    .resize(size - pad * 2, size - pad * 2, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
-    .extend({ top: pad, bottom: pad, left: pad, right: pad, background: { r: 0, g: 0, b: 0, alpha: 0 } });
-  return (solid ? img.flatten({ background: bg }) : img).png().toBuffer();
+  // Flatten the logo's own transparency first, then letterbox/pad with the same color.
+  let img = sharp(logo, { density: 300 }).rotate();
+  if (solid) img = sharp(await img.flatten({ background: bg }).png().toBuffer());
+  return img
+    .resize(size - pad * 2, size - pad * 2, { fit: 'contain', background: bg })
+    .extend({ top: pad, bottom: pad, left: pad, right: pad, background: bg })
+    .png()
+    .toBuffer();
 }
 
 // .ico that wraps one 32x32 PNG (supported by every current browser).

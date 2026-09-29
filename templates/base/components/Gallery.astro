@@ -53,11 +53,11 @@ const label = 'absolute top-3 left-3 rounded-full bg-black/70 px-3 py-1 text-xs 
   {
     photos.length > 0 && (
       <div class:list={['grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3', pairs.length > 0 && 'mt-10']}>
-        {photos.map((p: any) => (
+        {photos.map((p: any, i: number) => (
           <figure class="group">
             <Image
               src={p.img}
-              alt={p.alt ?? p.caption ?? `${business.industry} by ${business.name} in ${where}`}
+              alt={p.alt ?? p.caption ?? `${business.industry} by ${business.name} in ${where}, photo ${i + 1} of ${photos.length}`}
               width={960}
               widths={[320, 480, 640, 960]}
               sizes="(min-width: 768px) 33vw, 50vw"

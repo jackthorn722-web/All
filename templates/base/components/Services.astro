@@ -9,6 +9,7 @@ const { site } = Astro.props;
 const n = site.services.length;
 // Full class names so Tailwind can see them.
 const cols = n === 1 ? 'max-w-xl' : n === 2 || n === 4 ? 'md:grid-cols-2' : 'md:grid-cols-2 lg:grid-cols-3';
+const hasContact = site.sections.includes('contact');
 const money = (v: number) => `$${Number.isInteger(v) ? v : v.toFixed(2)}`;
 ---
 
@@ -37,9 +38,11 @@ const money = (v: number) => `$${Number.isInteger(v) ? v : v.toFixed(2)}`;
               ))}
             </ul>
           )}
-          <a href="#contact" data-service={s.name} class="mt-auto inline-flex items-center gap-2 pt-6 font-bold text-link hover:underline">
-            Get a quote <Icon name="arrow" class="h-4 w-4" />
-          </a>
+          {hasContact && (
+            <a href="#contact" data-service={s.name} class="mt-auto inline-flex items-center gap-2 pt-6 font-bold text-link hover:underline">
+              Get a quote <Icon name="arrow" class="h-4 w-4" />
+            </a>
+          )}
         </article>
       ))
     }

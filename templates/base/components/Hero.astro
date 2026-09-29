@@ -70,11 +70,11 @@ const eyebrow = [copy.trustBadge, `${business.serviceArea.homeCity}, ${business.
   style === 'solid' && (
     <section id="top" class="bg-primary text-on-primary">
       <div class="container-x py-20 text-center sm:py-28">
-        <p class="text-sm font-bold tracking-[0.14em] uppercase opacity-80">{eyebrow}</p>
+        <p class="text-sm font-bold tracking-[0.14em] uppercase">{eyebrow}</p>
         <h1 class="mx-auto mt-3 max-w-3xl text-4xl leading-[1.05] font-extrabold tracking-tight text-balance sm:text-6xl">{copy.headline}</h1>
-        <p class="mx-auto mt-5 max-w-xl text-lg opacity-90 sm:text-xl">{copy.subheadline}</p>
+        <p class="mx-auto mt-5 max-w-xl text-lg sm:text-xl">{copy.subheadline}</p>
         <CtaButtons site={site} class="mt-8 justify-center" />
-        {reviews.googleRating && <Rating reviews={reviews} class="mt-6 justify-center opacity-90" />}
+        {reviews.googleRating && <Rating reviews={reviews} class="mt-6 justify-center" />}
       </div>
     </section>
   )

@@ -34,9 +34,13 @@ Not built yet: `deploy` (Phase 2), `build:all` + the pressure-washer / lawn-care
 
 ## Conventions
 
-- The client is selected by the `CLIENT_SLUG` env var, set by the scripts. Output goes to `dist/<slug>/`.
-- Copy precedence: `site.json` `copy`/`business.tagline` > variant copy > base defaults. Copy may use tokens
-  `{business} {industry} {city} {state} {cities} {citiesShort} {owner} {ownerFirst} {phone}`.
+- The client is selected by the `CLIENT_SLUG` env var, set by the scripts. `lib/vite-client.js` serves
+  `virtual:client`: that client's site.json plus lazy imports of ONLY the images site.json references. Never
+  glob `clients/*`: other clients' files would leak into the build. Output goes to `dist/<slug>/` (built in
+  `dist/.building-<slug>/` and swapped in only on success).
+- Copy precedence: `site.json` `copy`/`business.tagline` > variant copy > base defaults. Copy, tagline, faq and
+  seo text may use tokens `{business} {industry} {city} {state} {cities} {citiesShort} {owner} {ownerFirst}
+  {phone} {callOrText}`. Use `{callOrText}` instead of writing "call or text" (some numbers take no texts).
 - Placeholders: text containing `TODO`, a 555-01xx phone, example.com emails/links, `placeholder-*` images.
   `check` fails on them; dev/build only warn (so previews work), and deploy --prod must refuse them.
 - Never invent claims for a real client: reviews must be real and word for word; licensed/insured only if
@@ -44,6 +48,8 @@ Not built yet: `deploy` (Phase 2), `build:all` + the pressure-washer / lawn-care
 - Brand colors are made readable automatically (`lib/colors.js`); don't hard-code colors in components,
   use the theme classes (`bg-bg`, `bg-surface`, `text-ink`, `text-muted`, `border-line`, `text-link`,
   `bg-accent text-on-accent`, `bg-primary text-on-primary`).
-- CLI output stays plain ASCII (Windows terminals). Paths for `fs` use `path.join`; Vite glob keys use `/`.
+- CLI output stays plain ASCII (Windows terminals). Paths for `fs` use `path.join`; Vite import ids use `/`.
+- Image paths in site.json must match the file name exactly, case included (Windows won't notice, the build
+  will); `check` verifies every folder level. Photos must be raster; SVG is allowed only for the logo.
 - Secrets live in `.env` (see `.env.example`), never in site.json or git.
 - Verify changes by running `npm run check` and `npm run build` for twintuned and looking at `dist/twintuned/`.
