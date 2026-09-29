@@ -61,5 +61,8 @@ Not built yet: `build:all` + the pressure-washer / lawn-care / general variants 
   domains + DNS (token only). Always create projects with `pages project create --force`: without it, wrangler
   run by an AI agent creates a Workers project instead of Pages. Deploy builds for the real URL through
   `DIALEDIN_SITE_URL` and marks previews with `DIALEDIN_PREVIEW=1` (noindex). DNS: create missing CNAMEs,
-  never modify or delete existing records. `CLOUDFLARE_API_BASE_URL` points both at a test server.
+  never modify or delete existing records. After uploading, deploy checks wrangler's output file
+  (`environment`) so a production deploy that Cloudflare treated as a preview (or the reverse) fails loudly.
+  Builds/deploys take a per-client lock (`dist/.lock-<slug>`). `CLOUDFLARE_API_BASE_URL` points both
+  wrangler and the REST client at a test server.
 - Verify changes by running `npm run check` and `npm run build` for twintuned and looking at `dist/twintuned/`.

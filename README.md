@@ -126,10 +126,12 @@ Every client gets its own Cloudflare Pages project, named after the slug. Hostin
 
 ### One-time setup (5 minutes)
 
-1. Make a free Cloudflare account at [dash.cloudflare.com](https://dash.cloudflare.com).
-2. **Account ID**: in the dashboard open *Workers & Pages*; "Account ID" is on the right. Put it in
+1. Run `npm install` in this folder (again whenever you update the repo: deploy needs `wrangler`,
+   which it installs).
+2. Make a free Cloudflare account at [dash.cloudflare.com](https://dash.cloudflare.com).
+3. **Account ID**: in the dashboard open *Workers & Pages*; "Account ID" is on the right. Put it in
    `.env` as `CLOUDFLARE_ACCOUNT_ID=...`.
-3. **Cloudflare API token** (lets deploy connect domains by itself): *My Profile > API Tokens >
+4. **Cloudflare API token** (lets deploy connect domains by itself): *My Profile > API Tokens >
    Create Token > Create Custom Token*, with these permissions:
    - Account | Cloudflare Pages | Edit
    - Zone | DNS | Edit
@@ -137,8 +139,9 @@ Every client gets its own Cloudflare Pages project, named after the slug. Hostin
    - Account Resources: your account. Zone Resources: *All zones from an account* (so new client
      domains work without editing the token).
 
-   Save it in `.env` as `CLOUDFLARE_API_TOKEN=...`. No token? Deploy still works: the first time, it
-   opens the browser to sign in to Cloudflare, and it prints the domain steps for you to click through.
+   Save it in `.env` as `CLOUDFLARE_API_TOKEN=...`. (Notepad may save the file as `.env.txt`; it
+   must be exactly `.env`.) No token? Deploy still works: the first time, it opens the browser to
+   sign in to Cloudflare, and it prints the domain steps for you to click through.
 
 ### Preview for the client
 
@@ -148,8 +151,8 @@ npm run deploy -- twintuned
 
 Builds, creates the Pages project on the first run, uploads, and prints
 `https://preview.twintuned.pages.dev`. Text that link to the client. It stays the same every time you
-redeploy a preview, and Google never indexes it. (If `twintuned.pages.dev` was already taken by
-someone else, Cloudflare adds a suffix; deploy always prints the real address.)
+redeploy a preview, and search engines are told not to index it. (If `twintuned.pages.dev` was
+already taken by someone else, Cloudflare adds a suffix; deploy always prints the real address.)
 
 ### Production
 
@@ -164,27 +167,38 @@ live site and, if `site.json` has a `"domain"`, connects it. (If PowerShell drop
 With the API token and the domain's DNS in your Cloudflare account, it attaches both
 `twintuneddetailing.com` and `www.twintuneddetailing.com` and creates their DNS records. It never
 deletes an existing record: if an old site's record is in the way, it prints exactly what to change.
-Security certificates take 5-15 minutes; run deploy --prod again (or look at *Custom domains*) to
-see the status. Without a domain, `https://twintuned.pages.dev` is the live address.
+Security certificates take 5-15 minutes; run deploy --prod again (or look at *Workers & Pages >
+twintuned > Custom domains*) to see the status. Without a domain, `https://twintuned.pages.dev` is
+the live address. Without the token, deploy prints the same steps below with the real names filled in.
 
 ### Connecting the domain: the two cases
 
-**The client already owns the domain** (GoDaddy, Namecheap, Squarespace...). You need their
-registrar login, or have them do step 1 with you on the phone.
+**The client already owns the domain** (GoDaddy, Namecheap, Squarespace...). The registrar steps
+need their login: have them do those with you on the phone.
 
 - *Recommended: move the DNS to Cloudflare.* This handles both `domain.com` and `www.domain.com`.
-  1. Cloudflare dashboard > *Add a domain* > their domain > *Free* plan. Check the imported
-     records and keep every MX and TXT record: those run their email.
-  2. At their registrar, replace the nameservers with the two Cloudflare shows.
-  3. When the domain shows *Active* in Cloudflare (minutes to a few hours), run
-     `npm run deploy -- <slug> --prod`. It connects everything.
-- *Keep the DNS where it is (www only).* Set `"domain": "www.theirdomain.com"`, run deploy
-  `--prod`, add `CNAME www -> <slug>.pages.dev` at their registrar, and set the registrar to forward
-  the bare domain to `https://www.theirdomain.com`. Deploy prints these steps with the real names.
+  1. Cloudflare dashboard > *Domains > Onboard a domain* > their domain > *Free* plan.
+  2. Screenshot every record at their current DNS provider first. Cloudflare's import can miss
+     some: add anything missing, especially MX, TXT (SPF/DKIM/DMARC) and mail CNAMEs. Those run
+     their email. Keep mail records *DNS only*.
+  3. If DNSSEC is on at their registrar, turn it off first (skipping this can take the site and
+     email offline). You can turn it on again later in Cloudflare.
+  4. At the registrar, replace the nameservers with the two Cloudflare shows.
+  5. When the domain shows *Active* in Cloudflare (up to 24 hours), run
+     `npm run deploy -- <slug> --prod`. With the API token it connects everything; without it,
+     follow the dashboard steps it prints.
+- *Keep the DNS where it is (www only).* Set `"domain": "www.theirdomain.com"` and run deploy
+  `--prod` (with the token it attaches the domain; without it, *Workers & Pages > project > Custom
+  domains > Set up a custom domain*). Only then, at their registrar, change the `www` record to
+  `CNAME www -> <slug>.pages.dev`, and forward the bare domain to `https://www.theirdomain.com`.
+  Deploy prints these steps with the real names.
 
 **You register a domain for them.** Cloudflare dashboard > *Domain Registration > Register Domains*
-(at cost, about $10 a year). Use the client's name and contact details so they own it. It lands in
-your account already, so set `"domain"` and run `npm run deploy -- <slug> --prod`: done.
+(at cost, about $10 a year). Use the client's name and contact details so they own it. Right after,
+the client gets a "verify your email" message (an ICANN rule): they must click it or the domain is
+suspended after a few days, so do it together on the call. Auto-renew is on and billed to your
+account: agree who pays the yearly renewal. The domain is already in your account, so set
+`"domain"` and run `npm run deploy -- <slug> --prod`.
 
 ## Legal & boundaries (standing rules)
 

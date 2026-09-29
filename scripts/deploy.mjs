@@ -7,17 +7,18 @@
 // form key, then connects site.json's "domain" (automatically with
 // CLOUDFLARE_API_TOKEN in .env, otherwise it prints the exact steps).
 import { enterRepoRoot, slugArgs, validateAndReport, fail, bold, green, yellow, dim } from '../lib/cli.js';
-import { buildSite, printSummary } from '../lib/build.js';
+import { buildSite, printSummary, lockSlug } from '../lib/build.js';
 import { formKeyFor, formKeyName } from '../lib/client.js';
-import { wrangler, findProject, createProject, deployDir, cloudflareApi } from '../lib/cloudflare.js';
+import { wrangler, wranglerInstalled, findProject, createProject, deployDir, cloudflareApi } from '../lib/cloudflare.js';
 import { connectDomain, printSteps } from '../lib/domains.js';
 
 enterRepoRoot();
 const { slug, values, positionals } = slugArgs('deploy', { prod: { type: 'boolean' } });
-// "--prod" can get lost on the way through npm; "npm run deploy -- <slug> prod" works too.
-const prod = Boolean(values.prod || positionals[1] === 'prod' || process.env.npm_config_prod === 'true');
+// If "--prod" gets lost on the way through npm/PowerShell, "prod" works too.
+const prod = Boolean(values.prod || positionals[1] === 'prod');
 const token = process.env.CLOUDFLARE_API_TOKEN;
 const accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
+if (!wranglerInstalled()) fail('wrangler is not installed yet. Run: npm install   (needed once after updating this repo)');
 
 // 1. The spec must be clean enough for where it is going.
 const { errors, placeholders, data } = validateAndReport(slug, { full: prod });
@@ -29,6 +30,7 @@ if (prod) {
   if (blockers.length) fail(`Not deploying to production:\n  - ${blockers.join('\n  - ')}\nA preview works anytime: npm run deploy -- ${slug}`);
 }
 if (token && !accountId) fail('CLOUDFLARE_ACCOUNT_ID is missing from .env (Cloudflare dashboard > Workers & Pages: "Account ID" on the right).');
+lockSlug(slug);
 
 // 2. Signed in to Cloudflare? Without a token, wrangler signs in through the browser once.
 if (!token) {
@@ -70,6 +72,14 @@ try {
 } catch (e) {
   fail(e.message);
 }
+// Cloudflare decides what is production by the project's production branch.
+if (prod && deployed.environment && deployed.environment !== 'production')
+  fail(
+    `That upload became a PREVIEW, not production: project "${slug}" uses "${deployed.productionBranch}" as its production branch, not "main".\n` +
+      `Fix: Workers & Pages > ${slug} > Settings > Builds & deployments > Production branch: main (or delete the project so deploy recreates it).`,
+  );
+if (!prod && deployed.environment === 'production')
+  fail(`Warning: project "${slug}" treats "${branch}" as its production branch, so this preview went LIVE. Set its production branch to main in Workers & Pages > ${slug} > Settings.`);
 
 // 5. Where it is.
 if (!prod) {
@@ -78,7 +88,7 @@ if (!prod) {
   console.log(`Send that link to the client for approval. It stays the same for every preview deploy.`);
   if (deployed.url) console.log(dim(`This exact version: ${deployed.url}`));
   if (placeholders.length) console.log(yellow(`Heads up: ${placeholders.length} placeholder(s) are visible on it (npm run check -- ${slug}).`));
-  console.log(dim(`Google won't index previews. Go live with: npm run deploy -- ${slug} --prod\n`));
+  console.log(dim(`Search engines are told not to index previews. Going live: npm run deploy -- ${slug} --prod  (or: ... ${slug} prod)\n`));
   process.exit(0);
 }
 
@@ -88,12 +98,16 @@ if (!data.domain) {
   process.exit(0);
 }
 if (!token) {
-  printSteps({ project: slug, subdomain: project.subdomain, domain: data.domain, noToken: true });
+  if (project.domains.includes(data.domain))
+    console.log(`${data.domain} is connected to the project. Its status: Workers & Pages > ${slug} > Custom domains.\n`);
+  else printSteps({ project: slug, subdomain: project.subdomain, domain: data.domain });
   process.exit(0);
 }
+let state;
 try {
-  await connectDomain({ api: cloudflareApi({ token, accountId }), project: slug, subdomain: project.subdomain, domain: data.domain });
+  state = await connectDomain({ api: cloudflareApi({ token, accountId }), project: slug, subdomain: project.subdomain, domain: data.domain });
 } catch (e) {
   fail(`The site is live at https://${project.subdomain}, but connecting ${data.domain} failed:\n${e.message}`);
 }
+if (state === 'broken') fail(`The site is live at https://${project.subdomain}; ${data.domain} needs the fix above.`);
 console.log('');
