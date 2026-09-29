@@ -72,14 +72,26 @@ try {
 } catch (e) {
   fail(e.message);
 }
-// Cloudflare decides what is production by the project's production branch.
-if (prod && deployed.environment && deployed.environment !== 'production')
-  fail(
-    `That upload became a PREVIEW, not production: project "${slug}" uses "${deployed.productionBranch}" as its production branch, not "main".\n` +
-      `Fix: Workers & Pages > ${slug} > Settings > Builds & deployments > Production branch: main (or delete the project so deploy recreates it).`,
-  );
-if (!prod && deployed.environment === 'production')
-  fail(`Warning: project "${slug}" treats "${branch}" as its production branch, so this preview went LIVE. Set its production branch to main in Workers & Pages > ${slug} > Settings.`);
+// Cloudflare decides what is production by the project's production branch
+// (a project made outside this tool may not use "main").
+const wrongBranch = (prod && deployed.environment && deployed.environment !== 'production') || (!prod && deployed.environment === 'production');
+if (wrongBranch) {
+  const what = prod ? 'That upload became a PREVIEW, not production' : 'This preview went LIVE as production';
+  let fix;
+  if (token) {
+    try {
+      await cloudflareApi({ token, accountId }).setProductionBranch(slug, 'main');
+      fix = `Fixed: the project's production branch is now "main". Run: npm run deploy -- ${slug} --prod${prod ? '' : ' (to put the real site back)'}`;
+    } catch (e) {
+      fix = e.message;
+    }
+  } else {
+    fix =
+      `Projects deployed from the command line have no dashboard setting for this. Either add CLOUDFLARE_API_TOKEN to .env and deploy again\n` +
+      `(deploy then fixes it), or delete the project (Workers & Pages > ${slug} > Settings > Delete) and deploy again; re-connect its domain afterwards.`;
+  }
+  fail(`${what}: project "${slug}" uses "${deployed.productionBranch}" as its production branch, not "main".\n${fix}`);
+}
 
 // 5. Where it is.
 if (!prod) {
