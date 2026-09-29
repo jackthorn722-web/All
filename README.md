@@ -116,8 +116,75 @@ npm run preview -- twintuned   # look at exactly what will be deployed
 ```
 
 The contact form sends to the Web3Forms inbox in `.env` (copy `.env.example` to `.env`; add
-`WEB3FORMS_KEY_TWINTUNED=...` to route one client's leads to their own inbox). Deploying to Cloudflare
-Pages (`npm run deploy`) arrives in Phase 2.
+`WEB3FORMS_KEY_TWINTUNED=...` to route one client's leads to their own inbox).
+
+**Send the preview (1 min)**: `npm run deploy -- twintuned` and text the client the link it prints.
+
+## Deploy and go live
+
+Every client gets its own Cloudflare Pages project, named after the slug. Hosting is free.
+
+### One-time setup (5 minutes)
+
+1. Make a free Cloudflare account at [dash.cloudflare.com](https://dash.cloudflare.com).
+2. **Account ID**: in the dashboard open *Workers & Pages*; "Account ID" is on the right. Put it in
+   `.env` as `CLOUDFLARE_ACCOUNT_ID=...`.
+3. **Cloudflare API token** (lets deploy connect domains by itself): *My Profile > API Tokens >
+   Create Token > Create Custom Token*, with these permissions:
+   - Account | Cloudflare Pages | Edit
+   - Zone | DNS | Edit
+   - Zone | Zone | Read
+   - Account Resources: your account. Zone Resources: *All zones from an account* (so new client
+     domains work without editing the token).
+
+   Save it in `.env` as `CLOUDFLARE_API_TOKEN=...`. No token? Deploy still works: the first time, it
+   opens the browser to sign in to Cloudflare, and it prints the domain steps for you to click through.
+
+### Preview for the client
+
+```
+npm run deploy -- twintuned
+```
+
+Builds, creates the Pages project on the first run, uploads, and prints
+`https://preview.twintuned.pages.dev`. Text that link to the client. It stays the same every time you
+redeploy a preview, and Google never indexes it. (If `twintuned.pages.dev` was already taken by
+someone else, Cloudflare adds a suffix; deploy always prints the real address.)
+
+### Production
+
+```
+npm run deploy -- twintuned --prod
+```
+
+Refuses while `check` still lists placeholders or there is no Web3Forms key. Otherwise it deploys the
+live site and, if `site.json` has a `"domain"`, connects it. (If PowerShell drops `--prod`, use
+`npm run deploy -- twintuned prod`.)
+
+With the API token and the domain's DNS in your Cloudflare account, it attaches both
+`twintuneddetailing.com` and `www.twintuneddetailing.com` and creates their DNS records. It never
+deletes an existing record: if an old site's record is in the way, it prints exactly what to change.
+Security certificates take 5-15 minutes; run deploy --prod again (or look at *Custom domains*) to
+see the status. Without a domain, `https://twintuned.pages.dev` is the live address.
+
+### Connecting the domain: the two cases
+
+**The client already owns the domain** (GoDaddy, Namecheap, Squarespace...). You need their
+registrar login, or have them do step 1 with you on the phone.
+
+- *Recommended: move the DNS to Cloudflare.* This handles both `domain.com` and `www.domain.com`.
+  1. Cloudflare dashboard > *Add a domain* > their domain > *Free* plan. Check the imported
+     records and keep every MX and TXT record: those run their email.
+  2. At their registrar, replace the nameservers with the two Cloudflare shows.
+  3. When the domain shows *Active* in Cloudflare (minutes to a few hours), run
+     `npm run deploy -- <slug> --prod`. It connects everything.
+- *Keep the DNS where it is (www only).* Set `"domain": "www.theirdomain.com"`, run deploy
+  `--prod`, add `CNAME www -> <slug>.pages.dev` at their registrar, and set the registrar to forward
+  the bare domain to `https://www.theirdomain.com`. Deploy prints these steps with the real names.
+
+**You register a domain for them.** Cloudflare dashboard > *Domain Registration > Register Domains*
+(at cost, about $10 a year). Use the client's name and contact details so they own it. It lands in
+your account already, so set `"domain"` and run `npm run deploy -- <slug> --prod`: done.
 
 ## Legal & boundaries (standing rules)
 

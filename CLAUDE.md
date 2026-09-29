@@ -12,10 +12,12 @@ npm run check -- <slug>                     # errors + placeholders by exact fie
 npm run dev -- <slug>                       # live preview, hot reloads site.json and templates
 npm run build -- <slug>                     # static site in dist/<slug>/
 npm run preview -- <slug>                   # serve the built dist/<slug>/
+npm run deploy -- <slug>                    # preview deploy: https://preview.<project>.pages.dev
+npm run deploy -- <slug> --prod             # production + custom domain (refuses placeholders)
 npm run schema                              # regenerate lib/site.schema.json after editing lib/schema.js
 ```
 
-Not built yet: `deploy` (Phase 2), `build:all` + the pressure-washer / lawn-care / general variants (Phase 3).
+Not built yet: `build:all` + the pressure-washer / lawn-care / general variants (Phase 3).
 
 ## Layout
 
@@ -54,4 +56,10 @@ Not built yet: `deploy` (Phase 2), `build:all` + the pressure-washer / lawn-care
 - Image paths in site.json must match the file name exactly, case included (Windows won't notice, the build
   will); `check` verifies every folder level. Photos must be raster; SVG is allowed only for the logo.
 - Secrets live in `.env` (see `.env.example`), never in site.json or git.
+- Deploy (`scripts/deploy.mjs`, `lib/cloudflare.js`, `lib/domains.js`): one Pages project per client, named
+  after the slug. wrangler does project list/create/upload (API token or `wrangler login`); the REST API does
+  domains + DNS (token only). Always create projects with `pages project create --force`: without it, wrangler
+  run by an AI agent creates a Workers project instead of Pages. Deploy builds for the real URL through
+  `DIALEDIN_SITE_URL` and marks previews with `DIALEDIN_PREVIEW=1` (noindex). DNS: create missing CNAMEs,
+  never modify or delete existing records. `CLOUDFLARE_API_BASE_URL` points both at a test server.
 - Verify changes by running `npm run check` and `npm run build` for twintuned and looking at `dist/twintuned/`.

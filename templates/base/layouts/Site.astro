@@ -13,7 +13,9 @@ interface Props {
   title?: string;
   noindex?: boolean;
 }
-const { site, title = site.seo.title, noindex = false } = Astro.props;
+const { site, title = site.seo.title } = Astro.props;
+// Preview builds (for client approval) and the 404 page stay out of Google.
+const noindex = Astro.props.noindex || site.preview;
 const abs = (p: string) => new URL(p, site.siteUrl).href;
 const canonical = abs(Astro.url.pathname);
 

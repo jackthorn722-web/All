@@ -2,7 +2,8 @@
 // CLIENT_SLUG env var, which `npm run dev|build -- <slug>` sets for you.
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
-import { loadEnv, readSpec, siteUrl, SLUG_RE } from './lib/client.js';
+import fs from 'node:fs';
+import { loadEnv, readSpec, siteUrl, pagesHeaders, isPreviewBuild, SLUG_RE } from './lib/client.js';
 import { clientPlugin } from './lib/vite-client.js';
 
 loadEnv();
@@ -24,6 +25,16 @@ export default defineConfig({
     inlineStylesheets: 'always',
   },
   devToolbar: { enabled: false },
+  integrations: [
+    {
+      name: 'dialedin-headers',
+      hooks: {
+        'astro:build:done': ({ dir }) => {
+          fs.writeFileSync(new URL('_headers', dir), pagesHeaders({ domain: raw?.domain, preview: isPreviewBuild() }));
+        },
+      },
+    },
+  ],
   vite: {
     // clientPlugin exposes only this client's site.json + images (virtual:client).
     plugins: [tailwindcss(), clientPlugin(slug)],
