@@ -1,0 +1,83 @@
+{
+  "$schema": "../../lib/site.schema.json",
+  "template": "VARIANT",
+  "business": {
+    "name": "TODO Business Name",
+    "phone": "(801) 555-0100",
+    "email": "TODO@example.com",
+    "serviceArea": {
+      "homeCity": "TODO City",
+      "state": "UT",
+      "nearbyCities": ["TODO Nearby City", "TODO Nearby City 2"]
+    },
+    "hours": {
+      "mon": "08:00-18:00",
+      "tue": "08:00-18:00",
+      "wed": "08:00-18:00",
+      "thu": "08:00-18:00",
+      "fri": "08:00-18:00",
+      "sat": "09:00-15:00",
+      "sun": "closed"
+    },
+    "hoursNote": "TODO confirm hours with the client, then delete this line or write a real note",
+    "ownerName": "TODO Owner Name",
+    "licensed": false,
+    "insured": false
+  },
+  "brand": {
+    "primary": "#000000",
+    "accent": "#000000",
+    "theme": "light"
+  },
+  "images": {
+    "hero": "placeholder-hero.jpg",
+    "owner": "placeholder-owner.jpg"
+  },
+  "services": [],
+  "reviews": {
+    "googleReviewsUrl": "https://example.com/TODO-google-reviews-link",
+    "items": [
+      {
+        "name": "TODO Customer 1",
+        "text": "TODO: paste a real review here, word for word.",
+        "rating": 5,
+        "source": "Google"
+      },
+      {
+        "name": "TODO Customer 2",
+        "text": "TODO: paste a real review here, word for word.",
+        "rating": 5,
+        "source": "Google"
+      },
+      {
+        "name": "TODO Customer 3",
+        "text": "TODO: paste a real review here, word for word.",
+        "rating": 5,
+        "source": "Google"
+      }
+    ]
+  },
+  "gallery": {
+    "beforeAfter": [
+      {
+        "before": "placeholder-before-1.jpg",
+        "after": "placeholder-after-1.jpg",
+        "caption": "TODO caption"
+      }
+    ],
+    "photos": [
+      { "src": "placeholder-work-1.jpg", "alt": "TODO what the photo shows" },
+      { "src": "placeholder-work-2.jpg", "alt": "TODO what the photo shows" },
+      { "src": "placeholder-work-3.jpg", "alt": "TODO what the photo shows" }
+    ]
+  },
+  "socials": {
+    "googleBusinessProfile": "https://example.com/TODO-google-business-profile"
+  },
+  "cta": {
+    "primary": "call"
+  },
+  "seo": {
+    "keywords": ["TODO main keyword, e.g. mobile detailing"]
+  }
+}

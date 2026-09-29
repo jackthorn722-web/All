@@ -55,4 +55,4 @@ No revenue is claimed because none was verified. That was the rule from day one.
 - Do-not-contact list: La Petite, Gleaming (honored permanently)
 - 6 undelivered follow-up drafts + 2 preview sites remain valid if
   operations resume within ~2 weeks; re-verify leads after that
-- The kit in templates/ is list-ready the day a guardian Gumroad exists
+- The kit in kit/ is list-ready the day a guardian Gumroad exists

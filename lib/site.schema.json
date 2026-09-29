@@ -1,0 +1,699 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "template": {
+      "type": "string",
+      "enum": [
+        "detailer"
+      ],
+      "description": "Industry template (variant) this site is built from"
+    },
+    "business": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Business name exactly as customers know it"
+        },
+        "tagline": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Short slogan; leave out to use the template default"
+        },
+        "industry": {
+          "type": "string",
+          "minLength": 1,
+          "description": "What they do, e.g. \"Mobile Auto Detailing\"; leave out to use the template default"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Main phone number customers call, e.g. (801) 555-1234"
+        },
+        "textsOk": {
+          "description": "Does that number take texts? (shows the Text buttons)",
+          "type": "boolean"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "pattern": "^(?:[A-Za-z0-9_'+\\-]+\\.)*[A-Za-z0-9_'+\\-]*[A-Za-z0-9_+-]@(?:[A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$",
+          "description": "Email for customers and quote requests"
+        },
+        "serviceArea": {
+          "type": "object",
+          "properties": {
+            "homeCity": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Home base city, e.g. \"Woodland Hills\""
+            },
+            "state": {
+              "type": "string",
+              "pattern": "^[A-Z]{2}$",
+              "description": "2-letter state code, e.g. \"UT\""
+            },
+            "nearbyCities": {
+              "default": [],
+              "description": "Other cities they serve (no state), e.g. [\"Salem\", \"Payson\"]",
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "description": "City name"
+              }
+            }
+          },
+          "required": [
+            "homeCity",
+            "state"
+          ],
+          "additionalProperties": false,
+          "description": "Where they work"
+        },
+        "hours": {
+          "type": "object",
+          "properties": {
+            "mon": {
+              "type": "string",
+              "pattern": "^([01]\\d|2[0-3]):[0-5]\\d-([01]\\d|2[0-3]):[0-5]\\d$|^closed$",
+              "description": "mon hours, \"08:00-18:00\" or \"closed\""
+            },
+            "tue": {
+              "type": "string",
+              "pattern": "^([01]\\d|2[0-3]):[0-5]\\d-([01]\\d|2[0-3]):[0-5]\\d$|^closed$",
+              "description": "tue hours, \"08:00-18:00\" or \"closed\""
+            },
+            "wed": {
+              "type": "string",
+              "pattern": "^([01]\\d|2[0-3]):[0-5]\\d-([01]\\d|2[0-3]):[0-5]\\d$|^closed$",
+              "description": "wed hours, \"08:00-18:00\" or \"closed\""
+            },
+            "thu": {
+              "type": "string",
+              "pattern": "^([01]\\d|2[0-3]):[0-5]\\d-([01]\\d|2[0-3]):[0-5]\\d$|^closed$",
+              "description": "thu hours, \"08:00-18:00\" or \"closed\""
+            },
+            "fri": {
+              "type": "string",
+              "pattern": "^([01]\\d|2[0-3]):[0-5]\\d-([01]\\d|2[0-3]):[0-5]\\d$|^closed$",
+              "description": "fri hours, \"08:00-18:00\" or \"closed\""
+            },
+            "sat": {
+              "type": "string",
+              "pattern": "^([01]\\d|2[0-3]):[0-5]\\d-([01]\\d|2[0-3]):[0-5]\\d$|^closed$",
+              "description": "sat hours, \"08:00-18:00\" or \"closed\""
+            },
+            "sun": {
+              "type": "string",
+              "pattern": "^([01]\\d|2[0-3]):[0-5]\\d-([01]\\d|2[0-3]):[0-5]\\d$|^closed$",
+              "description": "sun hours, \"08:00-18:00\" or \"closed\""
+            }
+          },
+          "required": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ],
+          "additionalProperties": false,
+          "description": "Opening hours per day, 24-hour \"08:00-18:00\" or \"closed\""
+        },
+        "hoursNote": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Extra note shown with hours, e.g. \"Evenings by appointment\""
+        },
+        "address": {
+          "description": "Street address; leave out for mobile businesses (most are)",
+          "type": "object",
+          "properties": {
+            "street": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Street address"
+            },
+            "city": {
+              "type": "string",
+              "minLength": 1,
+              "description": "City"
+            },
+            "state": {
+              "type": "string",
+              "pattern": "^[A-Z]{2}$",
+              "description": "State"
+            },
+            "zip": {
+              "type": "string",
+              "pattern": "^\\d{5}$",
+              "description": "ZIP code"
+            }
+          },
+          "required": [
+            "street",
+            "city",
+            "state",
+            "zip"
+          ],
+          "additionalProperties": false
+        },
+        "foundedYear": {
+          "description": "Year the business started (shows years in business)",
+          "type": "integer",
+          "minimum": 1900,
+          "maximum": 2026
+        },
+        "ownerName": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Owner first and last name (the About section)"
+        },
+        "licensed": {
+          "type": "boolean",
+          "description": "Licensed? Only true if they really are (shown as a trust badge)"
+        },
+        "insured": {
+          "type": "boolean",
+          "description": "Insured? Only true if they really are (shown as a trust badge)"
+        }
+      },
+      "required": [
+        "name",
+        "phone",
+        "email",
+        "serviceArea",
+        "hours",
+        "ownerName",
+        "licensed",
+        "insured"
+      ],
+      "additionalProperties": false,
+      "description": "The business"
+    },
+    "brand": {
+      "type": "object",
+      "properties": {
+        "primary": {
+          "type": "string",
+          "pattern": "^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$",
+          "description": "Main brand color, hex like \"#2563eb\""
+        },
+        "accent": {
+          "type": "string",
+          "pattern": "^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$",
+          "description": "Button color, hex like \"#f59e0b\""
+        },
+        "logo": {
+          "type": "string",
+          "description": "Logo file in images/ (png or svg); also becomes the favicon"
+        },
+        "theme": {
+          "default": "light",
+          "description": "\"light\" or \"dark\" site",
+          "type": "string",
+          "enum": [
+            "light",
+            "dark"
+          ]
+        }
+      },
+      "required": [
+        "primary",
+        "accent"
+      ],
+      "additionalProperties": false,
+      "description": "Look and feel"
+    },
+    "images": {
+      "default": {},
+      "description": "Hero and owner photos",
+      "type": "object",
+      "properties": {
+        "hero": {
+          "type": "string",
+          "description": "Big top-of-page photo (best: their best work, landscape)"
+        },
+        "owner": {
+          "type": "string",
+          "description": "Photo of the owner for the About section"
+        }
+      },
+      "additionalProperties": false
+    },
+    "services": {
+      "description": "Services offered; leave out to use the template defaults",
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Service name, e.g. \"Full Detail\""
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "description": "One or two sentences on what is included"
+          },
+          "startingPrice": {
+            "description": "Starting price in dollars, e.g. 149 (shown as \"From $149\")",
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "features": {
+            "default": [],
+            "description": "3-5 short bullet points of what is included",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "description": "A bullet point"
+            }
+          }
+        },
+        "required": [
+          "name",
+          "description"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "reviews": {
+      "default": {
+        "items": []
+      },
+      "description": "Reviews",
+      "type": "object",
+      "properties": {
+        "googleRating": {
+          "description": "Overall Google rating, e.g. 4.9",
+          "type": "number",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "googleReviewCount": {
+          "description": "Number of Google reviews, e.g. 37",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "googleReviewsUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "Link that opens their Google reviews (Google Maps: their listing > Reviews > Share)"
+        },
+        "items": {
+          "default": [],
+          "description": "3-6 of their best real reviews; none yet = the reviews section is hidden",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Reviewer name as shown on the review, e.g. \"Sarah M.\""
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1,
+                "description": "The review text, copied word for word"
+              },
+              "rating": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 5,
+                "description": "Star rating 1-5"
+              },
+              "source": {
+                "default": "Google",
+                "type": "string",
+                "minLength": 1,
+                "description": "Where the review is from: Google, Facebook, Yelp, Nextdoor..."
+              }
+            },
+            "required": [
+              "name",
+              "text",
+              "rating"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "gallery": {
+      "type": "object",
+      "properties": {
+        "beforeAfter": {
+          "default": [],
+          "description": "Before/after photo pairs",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "before": {
+                "type": "string",
+                "description": "Before photo"
+              },
+              "after": {
+                "type": "string",
+                "description": "After photo"
+              },
+              "caption": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Short caption, e.g. \"Pet hair removal, Salem\""
+              }
+            },
+            "required": [
+              "before",
+              "after"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "photos": {
+          "default": [],
+          "description": "Photos of their work",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "src": {
+                "type": "string",
+                "description": "Photo file"
+              },
+              "alt": {
+                "type": "string",
+                "minLength": 1,
+                "description": "What the photo shows (for screen readers and Google)"
+              },
+              "caption": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Short caption"
+              }
+            },
+            "required": [
+              "src"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false,
+      "description": "Work photos"
+    },
+    "socials": {
+      "default": {},
+      "description": "Social links (all optional) + Google Business Profile",
+      "type": "object",
+      "properties": {
+        "googleBusinessProfile": {
+          "type": "string",
+          "format": "uri",
+          "description": "Google Business Profile link (the Maps listing)"
+        },
+        "facebook": {
+          "type": "string",
+          "format": "uri",
+          "description": "facebook page link"
+        },
+        "instagram": {
+          "type": "string",
+          "format": "uri",
+          "description": "instagram page link"
+        },
+        "tiktok": {
+          "type": "string",
+          "format": "uri",
+          "description": "tiktok page link"
+        },
+        "youtube": {
+          "type": "string",
+          "format": "uri",
+          "description": "youtube page link"
+        },
+        "yelp": {
+          "type": "string",
+          "format": "uri",
+          "description": "yelp page link"
+        },
+        "nextdoor": {
+          "type": "string",
+          "format": "uri",
+          "description": "nextdoor page link"
+        },
+        "x": {
+          "type": "string",
+          "format": "uri",
+          "description": "x page link"
+        }
+      },
+      "additionalProperties": false
+    },
+    "cta": {
+      "default": {
+        "primary": "call"
+      },
+      "description": "How customers should reach them",
+      "type": "object",
+      "properties": {
+        "primary": {
+          "default": "call",
+          "description": "Main button: \"call\", \"text\" or \"book\"",
+          "type": "string",
+          "enum": [
+            "call",
+            "text",
+            "book"
+          ]
+        },
+        "bookingUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "Online booking link (adds a Book button)"
+        }
+      },
+      "additionalProperties": false
+    },
+    "faq": {
+      "description": "FAQ; leave out to use the template defaults",
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "q": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Question"
+          },
+          "a": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Answer"
+          }
+        },
+        "required": [
+          "q",
+          "a"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "seo": {
+      "type": "object",
+      "properties": {
+        "keywords": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Keyword"
+          },
+          "description": "What customers search for, most important first, e.g. [\"mobile detailing\"]"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 70,
+          "description": "Browser tab / Google title; leave out for the default"
+        },
+        "metaDescription": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 170,
+          "description": "Google snippet text; leave out for the template default"
+        }
+      },
+      "required": [
+        "keywords"
+      ],
+      "additionalProperties": false,
+      "description": "Search engine basics"
+    },
+    "domain": {
+      "description": "Custom domain, e.g. \"twintuneddetailing.com\"; leave out until there is one",
+      "type": "string",
+      "pattern": "^(?=.{4,253}$)([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\\.)+[a-z]{2,}$"
+    },
+    "copy": {
+      "default": {},
+      "description": "Optional text overrides: headline, subheadline, about, ... (anything left out uses the template copy)",
+      "type": "object",
+      "properties": {
+        "tagline": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Override the \"tagline\" text"
+        },
+        "headline": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Override the \"headline\" text"
+        },
+        "subheadline": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Override the \"subheadline\" text"
+        },
+        "trustBadge": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Override the \"trustBadge\" text"
+        },
+        "servicesTitle": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Override the \"servicesTitle\" text"
+        },
+        "servicesIntro": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Override the \"servicesIntro\" text"
+        },
+        "galleryTitle": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Override the \"galleryTitle\" text"
+        },
+        "galleryIntro": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Override the \"galleryIntro\" text"
+        },
+        "reviewsTitle": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Override the \"reviewsTitle\" text"
+        },
+        "reviewsIntro": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Override the \"reviewsIntro\" text"
+        },
+        "aboutTitle": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Override the \"aboutTitle\" text"
+        },
+        "about": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Override the \"about\" text"
+        },
+        "areaTitle": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Override the \"areaTitle\" text"
+        },
+        "areaText": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Override the \"areaText\" text"
+        },
+        "faqTitle": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Override the \"faqTitle\" text"
+        },
+        "contactTitle": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Override the \"contactTitle\" text"
+        },
+        "contactText": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Override the \"contactText\" text"
+        },
+        "ctaCall": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Override the \"ctaCall\" text"
+        },
+        "ctaText": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Override the \"ctaText\" text"
+        },
+        "ctaBook": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Override the \"ctaBook\" text"
+        },
+        "smsBody": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Override the \"smsBody\" text"
+        },
+        "metaDescription": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Override the \"metaDescription\" text"
+        }
+      },
+      "additionalProperties": false
+    },
+    "sections": {
+      "description": "Section order; leave out for the template order. Leave a section out to hide it",
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "hero",
+          "trust",
+          "services",
+          "gallery",
+          "reviews",
+          "about",
+          "area",
+          "faq",
+          "contact"
+        ]
+      }
+    }
+  },
+  "required": [
+    "template",
+    "business",
+    "brand",
+    "gallery",
+    "seo"
+  ],
+  "additionalProperties": false
+}

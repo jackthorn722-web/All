@@ -69,6 +69,158 @@ risk, competition, scalability, required human effort, and legality for a
 | [outreach/templates.md](outreach/templates.md) | Outreach scripts (email, follow-ups, close, delivery) |
 | [outreach/lead-criteria.md](outreach/lead-criteria.md) | How leads are found and qualified |
 | [SOP.md](SOP.md) | The whole operation in 30 min/week, plus pivot rules |
+| [CLAUDE.md](CLAUDE.md) | Site pipeline conventions and exact commands |
+| `clients/<slug>/` | One folder per client: `site.json` + `images/` |
+| `templates/` | Astro base template (every section) + industry variants |
+| `lib/`, `scripts/` | Spec schema/validation and the `npm run` commands |
+| [kit/](kit/) | The standalone HTML template kit (Gumroad product, not the pipeline) |
+
+## The dashboard (easiest way)
+
+```
+npm run dashboard
+```
+
+Opens http://localhost:4400 in your browser. Keep that PowerShell window open while you use it.
+Everything below can be done from there:
+
+- **Home:** every client with a status badge, how far along they are, and their preview/live links.
+  **+ New client** creates one from a template.
+- **Client page:** the five steps (details, photos, form key, preview, live) and three buttons:
+  *Preview on my computer*, *Send preview to client* (prints the link to text them) and *Go live*
+  (unlocks when the to-do list is empty).
+- **To-do tab:** everything still missing, in plain English, each with a *Fix* button that jumps to it.
+- **Details tab:** a form for everything in site.json. Yellow = still a placeholder, red = must fix.
+  Save with the button or Ctrl+S.
+- **Photos tab:** drag in the client's photos, then pick where each goes on the Details tab.
+
+It only works on your own computer (nobody else on your network can open it), and it runs the same
+commands described below, so you can mix it with the terminal freely.
+
+## Add a new client in 30 minutes
+
+The site pipeline turns one filled-out `site.json` into a finished static site. You need
+Node 22.12+ ([nodejs.org](https://nodejs.org), LTS installer) and, once, `npm install` in this folder.
+Every command works the same in PowerShell, cmd or VS Code's terminal on Windows.
+
+**Before the call (2 min)**: pick a short slug (lowercase, dashes ok) and the closest template:
+
+```
+npm run new -- twintuned --template detailer
+```
+
+(If PowerShell ever says "Missing --template", `npm run new -- twintuned detailer` does the same.) This creates `clients/twintuned/site.json` (every unknown is a `TODO`), labeled placeholder photos
+in `clients/twintuned/images/`, and prints the **intake checklist**: every field to collect, required
+ones starred. Keep it open during the call.
+
+**On the call (15 min)**: go down the checklist. Ask them to text or email 5-10 photos (best work,
+before/afters, one of themselves, the logo). Big phone photos are fine; iPhone photos must be JPG, not
+HEIC (Settings > Camera > Formats > Most Compatible). Read them the default services and FAQ answers and
+note changes. Only mark licensed/insured if they confirm it, and only use real reviews, word for word.
+
+**Fill it in (10 min)**: open `site.json` in VS Code (it autocompletes and underlines mistakes).
+Replace every `TODO`, drop their photos into `images/`, point the image fields at them, and delete the
+`placeholder-*.jpg` files. Anything you leave out of `copy`, `services` or `faq` uses the template's
+default copy. Then:
+
+```
+npm run check -- twintuned     # lists every missing field and leftover placeholder by exact name
+npm run dev -- twintuned       # live preview at http://localhost:4321, updates as you edit
+```
+
+Keep going until `check` says **READY**.
+
+**Build (1 min)**:
+
+```
+npm run build -- twintuned     # finished static site in dist/twintuned/
+npm run preview -- twintuned   # look at exactly what will be deployed
+```
+
+The contact form sends to the Web3Forms inbox in `.env` (copy `.env.example` to `.env`; add
+`WEB3FORMS_KEY_TWINTUNED=...` to route one client's leads to their own inbox).
+
+**Send the preview (1 min)**: `npm run deploy -- twintuned` and text the client the link it prints.
+
+## Deploy and go live
+
+Every client gets its own Cloudflare Pages project, named after the slug. Hosting is free.
+
+### One-time setup (5 minutes)
+
+1. Run `npm install` in this folder (again whenever you update the repo: deploy needs `wrangler`,
+   which it installs).
+2. Make a free Cloudflare account at [dash.cloudflare.com](https://dash.cloudflare.com).
+3. **Account ID**: in the dashboard open *Workers & Pages*; "Account ID" is on the right. Put it in
+   `.env` as `CLOUDFLARE_ACCOUNT_ID=...`.
+4. **Cloudflare API token** (lets deploy connect domains by itself): *My Profile > API Tokens >
+   Create Token > Create Custom Token*, with these permissions:
+   - Account | Cloudflare Pages | Edit
+   - Zone | DNS | Edit
+   - Zone | Zone | Read
+   - Account Resources: your account. Zone Resources: *All zones from an account* (so new client
+     domains work without editing the token).
+
+   Save it in `.env` as `CLOUDFLARE_API_TOKEN=...`. (Notepad may save the file as `.env.txt`; it
+   must be exactly `.env`.) No token? Deploy still works: the first time, it opens the browser to
+   sign in to Cloudflare, and it prints the domain steps for you to click through.
+
+### Preview for the client
+
+```
+npm run deploy -- twintuned
+```
+
+Builds, creates the Pages project on the first run, uploads, and prints
+`https://preview.twintuned.pages.dev`. Text that link to the client. It stays the same every time you
+redeploy a preview, and search engines are told not to index it. (If `twintuned.pages.dev` was
+already taken by someone else, Cloudflare adds a suffix; deploy always prints the real address.)
+
+### Production
+
+```
+npm run deploy -- twintuned --prod
+```
+
+Refuses while `check` still lists placeholders or there is no Web3Forms key. Otherwise it deploys the
+live site and, if `site.json` has a `"domain"`, connects it. (If PowerShell drops `--prod`, use
+`npm run deploy -- twintuned prod`.)
+
+With the API token and the domain's DNS in your Cloudflare account, it attaches both
+`twintuneddetailing.com` and `www.twintuneddetailing.com` and creates their DNS records. It never
+deletes an existing record: if an old site's record is in the way, it prints exactly what to change.
+Security certificates take 5-15 minutes; run deploy --prod again (or look at *Workers & Pages >
+twintuned > Custom domains*) to see the status. Without a domain, `https://twintuned.pages.dev` is
+the live address. Without the token, deploy prints the same steps below with the real names filled in.
+
+### Connecting the domain: the two cases
+
+**The client already owns the domain** (GoDaddy, Namecheap, Squarespace...). The registrar steps
+need their login: have them do those with you on the phone.
+
+- *Recommended: move the DNS to Cloudflare.* This handles both `domain.com` and `www.domain.com`.
+  1. Cloudflare dashboard > *Domains > Onboard a domain* > their domain > *Free* plan.
+  2. Screenshot every record at their current DNS provider first. Cloudflare's import can miss
+     some: add anything missing, especially MX, TXT (SPF/DKIM/DMARC) and mail CNAMEs. Those run
+     their email. Keep mail records *DNS only*.
+  3. If DNSSEC is on at their registrar, turn it off first (skipping this can take the site and
+     email offline). You can turn it on again later in Cloudflare.
+  4. At the registrar, replace the nameservers with the two Cloudflare shows.
+  5. When the domain shows *Active* in Cloudflare (up to 24 hours), run
+     `npm run deploy -- <slug> --prod`. With the API token it connects everything; without it,
+     follow the dashboard steps it prints.
+- *Keep the DNS where it is (www only).* Set `"domain": "www.theirdomain.com"` and run deploy
+  `--prod` (with the token it attaches the domain; without it, *Workers & Pages > project > Custom
+  domains > Set up a custom domain*). Only then, at their registrar, change the `www` record to
+  `CNAME www -> <slug>.pages.dev`, and forward the bare domain to `https://www.theirdomain.com`.
+  Deploy prints these steps with the real names.
+
+**You register a domain for them.** Cloudflare dashboard > *Domain Registration > Register Domains*
+(at cost, about $10 a year). Use the client's name and contact details so they own it. Right after,
+the client gets a "verify your email" message (an ICANN rule): they must click it or the domain is
+suspended after a few days, so do it together on the call. Auto-renew is on and billed to your
+account: agree who pays the yearly renewal. The domain is already in your account, so set
+`"domain"` and run `npm run deploy -- <slug> --prod`.
 
 ## Legal & boundaries (standing rules)
 

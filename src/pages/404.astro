@@ -1,0 +1,18 @@
+---
+import Site from '../../templates/base/layouts/Site.astro';
+import CtaButtons from '../../templates/base/components/CtaButtons.astro';
+import { getSite } from '../../templates/base/site.js';
+
+const site = await getSite();
+---
+
+<Site site={site} title={`Page not found | ${site.business.name}`} noindex>
+  <section class="container-x py-24 text-center sm:py-32">
+    <p class="eyebrow">404</p>
+    <h1 class="h2 mt-2">That page does not exist.</h1>
+    <p class="mx-auto mt-4 max-w-md text-lg text-muted">But we are easy to reach. Head back to the home page, or call us now.</p>
+    <CtaButtons site={site} class="mt-8 justify-center">
+      <a href="/" class="btn btn-outline">Home page</a>
+    </CtaButtons>
+  </section>
+</Site>

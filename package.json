@@ -1,0 +1,29 @@
+{
+  "name": "dialedin-sites",
+  "private": true,
+  "type": "module",
+  "description": "Turns clients/<slug>/site.json into a finished static site.",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dashboard": "node scripts/dashboard.mjs",
+    "new": "node scripts/new.mjs",
+    "check": "node scripts/check.mjs",
+    "dev": "node scripts/dev.mjs",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/preview.mjs",
+    "deploy": "node scripts/deploy.mjs",
+    "schema": "node scripts/schema.mjs"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.3.5",
+    "sharp": "^0.35.5",
+    "tailwindcss": "^4.3.3",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "wrangler": "^4.143.1"
+  }
+}

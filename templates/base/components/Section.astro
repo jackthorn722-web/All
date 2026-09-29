@@ -1,0 +1,25 @@
+---
+// Shared section wrapper: consistent spacing, eyebrow, heading and intro.
+interface Props {
+  id: string;
+  title: string;
+  eyebrow?: string;
+  intro?: string;
+  tone?: 'bg' | 'surface';
+  center?: boolean;
+}
+const { id, title, eyebrow, intro, tone = 'bg', center = false } = Astro.props;
+---
+
+<section id={id} class:list={['py-16 sm:py-24', tone === 'surface' ? 'bg-surface' : 'bg-bg']} aria-labelledby={`${id}-title`}>
+  <div class="container-x">
+    <div class:list={['max-w-2xl', center && 'mx-auto text-center']}>
+      {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+      <h2 id={`${id}-title`} class="h2 mt-2">{title}</h2>
+      {intro && <p class="mt-4 text-lg text-muted">{intro}</p>}
+    </div>
+    <div class="mt-10 sm:mt-12">
+      <slot />
+    </div>
+  </div>
+</section>

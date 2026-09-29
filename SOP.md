@@ -35,10 +35,10 @@
 ## Fulfillment checklist (per client)
 
 1. Reply "sure" received → send intake questions (template in outreach/templates.md)
-2. Intake answers received → Claude builds site in `clients/{{business-slug}}/`
-3. Deploy preview (GitHub Pages subpath or Netlify) → Jack approves → send preview to client
+2. Intake answers received → `npm run new -- <slug> --template <variant>`, fill `clients/<slug>/site.json` (README: "Add a new client in 30 minutes")
+3. `npm run deploy -- <slug>` → Jack approves the preview link → send it to the client
 4. Revisions (max 2 rounds) → client approves
-5. Connect domain → send payment request ($249) → **money lands** → log in LEDGER.md
+5. `npm run deploy -- <slug> --prod` (connects the domain) → send payment request ($249) → **money lands** → log in LEDGER.md
 6. One week later: SiteCare upsell ($15/mo)
 
 ## Pivot rules (checked every Monday)

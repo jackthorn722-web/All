@@ -1,0 +1,47 @@
+---
+// Service area: every city by name (good for local SEO), plus hours.
+import Section from './Section.astro';
+import Icon from './Icon.astro';
+import Hours from './Hours.astro';
+interface Props {
+  site: any;
+}
+const { site } = Astro.props;
+const { business: b } = site;
+---
+
+<Section id="area" eyebrow="Service area" title={site.copy.areaTitle}>
+  <div class="grid gap-10 lg:grid-cols-5">
+    <div class="lg:col-span-3">
+      <p class="-mt-4 max-w-2xl text-lg text-muted">{site.copy.areaText}</p>
+      <ul class="mt-8 flex flex-wrap gap-2.5" aria-label="Cities we serve">
+        {
+          b.cities.map((c: string, i: number) => (
+            <li
+              class:list={[
+                'inline-flex items-center gap-2 rounded-full border px-4 py-2 font-semibold',
+                i === 0 ? 'border-transparent bg-primary text-on-primary' : 'border-line bg-surface',
+              ]}
+            >
+              <Icon name="pin" class="h-4 w-4" />
+              {c}, {b.serviceArea.state}
+            </li>
+          ))
+        }
+      </ul>
+      {
+        b.address && (
+          <p class="mt-8">
+            <span class="font-bold">Our shop:</span> {b.address.street}, {b.address.city}, {b.address.state} {b.address.zip}
+          </p>
+        )
+      }
+    </div>
+    <div class="rounded-3xl border border-line bg-surface p-6 sm:p-8 lg:col-span-2">
+      <h3 class="flex items-center gap-2 text-lg font-extrabold">
+        <Icon name="clock" class="h-5 w-5 text-link" /> Hours
+      </h3>
+      <Hours site={site} class="mt-4" />
+    </div>
+  </div>
+</Section>

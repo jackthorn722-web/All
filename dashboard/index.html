@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DialedIn Dashboard</title>
+<style>
+:root{
+  --bg:#f5f6f8; --card:#fff; --ink:#0f172a; --muted:#64748b; --line:#e5e7eb; --soft:#f1f5f9;
+  --brand:#4f46e5; --brand-ink:#fff; --brand-soft:#eef2ff;
+  --ok:#15803d; --ok-soft:#dcfce7; --warn:#b45309; --warn-soft:#fef3c7; --bad:#b91c1c; --bad-soft:#fee2e2;
+  --radius:14px; --shadow:0 1px 2px rgba(15,23,42,.06),0 4px 16px rgba(15,23,42,.05);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid #a5b4fc;outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+/* top bar */
+.top{background:#0f172a;color:#fff;position:sticky;top:0;z-index:20}
+.top .wrap{display:flex;align-items:center;gap:16px;height:60px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.01em;color:#fff}
+.logo:hover{text-decoration:none}
+.logo i{display:grid;place-items:center;width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,#6366f1,#22d3ee);font-style:normal}
+.logo small{font-weight:500;color:#94a3b8}
+.envs{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.env{font-size:12px;padding:4px 10px;border-radius:99px;background:#1e293b;color:#cbd5e1;display:flex;gap:6px;align-items:center}
+.env b{width:8px;height:8px;border-radius:50%;background:#64748b;display:inline-block}
+.env.on b{background:#4ade80}
+/* generic */
+h1{font-size:28px;margin:0;letter-spacing:-.02em}
+h2{font-size:18px;margin:0 0 4px}
+h3{font-size:15px;margin:0}
+.muted{color:var(--muted)}
+.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;color:var(--ink);padding:9px 16px;border-radius:10px;font-weight:600;white-space:nowrap}
+.btn:hover{background:var(--soft);text-decoration:none}
+.btn.primary{background:var(--brand);border-color:var(--brand);color:var(--brand-ink)}
+.btn.primary:hover{background:#4338ca}
+.btn.green{background:var(--ok);border-color:var(--ok);color:#fff}
+.btn.green:hover{background:#166534}
+.btn.ghost{background:transparent;border-color:transparent}
+.btn.small{padding:5px 10px;font-size:13px;border-radius:8px}
+.btn.danger{color:var(--bad)}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;padding:3px 10px;border-radius:99px}
+.pill.ok{background:var(--ok-soft);color:var(--ok)} .pill.warn{background:var(--warn-soft);color:var(--warn)} .pill.bad{background:var(--bad-soft);color:var(--bad)} .pill.info{background:var(--brand-soft);color:var(--brand)}
+.pill.gray{background:var(--soft);color:var(--muted)}
+/* home */
+.hero-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin:32px 0 20px;flex-wrap:wrap}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:22px}
+.stat{padding:16px 18px}
+.stat b{display:block;font-size:26px;letter-spacing:-.02em}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-bottom:40px}
+.client{overflow:hidden;cursor:pointer;transition:transform .12s,box-shadow .12s;display:flex;flex-direction:column}
+.client:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(15,23,42,.1)}
+.client .img{height:140px;background:linear-gradient(135deg,#312e81,#0e7490);background-size:cover;background-position:center}
+.client .body{padding:16px 18px;display:flex;flex-direction:column;gap:10px;flex:1}
+.client .links{display:flex;gap:14px;font-size:13.5px;font-weight:600;margin-top:auto}
+.bar{height:8px;background:var(--soft);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,#6366f1,#22c55e);border-radius:99px}
+.empty{padding:48px;text-align:center}
+/* client page */
+.back{display:inline-block;margin:22px 0 8px;font-weight:600}
+.head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;flex-wrap:wrap;margin-bottom:18px}
+.actions{padding:16px 18px;margin-bottom:18px;display:grid;gap:14px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.step{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-radius:10px;background:var(--soft)}
+.step .dot{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:800;background:#cbd5e1;color:#fff}
+.step.done .dot{background:var(--ok)} .step.todo .dot{background:var(--warn)}
+.step small{display:block;color:var(--muted);font-size:12.5px;line-height:1.35}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:18px}
+.tab{border:0;background:none;padding:10px 14px;font-weight:700;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab.on{color:var(--brand);border-color:var(--brand)}
+.tab .n{font-size:11px;background:var(--warn-soft);color:var(--warn);border-radius:99px;padding:1px 7px;margin-left:4px}
+/* log */
+.log{background:#0b1020;color:#cbd5e1;border-radius:12px;overflow:hidden}
+.log header{display:flex;align-items:center;gap:10px;padding:10px 14px;background:#111831;color:#fff;font-weight:600}
+.log pre{margin:0;padding:12px 14px;max-height:280px;overflow:auto;font:12.5px/1.55 ui-monospace,Consolas,monospace;white-space:pre-wrap}
+.spin{width:14px;height:14px;border:2px solid #475569;border-top-color:#a5b4fc;border-radius:50%;animation:s 1s linear infinite}
+@keyframes s{to{transform:rotate(360deg)}}
+.result{padding:12px 14px;background:#10301f;color:#bbf7d0;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.result.fail{background:#3b1215;color:#fecaca}
+.result a{color:#fff;font-weight:700}
+/* todo */
+.todo-group{padding:6px 0}
+.todo{display:flex;gap:12px;align-items:flex-start;padding:12px 16px;border-top:1px solid var(--line)}
+.todo:first-of-type{border-top:0}
+.todo .ic{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:800;color:#fff}
+.todo .ic.bad{background:var(--bad)} .todo .ic.warn{background:#f59e0b} .todo .ic.note{background:#94a3b8}
+.todo .what{flex:1}
+.todo small{color:var(--muted)}
+.section-title{padding:14px 16px 4px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:800}
+/* form */
+.form{display:grid;gap:16px;padding-bottom:90px}
+.fs{padding:18px 20px}
+.fs>header{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+.fields{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px 18px}
+.field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.field.wide{grid-column:1/-1}
+.field label{font-size:13px;font-weight:700}
+.field .hint{font-size:12px;color:var(--muted)}
+.field .msg{font-size:12.5px;font-weight:600}
+.field.err .msg{color:var(--bad)} .field.ph .msg{color:var(--warn)}
+input[type=text],input[type=number],input[type=url],input[type=email],input[type=tel],input[type=time],select,textarea{
+  font:inherit;border:1px solid #cbd5e1;border-radius:9px;padding:8px 11px;background:#fff;color:var(--ink);width:100%}
+textarea{min-height:80px;resize:vertical}
+input:focus,select:focus,textarea:focus{border-color:var(--brand);outline:3px solid #e0e7ff}
+.field.err input,.field.err select,.field.err textarea{border-color:var(--bad);background:#fff7f7}
+.field.ph input,.field.ph select,.field.ph textarea{border-color:#f59e0b;background:#fffbeb}
+input[type=color]{width:48px;height:38px;border:1px solid #cbd5e1;border-radius:9px;padding:3px;background:#fff}
+.item{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fcfcfd;margin-bottom:12px}
+.item>header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-weight:700}
+.hours{display:grid;gap:6px}
+.hours .d{display:grid;grid-template-columns:60px 90px 1fr 1fr;gap:8px;align-items:center}
+.switch{display:inline-flex;gap:6px;align-items:center;font-size:13px;font-weight:600}
+.savebar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:#0f172a;color:#fff;transform:translateY(100%);transition:transform .2s}
+.savebar.show{transform:none}
+.savebar .wrap{display:flex;align-items:center;gap:12px;height:64px}
+/* photos */
+.drop{border:2px dashed #c7d2fe;background:var(--brand-soft);border-radius:var(--radius);padding:28px;text-align:center;margin-bottom:18px}
+.drop.over{background:#e0e7ff;border-color:var(--brand)}
+.photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px}
+.photo{overflow:hidden}
+.photo .th{aspect-ratio:4/3;background:#e2e8f0 center/cover no-repeat}
+.photo .meta{padding:10px 12px;display:grid;gap:6px;font-size:13px}
+.photo .name{font-weight:700;word-break:break-all}
+/* modal + toast */
+.modal{position:fixed;inset:0;background:rgba(15,23,42,.45);display:grid;place-items:center;z-index:50;padding:20px}
+.modal .card{width:min(480px,100%);padding:22px}
+.toasts{position:fixed;right:18px;bottom:84px;display:grid;gap:8px;z-index:60}
+.toast{background:#0f172a;color:#fff;padding:10px 14px;border-radius:10px;box-shadow:var(--shadow);max-width:380px}
+.toast.bad{background:var(--bad)}
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap">
+  <a class="logo" href="#/"><i>D</i><span>DialedIn Sites <small>Dashboard</small></span></a>
+  <div class="envs" id="envs"></div>
+</div></div>
+<main class="wrap" id="app"><p class="muted" style="margin-top:40px">Loading...</p></main>
+<div class="savebar" id="savebar"><div class="wrap">
+  <b>Unsaved changes</b><span class="muted" style="color:#94a3b8">Ctrl+S saves</span>
+  <span style="margin-left:auto"></span>
+  <button class="btn ghost" style="color:#fff" id="discard">Discard</button>
+  <button class="btn primary" id="save">Save changes</button>
+</div></div>
+<div class="toasts" id="toasts"></div>
+
+<script>
+// ---------- tiny helpers ----------
+const $ = (s, el = document) => el.querySelector(s);
+const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+const api = async (url, opts = {}) => {
+  const res = await fetch(url, { ...opts, headers: { 'Content-Type': 'application/json', ...(opts.headers || {}) } });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+  return data;
+};
+function toast(msg, bad = false) {
+  const t = document.createElement('div');
+  t.className = 'toast' + (bad ? ' bad' : '');
+  t.textContent = msg;
+  $('#toasts').append(t);
+  setTimeout(() => t.remove(), bad ? 7000 : 3500);
+}
+const ago = (iso) => {
+  if (!iso) return '';
+  const m = Math.round((Date.now() - new Date(iso)) / 60000);
+  return m < 1 ? 'just now' : m < 60 ? `${m} min ago` : m < 1440 ? `${Math.round(m / 60)} h ago` : `${Math.round(m / 1440)} d ago`;
+};
+
+// Paths like "services[0].name" -> ["services", 0, "name"]
+const parse = (p) => p.split(/\.|\[(\d+)\]/).filter((x) => x !== undefined && x !== '').map((x) => (/^\d+$/.test(x) ? Number(x) : x));
+const getP = (o, p) => parse(p).reduce((a, k) => (a == null ? undefined : a[k]), o);
+function setP(o, p, v) {
+  const keys = parse(p);
+  let cur = o;
+  keys.slice(0, -1).forEach((k, i) => {
+    if (cur[k] == null || typeof cur[k] !== 'object') cur[k] = typeof keys[i + 1] === 'number' ? [] : {};
+    cur = cur[k];
+  });
+  const last = keys.at(-1);
+  if (v === undefined) Array.isArray(cur) ? (cur[last] = undefined) : delete cur[last];
+  else cur[last] = v;
+}
+
+// ---------- friendly names ----------
+const LABELS = {
+  'business.name': 'Business name', 'business.tagline': 'Tagline', 'business.industry': 'Industry', 'business.phone': 'Phone number',
+  'business.textsOk': 'Takes texts?', 'business.email': 'Email', 'business.serviceArea.homeCity': 'Home city', 'business.serviceArea.state': 'State',
+  'business.serviceArea.nearbyCities': 'Nearby cities', 'business.hours': 'Hours', 'business.hoursNote': 'Hours note', 'business.address': 'Address',
+  'business.foundedYear': 'Year started', 'business.ownerName': 'Owner name', 'business.licensed': 'Licensed', 'business.insured': 'Insured',
+  'brand.primary': 'Main color', 'brand.accent': 'Button color', 'brand.logo': 'Logo', 'brand.theme': 'Light or dark',
+  'images.hero': 'Big top photo', 'images.owner': 'Owner photo', 'reviews.googleRating': 'Google rating', 'reviews.googleReviewCount': 'Number of Google reviews',
+  'reviews.googleReviewsUrl': 'Google reviews link', 'socials.googleBusinessProfile': 'Google Business Profile', 'seo.keywords': 'Search keywords',
+  'seo.title': 'Page title', 'seo.metaDescription': 'Google description', domain: 'Domain', 'cta.primary': 'Main button', 'cta.bookingUrl': 'Booking link',
+  template: 'Template', gallery: 'Work photos', 'reviews.items': 'Reviews',
+};
+const SECTIONS = { business: 'Business', brand: 'Look', images: 'Photos', services: 'Services', reviews: 'Reviews', gallery: 'Work photos', socials: 'Links', cta: 'Buttons', faq: 'FAQ', seo: 'Google', domain: 'Domain', copy: 'Wording', sections: 'Sections', template: 'Template' };
+function human(path) {
+  if (LABELS[path]) return LABELS[path];
+  const keys = parse(path);
+  const parts = [];
+  keys.forEach((k, i) => {
+    if (typeof k === 'number') parts[parts.length - 1] += ` ${k + 1}`;
+    else if (i === 0 && keys.length > 1) parts.push({ services: 'Service', faq: 'Question' }[k] ?? SECTIONS[k] ?? k);
+    else parts.push(k.replace(/([A-Z])/g, ' $1').replace(/^./, (c) => c.toUpperCase()));
+  });
+  return parts.filter((p) => !['Items', 'Reviews', 'Gallery'].includes(p)).join(' - ').replace('Before After', 'Before/after pair').replace(/^Photos/, 'Photo') || path;
+}
+const WHY = {
+  'contains TODO': 'still has sample text (TODO)', 'fictional 555-01xx number': 'is still the fake 555 number',
+  'example.com placeholder': 'is still an example.com placeholder', 'placeholder image': 'is still a placeholder photo',
+  'ask: does this number take texts? true or false': 'is not answered yet (ask the client)',
+};
+
+// ---------- state ----------
+let S = { state: null, client: null, draft: null, dirty: false, tab: 'todo', job: null };
+
+async function loadState() {
+  S.state = await api('/api/state');
+  const e = S.state.env;
+  $('#envs').innerHTML = [
+    ['Form key', e.formKey], ['Cloudflare token', e.cfToken], ['Account ID', e.cfAccount],
+  ].map(([n, on]) => `<span class="env ${on ? 'on' : ''}" title="${on ? 'Set in .env' : 'Not set in .env'}"><b></b>${n}</span>`).join('');
+}
+
+function status(c) {
+  if (c.error || c.errors) return { cls: 'bad', text: c.error ? 'site.json broken' : `${c.errors} to fix` };
+  if (c.placeholders) return { cls: 'warn', text: `${c.placeholders} left to fill` };
+  if (c.deploys?.production) return { cls: 'ok', text: 'Live' };
+  return { cls: 'ok', text: 'Ready' };
+}
+
+// ---------- router ----------
+window.addEventListener('hashchange', route);
+async function route() {
+  if (S.dirty && S.client && !location.hash.startsWith(`#/c/${S.client.slug}`)) {
+    if (!confirm('You have unsaved changes. Leave without saving?')) return history.back();
+    S.dirty = false;
+    updateSavebar();
+  }
+  const m = location.hash.match(/^#\/c\/([a-z0-9-]+)/);
+  try {
+    await loadState();
+    if (m) await openClient(m[1]);
+    else renderHome();
+  } catch (e) {
+    $('#app').innerHTML = `<div class="card empty" style="margin-top:40px"><h2>Something went wrong</h2><p class="muted">${esc(e.message)}</p><p>Is the dashboard window still running?</p></div>`;
+  }
+}
+
+// ---------- home ----------
+function renderHome() {
+  S.client = null;
+  const cs = S.state.clients;
+  const live = cs.filter((c) => c.deploys?.production).length;
+  const ready = cs.filter((c) => !c.error && !c.errors && !c.placeholders).length;
+  $('#app').innerHTML = `
+    <div class="hero-head">
+      <div><h1>Clients</h1><div class="muted">Everything you need to get each site live.</div></div>
+      <button class="btn primary" id="newc">+ New client</button>
+    </div>
+    <div class="stats">
+      <div class="card stat"><b>${cs.length}</b><span class="muted">clients</span></div>
+      <div class="card stat"><b>${cs.length - ready}</b><span class="muted">still being filled in</span></div>
+      <div class="card stat"><b>${ready}</b><span class="muted">ready to go live</span></div>
+      <div class="card stat"><b>${live}</b><span class="muted">live sites</span></div>
+    </div>
+    ${cs.length ? `<div class="grid">${cs.map(card).join('')}</div>` : `<div class="card empty"><h2>No clients yet</h2><p class="muted">Start with "New client" after your intake call.</p></div>`}`;
+  $('#newc').onclick = newClientModal;
+  document.querySelectorAll('.client').forEach((el) => (el.onclick = (e) => { if (!e.target.closest('a')) location.hash = `#/c/${el.dataset.slug}`; }));
+}
+function card(c) {
+  const st = status(c);
+  const total = 36;
+  const pct = c.error ? 0 : Math.max(6, Math.round(100 * (1 - Math.min(1, (c.errors * 2 + c.placeholders) / total))));
+  const img = c.hero ? `background-image:url('/thumb/${c.slug}/${encodeURI(c.hero)}')` : '';
+  const p = c.deploys?.preview, l = c.deploys?.production;
+  return `<div class="card client" data-slug="${c.slug}" tabindex="0">
+    <div class="img" style="${img}"></div>
+    <div class="body">
+      <div class="row" style="justify-content:space-between"><h2 style="margin:0">${esc(c.name)}</h2><span class="pill ${st.cls}">${st.text}</span></div>
+      <div class="muted" style="font-size:13.5px">${esc(c.city || 'No city yet')} &middot; ${esc(c.template || '?')} &middot; ${esc(c.slug)}</div>
+      <div class="bar" title="How complete the details are"><i style="width:${pct}%"></i></div>
+      <div class="links">
+        ${p ? `<a href="${esc(p.url)}" target="_blank">Preview &nearr;</a>` : '<span class="muted">No preview yet</span>'}
+        ${l ? `<a href="${esc(c.domain ? 'https://' + c.domain : l.url)}" target="_blank">Live site &nearr;</a>` : ''}
+      </div>
+    </div></div>`;
+}
+function newClientModal() {
+  const m = document.createElement('div');
+  m.className = 'modal';
+  m.innerHTML = `<form class="card">
+    <h2>New client</h2><p class="muted" style="margin-top:0">Creates their folder with sample text and placeholder photos. You fill it in on the next screen.</p>
+    <div class="field"><label>Short name (slug)</label><input type="text" name="slug" placeholder="smith-lawn" required pattern="[a-z0-9-]+" autofocus>
+      <span class="hint">Lowercase, dashes ok. Used for their preview link: preview.<b>slug</b>.pages.dev</span></div>
+    <div class="field" style="margin-top:12px"><label>Template</label><select name="template">${S.state.templates.map((t) => `<option value="${t.id}">${esc(t.label)}</option>`).join('')}</select></div>
+    <div class="row" style="justify-content:flex-end;margin-top:18px"><button type="button" class="btn ghost" data-x>Cancel</button><button class="btn primary">Create client</button></div>
+  </form>`;
+  document.body.append(m);
+  const f = $('form', m);
+  f.slug.addEventListener('input', () => (f.slug.value = f.slug.value.toLowerCase().replace(/[^a-z0-9-]/g, '-')));
+  $('[data-x]', m).onclick = () => m.remove();
+  f.onsubmit = async (e) => {
+    e.preventDefault();
+    const b = $('button.primary', f);
+    b.disabled = true;
+    b.textContent = 'Creating...';
+    try {
+      await api('/api/clients', { method: 'POST', body: JSON.stringify({ slug: f.slug.value, template: f.template.value }) });
+      m.remove();
+      location.hash = `#/c/${f.slug.value}`;
+      S.tab = 'details';
+    } catch (err) {
+      toast(err.message, true);
+      b.disabled = false;
+      b.textContent = 'Create client';
+    }
+  };
+}
+
+// ---------- client page ----------
+async function openClient(slug, keepDraft = false) {
+  const c = await api(`/api/clients/${slug}`);
+  S.client = c;
+  if (!keepDraft || !S.draft) {
+    S.draft = structuredClone(c.spec);
+    S.dirty = false;
+  }
+  renderClient();
+  resumeJob();
+}
+function issues() {
+  const v = S.client.validation;
+  return {
+    errors: v.errors.map((e) => ({ kind: 'bad', path: e.path, text: `${human(e.path)} ${e.message}`, hint: e.hint })),
+    ph: v.placeholders.map((p) => ({ kind: 'warn', path: p.path, text: `${human(p.path)} ${WHY[p.why] ?? p.why}` })),
+    notes: v.notes.map((n) => ({ kind: 'note', path: '', text: n })),
+  };
+}
+function renderClient() {
+  const c = S.client;
+  if (c.jsonError) {
+    $('#app').innerHTML = `<a class="back" href="#/">&larr; All clients</a><div class="card fs"><h2>site.json can't be read</h2><p>${esc(c.jsonError)}</p><p class="muted">Open clients/${c.slug}/site.json in VS Code and fix that line, then reload this page.</p></div>`;
+    return;
+  }
+  const sp = S.draft;
+  const { errors, ph, notes } = issues();
+  const usedPlaceholderImgs = c.images.filter((i) => i.placeholder && i.used.length).length;
+  const d = c.deploys;
+  const liveUrl = d.production && (sp.domain ? `https://${sp.domain}` : d.production.url);
+  const steps = [
+    ['Fill in the details', errors.length + ph.length ? `${errors.length + ph.length} left` : 'All done', !errors.length && !ph.length],
+    ['Add their photos', usedPlaceholderImgs ? `${usedPlaceholderImgs} placeholder photos in use` : 'All real photos', !usedPlaceholderImgs],
+    ['Contact form key', c.formKey ? 'Set in .env' : `Add WEB3FORMS_KEY to .env`, c.formKey],
+    ['Send preview to client', d.preview ? `Sent ${ago(d.preview.at)}` : 'Not yet', Boolean(d.preview)],
+    ['Go live', d.production ? `Live ${ago(d.production.at)}` : 'Not yet', Boolean(d.production)],
+  ];
+  const canLive = !errors.length && !ph.length && c.formKey;
+  const st = status({ errors: errors.length, placeholders: ph.length, deploys: d });
+  $('#app').innerHTML = `
+    <a class="back" href="#/">&larr; All clients</a>
+    <div class="head">
+      <div><div class="row"><h1>${esc(sp.business?.name || c.slug)}</h1><span class="pill ${st.cls}">${st.text}</span></div>
+        <div class="muted">${esc(c.variant?.label || sp.template)} template &middot; folder clients/${esc(c.slug)}</div></div>
+      <div class="row" style="font-weight:600">
+        ${d.preview ? `<a href="${esc(d.preview.url)}" target="_blank">Preview link &nearr;</a> <button class="btn small" data-copy="${esc(d.preview.url)}">Copy</button>` : ''}
+        ${liveUrl ? `<a href="${esc(liveUrl)}" target="_blank">Live site &nearr;</a>` : ''}
+      </div>
+    </div>
+    <section class="card actions">
+      <div class="steps">${steps.map(([t, s, ok], i) => `<div class="step ${ok ? 'done' : i < 3 ? 'todo' : ''}"><span class="dot">${ok ? '&#10003;' : i + 1}</span><div><b>${t}</b><small>${esc(s)}</small></div></div>`).join('')}</div>
+      <div class="row">
+        <button class="btn" data-run="dev" title="Opens the site on this computer; updates as you edit">&#128065; Preview on my computer</button>
+        <button class="btn primary" data-run="deploy" title="Uploads a preview and gives you a link to send">&#128228; Send preview to client</button>
+        <button class="btn green" data-run="deploy-prod" ${canLive ? '' : 'disabled'} title="${canLive ? 'Publish the real site' : 'Finish the to-do list (and the form key) first'}">&#128640; Go live</button>
+        <span class="muted" style="font-size:13px">${canLive ? '' : 'Go live unlocks when the to-do list is empty.'}</span>
+      </div>
+      <div id="logbox"></div>
+    </section>
+    <div class="tabs">
+      <button class="tab" data-tab="todo">To-do ${errors.length + ph.length ? `<span class="n">${errors.length + ph.length}</span>` : ''}</button>
+      <button class="tab" data-tab="details">Details</button>
+      <button class="tab" data-tab="photos">Photos <span class="muted" style="font-weight:500">(${c.images.length})</span></button>
+    </div>
+    <div id="tabbody"></div>`;
+  document.querySelectorAll('[data-tab]').forEach((b) => (b.onclick = () => { S.tab = b.dataset.tab; renderTab(); }));
+  document.querySelectorAll('[data-run]').forEach((b) => (b.onclick = () => run(b.dataset.run)));
+  document.querySelectorAll('[data-copy]').forEach((b) => (b.onclick = () => { navigator.clipboard.writeText(b.dataset.copy); toast('Link copied'); }));
+  renderTab();
+  renderLog();
+}
+function renderTab() {
+  document.querySelectorAll('[data-tab]').forEach((b) => b.classList.toggle('on', b.dataset.tab === S.tab));
+  const body = $('#tabbody');
+  if (S.tab === 'todo') body.innerHTML = todoHtml();
+  if (S.tab === 'photos') body.innerHTML = photosHtml();
+  if (S.tab === 'details') body.innerHTML = detailsHtml();
+  wireTab();
+}
+
+// ---------- to-do ----------
+function todoHtml() {
+  const { errors, ph, notes } = issues();
+  if (!errors.length && !ph.length)
+    return `<div class="card empty"><h2>&#127881; Nothing left to fill in</h2><p class="muted">Send the preview to the client, and go live once they approve.</p>${notes.length ? notesHtml(notes) : ''}</div>`;
+  const all = [...errors, ...ph];
+  const groups = {};
+  for (const i of all) (groups[SECTIONS[parse(i.path)[0]] ?? 'Other'] ??= []).push(i);
+  return `<div class="card">${Object.entries(groups).map(([g, items]) => `
+      <div class="todo-group"><div class="section-title">${esc(g)}</div>
+      ${items.map((i) => `<div class="todo"><span class="ic ${i.kind}">${i.kind === 'bad' ? '!' : '&bull;'}</span>
+        <div class="what"><div>${esc(i.text)}</div>${i.hint ? `<small>${esc(i.hint)}</small>` : ''}</div>
+        <button class="btn small" data-fix="${esc(i.path)}">Fix</button></div>`).join('')}</div>`).join('')}
+    </div>${notes.length ? `<div class="card" style="margin-top:16px">${notesHtml(notes)}</div>` : ''}`;
+}
+const notesHtml = (notes) => `<div class="section-title">Good to know (optional)</div>${notes.map((n) => `<div class="todo"><span class="ic note">i</span><div class="what"><small>${esc(n.text)}</small></div></div>`).join('')}`;
+
+// ---------- photos ----------
+function photosHtml() {
+  const c = S.client;
+  return `<div class="drop" id="drop"><h3>Drop the client's photos here</h3>
+      <p class="muted" style="margin:6px 0 12px">JPG, PNG or WEBP straight from their phone is fine: the build shrinks them. iPhone HEIC photos won't work.</p>
+      <label class="btn primary">Choose photos<input type="file" id="pick" accept="image/*" multiple hidden></label></div>
+    <div class="photos">${c.images.map((i) => `<div class="card photo">
+      <div class="th" style="background-image:url('/thumb/${c.slug}/${encodeURI(i.name)}?${i.size}')"></div>
+      <div class="meta"><div class="name">${esc(i.name)}</div>
+        <div class="row" style="gap:6px">${i.placeholder ? '<span class="pill warn">Placeholder</span>' : ''}${i.heic ? '<span class="pill bad">HEIC: convert to JPG</span>' : ''}
+        ${i.used.length ? i.used.map((u) => `<span class="pill info">${esc(human(u))}</span>`).join('') : '<span class="pill gray">Not used yet</span>'}</div>
+        <div class="row" style="justify-content:space-between"><span class="muted">${Math.round(i.size / 1024).toLocaleString()} KB</span>
+        <button class="btn small danger" data-del="${esc(i.name)}">Delete</button></div></div></div>`).join('')}</div>
+    <p class="muted" style="margin-top:16px">Choose which photo goes where on the Details tab (Photos and Work photos sections).</p>`;
+}
+async function upload(files) {
+  let last;
+  for (const f of files) {
+    try {
+      toast(`Uploading ${f.name}...`);
+      last = await api(`/api/clients/${S.client.slug}/images?name=${encodeURIComponent(f.name)}`, { method: 'POST', body: f, headers: { 'Content-Type': 'application/octet-stream' } });
+    } catch (e) {
+      toast(e.message, true);
+    }
+  }
+  if (last) {
+    S.client.images = last.images;
+    renderTab();
+    toast('Photos added. Now pick where they go on the Details tab.');
+  }
+}
+
+// ---------- details form ----------
+const V = (p) => getP(S.draft, p);
+const pathMsgs = () => {
+  const m = {};
+  for (const e of S.client.validation.errors) (m[e.path] ??= []).push({ k: 'err', t: e.message });
+  for (const p of S.client.validation.placeholders) (m[p.path] ??= []).push({ k: 'ph', t: WHY[p.why] ?? p.why });
+  return m;
+};
+let MSG = {};
+function field(p, label, { type = 'text', hint = '', wide = false, options = null, ph = '', kind = '' } = {}) {
+  const val = V(p);
+  const msgs = MSG[p] ?? [];
+  const cls = msgs.some((x) => x.k === 'err') ? 'err' : msgs.length ? 'ph' : '';
+  let input;
+  if (options) input = `<select data-p="${p}" data-kind="${kind || 'str'}">${options.map(([v, t]) => `<option value="${esc(v)}" ${String(val ?? '') === String(v) ? 'selected' : ''}>${esc(t)}</option>`).join('')}</select>`;
+  else if (type === 'textarea') input = `<textarea data-p="${p}" data-kind="${kind || 'str'}" placeholder="${esc(ph)}">${esc(kind === 'lines' ? (val ?? []).join('\n') : val ?? '')}</textarea>`;
+  else if (type === 'color') input = `<div class="row" style="gap:8px"><input type="color" data-p="${p}" value="${esc(val ?? '#000000')}"><input type="text" data-p="${p}" value="${esc(val ?? '')}" style="max-width:120px"></div>`;
+  else input = `<input type="${type}" data-p="${p}" data-kind="${kind || (type === 'number' ? 'num' : 'str')}" value="${esc(kind === 'list' ? (val ?? []).join(', ') : val ?? '')}" placeholder="${esc(ph)}">`;
+  return `<div class="field ${wide ? 'wide' : ''} ${cls}" data-f="${p}"><label>${esc(label)}</label>${input}${hint ? `<span class="hint">${esc(hint)}</span>` : ''}${msgs.map((m) => `<span class="msg">${esc(m.t)}</span>`).join('')}</div>`;
+}
+const imgOptions = (svg = false) => [['', '(none)'], ...S.client.images.filter((i) => !i.heic && (svg || !/\.svg$/i.test(i.name))).map((i) => [i.name, i.name + (i.placeholder ? '  (placeholder)' : '')])];
+const fs_ = (id, title, desc, inner, extra = '') => `<section class="card fs" id="sec-${id}"><header><div><h2>${title}</h2>${desc ? `<div class="muted" style="font-size:13.5px">${desc}</div>` : ''}</div>${extra}</header>${inner}</section>`;
+const DAYS = [['mon', 'Mon'], ['tue', 'Tue'], ['wed', 'Wed'], ['thu', 'Thu'], ['fri', 'Fri'], ['sat', 'Sat'], ['sun', 'Sun']];
+
+function detailsHtml() {
+  MSG = pathMsgs();
+  const c = S.client, sp = S.draft, vd = c.variant ?? { services: [], faq: [], copy: {} };
+  const hours = DAYS.map(([d, n]) => {
+    const v = V(`business.hours.${d}`) ?? 'closed';
+    const open = v !== 'closed';
+    const [a, b] = open ? v.split('-') : ['08:00', '17:00'];
+    const bad = MSG[`business.hours.${d}`];
+    return `<div class="d ${bad ? 'field err' : ''}"><b>${n}</b><label class="switch"><input type="checkbox" data-day="${d}" data-open ${open ? 'checked' : ''}> Open</label>
+      <input type="time" data-day="${d}" data-from value="${a}" ${open ? '' : 'disabled'}><input type="time" data-day="${d}" data-to value="${b}" ${open ? '' : 'disabled'}></div>`;
+  }).join('');
+  const services = sp.services;
+  const faq = sp.faq;
+  const reviews = sp.reviews?.items ?? [];
+  const pairs = sp.gallery?.beforeAfter ?? [];
+  const photos = sp.gallery?.photos ?? [];
+  const img = imgOptions();
+  return `<div class="form">
+  ${fs_('business', 'Business', 'The basics from the intake call.', `<div class="fields">
+    ${field('business.name', 'Business name')}
+    ${field('business.phone', 'Phone number', { type: 'tel', ph: '(801) 555-1234' })}
+    ${field('business.textsOk', 'Does that number take texts?', { options: [['', 'Not asked yet'], ['true', 'Yes: show Text buttons'], ['false', 'No: calls only']], kind: 'bool' })}
+    ${field('business.email', 'Email', { type: 'email' })}
+    ${field('business.ownerName', 'Owner name', { hint: 'First and last' })}
+    ${field('business.foundedYear', 'Year they started', { type: 'number', hint: 'Shows "X years in business"' })}
+    ${field('business.licensed', 'Licensed?', { options: [['false', 'No / not confirmed'], ['true', 'Yes, confirmed']], kind: 'bool' })}
+    ${field('business.insured', 'Insured?', { options: [['false', 'No / not confirmed'], ['true', 'Yes, confirmed']], kind: 'bool' })}
+    ${field('business.tagline', 'Tagline (optional)', { ph: vd.copy?.tagline })}
+    ${field('business.industry', 'Industry (optional)', { ph: vd.industry })}
+  </div>`)}
+  ${fs_('area', 'Where they work', 'Every city here shows on the site (good for Google).', `<div class="fields">
+    ${field('business.serviceArea.homeCity', 'Home city')}
+    ${field('business.serviceArea.state', 'State', { ph: 'UT', hint: '2 letters' })}
+    ${field('business.serviceArea.nearbyCities', 'Nearby cities', { wide: true, kind: 'list', hint: 'Separate with commas', ph: 'Salem, Payson, Spanish Fork' })}
+  </div>`)}
+  ${fs_('hours', 'Hours', '', `<div class="hours">${hours}</div><div class="fields" style="margin-top:12px">${field('business.hoursNote', 'Note under the hours (optional)', { wide: true, ph: 'Evenings by appointment' })}</div>`)}
+  ${fs_('brand', 'Look', 'Colors are adjusted automatically so text stays readable.', `<div class="fields">
+    ${field('brand.primary', 'Main color', { type: 'color' })}
+    ${field('brand.accent', 'Button color', { type: 'color' })}
+    ${field('brand.theme', 'Light or dark site', { options: [['light', 'Light'], ['dark', 'Dark']] })}
+    ${field('brand.logo', 'Logo (also the browser icon)', { options: imgOptions(true) })}
+  </div>`)}
+  ${fs_('images', 'Main photos', 'Upload on the Photos tab, then pick them here.', `<div class="fields">
+    ${field('images.hero', 'Big top photo', { options: img, hint: 'Their best work, landscape' })}
+    ${field('images.owner', 'Owner photo', { options: img })}
+  </div>`)}
+  ${fs_('services', 'Services', services ? '' : `Using the ${esc(vd.label ?? 'template')} defaults.`,
+    services ? services.map((s, i) => `<div class="item"><header>Service ${i + 1}<button class="btn small danger" data-rm="services.${i}">Remove</button></header><div class="fields">
+      ${field(`services[${i}].name`, 'Name')}${field(`services[${i}].startingPrice`, 'Starting price ($, optional)', { type: 'number' })}
+      ${field(`services[${i}].description`, 'Description', { wide: true })}
+      ${field(`services[${i}].features`, 'What is included (one per line)', { type: 'textarea', kind: 'lines', wide: true })}</div></div>`).join('') + `<button class="btn" data-add="services">+ Add service</button>`
+      : `<button class="btn" data-custom="services">Customize services</button>`)}
+  ${fs_('reviews', 'Reviews', 'Real reviews only, copied word for word. None yet? Remove them all and the section hides.', `<div class="fields" style="margin-bottom:14px">
+    ${field('reviews.googleRating', 'Google rating', { type: 'number', ph: '4.9' })}
+    ${field('reviews.googleReviewCount', 'Number of Google reviews', { type: 'number' })}
+    ${field('reviews.googleReviewsUrl', 'Google reviews link', { type: 'url', hint: 'Google Maps > their listing > Reviews > Share' })}</div>
+    ${reviews.map((r, i) => `<div class="item"><header>Review ${i + 1}<button class="btn small danger" data-rm="reviews.items.${i}">Remove</button></header><div class="fields">
+      ${field(`reviews.items[${i}].name`, 'Name as shown', { ph: 'Sarah M.' })}
+      ${field(`reviews.items[${i}].rating`, 'Stars', { options: [['5', '5 stars'], ['4', '4 stars'], ['3', '3 stars'], ['2', '2 stars'], ['1', '1 star']], kind: 'num' })}
+      ${field(`reviews.items[${i}].source`, 'From', { ph: 'Google' })}
+      ${field(`reviews.items[${i}].text`, 'Review text', { type: 'textarea', wide: true })}</div></div>`).join('')}
+    <button class="btn" data-add="reviews.items">+ Add review</button>`)}
+  ${fs_('gallery', 'Work photos', 'At least one photo or before/after pair.', `
+    <h3 style="margin-bottom:10px">Before / after pairs</h3>
+    ${pairs.map((g, i) => `<div class="item"><header>Pair ${i + 1}<button class="btn small danger" data-rm="gallery.beforeAfter.${i}">Remove</button></header><div class="fields">
+      ${field(`gallery.beforeAfter[${i}].before`, 'Before', { options: img })}${field(`gallery.beforeAfter[${i}].after`, 'After', { options: img })}
+      ${field(`gallery.beforeAfter[${i}].caption`, 'Caption', { ph: 'Interior detail, Salem' })}</div></div>`).join('')}
+    <button class="btn" data-add="gallery.beforeAfter">+ Add pair</button>
+    <h3 style="margin:22px 0 10px">Photos</h3>
+    ${photos.map((g, i) => `<div class="item"><header>Photo ${i + 1}<button class="btn small danger" data-rm="gallery.photos.${i}">Remove</button></header><div class="fields">
+      ${field(`gallery.photos[${i}].src`, 'Photo', { options: img })}
+      ${field(`gallery.photos[${i}].alt`, 'What it shows', { hint: 'For Google and screen readers' })}
+      ${field(`gallery.photos[${i}].caption`, 'Caption (optional)')}</div></div>`).join('')}
+    <button class="btn" data-add="gallery.photos">+ Add photo</button>`)}
+  ${fs_('faq', 'FAQ', faq ? '' : `Using the ${esc(vd.label ?? 'template')} default answers.`,
+    faq ? faq.map((f, i) => `<div class="item"><header>Question ${i + 1}<button class="btn small danger" data-rm="faq.${i}">Remove</button></header><div class="fields">
+      ${field(`faq[${i}].q`, 'Question', { wide: true })}${field(`faq[${i}].a`, 'Answer', { type: 'textarea', wide: true })}</div></div>`).join('') +
+      `<div class="row"><button class="btn" data-add="faq">+ Add question</button><button class="btn ghost" data-default="faq">Use the template's answers instead</button></div>`
+      : `<button class="btn" data-custom="faq">Customize FAQ</button>`)}
+  ${fs_('cta', 'Buttons and links', '', `<div class="fields">
+    ${field('cta.primary', 'Main button', { options: [['call', 'Call'], ['text', 'Text'], ['book', 'Book online']] })}
+    ${field('cta.bookingUrl', 'Online booking link (optional)', { type: 'url' })}
+    ${field('socials.googleBusinessProfile', 'Google Business Profile link', { type: 'url' })}
+    ${field('socials.facebook', 'Facebook', { type: 'url' })}${field('socials.instagram', 'Instagram', { type: 'url' })}
+    ${field('socials.tiktok', 'TikTok', { type: 'url' })}${field('socials.youtube', 'YouTube', { type: 'url' })}
+    ${field('socials.yelp', 'Yelp', { type: 'url' })}${field('socials.nextdoor', 'Nextdoor', { type: 'url' })}
+  </div>`)}
+  ${fs_('seo', 'Google and domain', '', `<div class="fields">
+    ${field('seo.keywords', 'What customers search for', { kind: 'list', wide: true, hint: 'Most important first, separated by commas', ph: 'mobile detailing, car detailing Payson' })}
+    ${field('seo.title', 'Page title (optional)', { wide: true, hint: 'Leave empty for an automatic one' })}
+    ${field('seo.metaDescription', 'Google description (optional)', { type: 'textarea', wide: true })}
+    ${field('domain', 'Their domain (optional)', { ph: 'twintuneddetailing.com', hint: 'No https://. Leave empty until they have one.' })}
+  </div>`)}
+  ${fs_('copy', 'Wording (optional)', 'Leave empty to use the template text shown in grey. You can use {city}, {business}, {ownerFirst}.', `<div class="fields">
+    ${field('copy.headline', 'Big headline', { wide: true, ph: vd.copy?.headline })}
+    ${field('copy.subheadline', 'Line under the headline', { type: 'textarea', wide: true, ph: vd.copy?.subheadline })}
+    ${field('copy.about', 'About the owner', { type: 'textarea', wide: true, ph: vd.copy?.about })}
+  </div>`)}
+  </div>`;
+}
+
+// Converts an input's text into the value stored in site.json.
+function valueOf(el) {
+  const kind = el.dataset.kind || 'str';
+  const raw = el.value;
+  if (kind === 'bool') return raw === '' ? undefined : raw === 'true';
+  if (kind === 'num') return raw.trim() === '' ? undefined : Number(raw);
+  if (kind === 'list') { const a = raw.split(',').map((s) => s.trim()).filter(Boolean); return a.length ? a : undefined; }
+  if (kind === 'lines') return raw.split('\n').map((s) => s.trim()).filter(Boolean);
+  return raw === '' ? undefined : raw;
+}
+// Drops empty optional containers so site.json stays tidy.
+function tidy(o) {
+  if (Array.isArray(o)) return o.filter((x) => x !== undefined).map(tidy);
+  if (o && typeof o === 'object') {
+    for (const k of Object.keys(o)) {
+      o[k] = tidy(o[k]);
+      if (o[k] === undefined || (o[k] && typeof o[k] === 'object' && !Array.isArray(o[k]) && !Object.keys(o[k]).length && ['copy', 'socials', 'address'].includes(k))) delete o[k];
+    }
+  }
+  return o;
+}
+function markDirty() {
+  S.dirty = true;
+  updateSavebar();
+}
+function updateSavebar() {
+  $('#savebar').classList.toggle('show', S.dirty);
+}
+
+function wireTab() {
+  const body = $('#tabbody');
+  body.querySelectorAll('[data-fix]').forEach((b) => (b.onclick = () => focusField(b.dataset.fix)));
+  // photos
+  const drop = $('#drop');
+  if (drop) {
+    $('#pick').onchange = (e) => upload([...e.target.files]);
+    drop.ondragover = (e) => { e.preventDefault(); drop.classList.add('over'); };
+    drop.ondragleave = () => drop.classList.remove('over');
+    drop.ondrop = (e) => { e.preventDefault(); drop.classList.remove('over'); upload([...e.dataTransfer.files]); };
+    body.querySelectorAll('[data-del]').forEach((b) => (b.onclick = async () => {
+      const img = S.client.images.find((i) => i.name === b.dataset.del);
+      if (!confirm(img.used.length ? `${img.name} is used on the site (${img.used.map(human).join(', ')}). Delete anyway?` : `Delete ${img.name}?`)) return;
+      const d = await api(`/api/clients/${S.client.slug}/images/${img.name.split('/').map(encodeURIComponent).join('/')}`, { method: 'DELETE' });
+      S.client = d;
+      renderTab();
+    }));
+  }
+  // details
+  body.querySelectorAll('[data-p]').forEach((el) => el.addEventListener('input', () => {
+    setP(S.draft, el.dataset.p, el.type === 'color' ? el.value : valueOf(el));
+    if (el.type === 'color') el.parentElement.querySelectorAll('[data-p]').forEach((x) => x !== el && (x.value = el.value));
+    markDirty();
+  }));
+  body.querySelectorAll('[data-day]').forEach((el) => el.addEventListener('input', () => {
+    const d = el.dataset.day;
+    const row = el.closest('.d');
+    const open = $('[data-open]', row).checked;
+    row.querySelectorAll('input[type=time]').forEach((t) => (t.disabled = !open));
+    setP(S.draft, `business.hours.${d}`, open ? `${$('[data-from]', row).value}-${$('[data-to]', row).value}` : 'closed');
+    markDirty();
+  }));
+  const rerender = () => { const y = scrollY; renderTab(); scrollTo(0, y); markDirty(); };
+  body.querySelectorAll('[data-add]').forEach((b) => (b.onclick = () => {
+    const p = b.dataset.add;
+    const list = getP(S.draft, p) ?? [];
+    const blank = { services: { name: '', description: '', features: [] }, 'reviews.items': { name: '', text: '', rating: 5, source: 'Google' }, 'gallery.beforeAfter': { before: '', after: '' }, 'gallery.photos': { src: '' }, faq: { q: '', a: '' } }[p];
+    setP(S.draft, p, [...list, blank]);
+    rerender();
+  }));
+  body.querySelectorAll('[data-rm]').forEach((b) => (b.onclick = () => {
+    const keys = b.dataset.rm.split('.');
+    const i = Number(keys.pop());
+    const list = getP(S.draft, keys.join('.'));
+    list.splice(i, 1);
+    rerender();
+  }));
+  body.querySelectorAll('[data-custom]').forEach((b) => (b.onclick = () => { S.draft[b.dataset.custom] = structuredClone(S.client.variant[b.dataset.custom]); rerender(); }));
+  body.querySelectorAll('[data-default]').forEach((b) => (b.onclick = () => { if (confirm('Remove your custom questions and use the template answers?')) { delete S.draft[b.dataset.default]; rerender(); } }));
+}
+function focusField(path) {
+  S.tab = 'details';
+  renderTab();
+  // The exact field, or the closest one (e.g. "gallery" -> gallery section).
+  let el = document.querySelector(`[data-f="${CSS.escape(path)}"]`);
+  const keys = parse(path);
+  while (!el && keys.length) { keys.pop(); el = document.querySelector(`[data-f^="${CSS.escape(keys.join('.'))}"]`) ?? document.getElementById(`sec-${keys[0]}`); }
+  if (/^business\.hours/.test(path)) el = document.getElementById('sec-hours');
+  if (!el) return;
+  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  const input = el.querySelector?.('input,select,textarea');
+  setTimeout(() => input?.focus({ preventScroll: true }), 350);
+}
+
+async function save() {
+  if (!S.dirty) return true;
+  try {
+    const d = await api(`/api/clients/${S.client.slug}`, { method: 'PUT', body: JSON.stringify(tidy(structuredClone(S.draft))) });
+    S.client = d;
+    S.draft = structuredClone(d.spec);
+    S.dirty = false;
+    updateSavebar();
+    const n = d.validation.errors.length + d.validation.placeholders.length;
+    toast(n ? `Saved. ${n} thing${n === 1 ? '' : 's'} still to fill in.` : 'Saved. Everything is filled in!');
+    renderClient();
+    return true;
+  } catch (e) {
+    toast(`Not saved: ${e.message}`, true);
+    return false;
+  }
+}
+$('#save').onclick = save;
+$('#discard').onclick = () => { S.draft = structuredClone(S.client.spec); S.dirty = false; updateSavebar(); renderClient(); };
+window.addEventListener('keydown', (e) => { if ((e.ctrlKey || e.metaKey) && e.key === 's') { e.preventDefault(); save(); } });
+window.addEventListener('beforeunload', (e) => { if (S.dirty) e.preventDefault(); });
+
+// ---------- actions (npm scripts) ----------
+const NAMES = { dev: 'Preview on my computer', deploy: 'Sending preview', 'deploy-prod': 'Going live', check: 'Checking', build: 'Building' };
+async function run(action) {
+  if (!(await save())) return;
+  if (action === 'deploy-prod' && !confirm(`Publish ${S.draft.business?.name ?? 'this site'} as the LIVE site${S.draft.domain ? ` on ${S.draft.domain}` : ''}?`)) return;
+  try {
+    S.job = await api('/api/jobs', { method: 'POST', body: JSON.stringify({ slug: S.client.slug, action }) });
+    S.job.lines = [];
+    renderLog();
+    poll();
+  } catch (e) {
+    toast(e.message, true);
+  }
+}
+function resumeJob() {
+  const j = S.state.jobs.find((x) => x.slug === S.client?.slug);
+  if (j && (!S.job || S.job.id !== j.id)) { S.job = { ...j, lines: [] }; poll(0); }
+}
+async function poll(from) {
+  const job = S.job;
+  if (!job) return;
+  const d = await api(`/api/jobs/${job.id}?from=${from ?? job.lines.length}`).catch(() => null);
+  if (!d || S.job !== job) return;
+  job.lines.push(...d.lines);
+  Object.assign(job, { done: d.done, code: d.code, url: d.url });
+  renderLog();
+  if (!d.done) setTimeout(() => poll(), 700);
+  else if (job.action !== 'dev') { await loadState(); await openClient(S.client.slug, true); }
+}
+function renderLog() {
+  const box = $('#logbox');
+  const j = S.job;
+  if (!box) return;
+  if (!j || j.slug !== S.client.slug) { box.innerHTML = ''; return; }
+  const ok = j.done && j.code === 0;
+  let result = '';
+  if (j.action === 'dev' && j.url && !j.done) result = `<div class="result">Running on this computer: <a href="${esc(j.url)}" target="_blank">${esc(j.url)} &nearr;</a> <span>It updates as you save changes.</span></div>`;
+  else if (j.done && ok && j.url) result = `<div class="result">${j.action === 'deploy' ? 'Preview is up. Send this to the client:' : 'Live:'} <a href="${esc(j.url)}" target="_blank">${esc(j.url)} &nearr;</a> <button class="btn small" data-copy2="${esc(j.url)}">Copy link</button></div>`;
+  else if (j.done && !ok && j.action !== 'dev') result = `<div class="result fail">That did not finish. The reason is in the last lines above.</div>`;
+  else if (j.done && ok) result = `<div class="result">Done.</div>`;
+  box.innerHTML = `<div class="log"><header>${j.done ? (ok || j.action === 'dev' ? '&#10003;' : '&#10007;') : '<span class="spin"></span>'} ${esc(NAMES[j.action])}
+    <span style="margin-left:auto"></span>${!j.done ? `<button class="btn small" id="stopjob">Stop</button>` : `<button class="btn small" id="closejob">Close</button>`}</header>
+    <pre id="logpre">${esc(j.lines.join('\n'))}</pre>${result}</div>`;
+  const pre = $('#logpre');
+  pre.scrollTop = pre.scrollHeight;
+  $('#stopjob')?.addEventListener('click', () => api(`/api/jobs/${j.id}/stop`, { method: 'POST' }));
+  $('#closejob')?.addEventListener('click', () => { S.job = null; renderLog(); });
+  box.querySelector('[data-copy2]')?.addEventListener('click', (e) => { navigator.clipboard.writeText(e.target.dataset.copy2); toast('Link copied'); });
+}
+
+route();
+</script>
+</body>
+</html>
