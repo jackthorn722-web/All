@@ -1,0 +1,77 @@
+---
+// Page shell: <head> SEO (title, meta, canonical, OpenGraph, JSON-LD,
+// favicons), sticky header, footer and the mobile call bar.
+import { getImage } from 'astro:assets';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MobileCallBar from '../components/MobileCallBar.astro';
+import { clientImage, isSvg } from '../images.js';
+import { jsonLd } from '../../../lib/model.js';
+interface Props {
+  site: any;
+  title?: string;
+  noindex?: boolean;
+}
+const { site, title = site.seo.title, noindex = false } = Astro.props;
+const abs = (p: string) => new URL(p, site.siteUrl).href;
+const canonical = abs(Astro.url.pathname);
+
+// Social share image: hero photo, else the first work photo, cropped to 1200x630.
+const g = site.gallery;
+const ogFile = site.images.hero ?? g.photos[0]?.src ?? g.beforeAfter[0]?.after;
+const og = ogFile ? await getImage({ src: await clientImage(site.slug, ogFile), width: 1200, height: 630, fit: 'cover', format: 'jpg' }) : null;
+const logoFile = site.images.logo;
+const logoImg = await clientImage(site.slug, logoFile);
+const logo = logoImg && (isSvg(logoFile) ? logoImg.src : (await getImage({ src: logoImg, width: 512, format: 'png' })).src);
+const ld = jsonLd(site, { imageUrl: og && abs(og.src), logoUrl: logo && abs(logo) });
+// Keep "</script>" out of the JSON so it cannot break the tag.
+const ldJson = JSON.stringify(ld).replace(/</g, '\\u003c');
+const style = Object.entries(site.theme.tokens)
+  .map(([k, v]) => `--c-${k}:${v}`)
+  .join(';');
+---
+
+<!doctype html>
+<html lang="en" data-theme={site.theme.mode} style={style}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={site.seo.description} />
+    {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
+    <meta name="theme-color" content={site.theme.tokens.bg} />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preload" href="/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.business.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={site.seo.description} />
+    <meta property="og:url" content={canonical} />
+    {
+      og && (
+        <>
+          <meta property="og:image" content={abs(og.src)} />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta name="twitter:card" content="summary_large_image" />
+        </>
+      )
+    }
+    {!noindex && <script type="application/ld+json" set:html={ldJson} />}
+  </head>
+  <body class="pb-20 md:pb-0">
+    <a href="#main" class="sr-only z-50 rounded-full bg-accent px-4 py-2 font-bold text-on-accent focus:not-sr-only focus:fixed focus:top-3 focus:left-3">
+      Skip to content
+    </a>
+    <Header site={site} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer site={site} />
+    <MobileCallBar site={site} />
+  </body>
+</html>

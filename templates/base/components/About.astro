@@ -1,0 +1,66 @@
+---
+// About the owner: photo (optional), story, and honest badges.
+import { Image } from 'astro:assets';
+import Section from './Section.astro';
+import Icon from './Icon.astro';
+import { clientImage } from '../images.js';
+interface Props {
+  site: any;
+}
+const { site } = Astro.props;
+const { business: b } = site;
+const photo = await clientImage(site.slug, site.images.owner);
+const paragraphs = site.copy.about.split(/\n\s*\n/);
+const badges = [
+  b.foundedYear && { icon: 'award', text: `Serving ${b.serviceArea.homeCity} since ${b.foundedYear}` },
+  b.licensed && { icon: 'shield', text: 'Licensed' },
+  b.insured && { icon: 'shield', text: 'Insured' },
+  { icon: 'pin', text: `Locally owned in ${b.serviceArea.homeCity}` },
+].filter(Boolean);
+const initials = b.ownerName
+  .split(/\s+/)
+  .map((w: string) => w[0])
+  .slice(0, 2)
+  .join('');
+---
+
+<Section id="about" eyebrow="About" title={site.copy.aboutTitle} tone="surface">
+  <div class="grid items-center gap-10 md:grid-cols-5 md:gap-14">
+    <div class="md:col-span-2">
+      {
+        photo ? (
+          <Image
+            src={photo}
+            alt={`${b.ownerName}, owner of ${b.name}`}
+            width={800}
+            widths={[400, 640, 800]}
+            sizes="(min-width: 768px) 40vw, 100vw"
+            class="aspect-[4/5] w-full max-w-sm rounded-3xl object-cover md:max-w-none"
+          />
+        ) : (
+          <div class="flex aspect-[4/5] w-full max-w-sm items-center justify-center rounded-3xl bg-primary text-7xl font-extrabold text-on-primary" aria-hidden="true">
+            {initials}
+          </div>
+        )
+      }
+    </div>
+    <div class="md:col-span-3">
+      <div class="space-y-4 text-lg leading-relaxed">
+        {paragraphs.map((p: string) => <p>{p}</p>)}
+      </div>
+      <p class="mt-6 font-bold">
+        {b.ownerName}, owner of {b.name}
+      </p>
+      <ul class="mt-6 flex flex-wrap gap-2">
+        {
+          badges.map((x: any) => (
+            <li class="inline-flex items-center gap-2 rounded-full border border-line bg-bg px-4 py-2 text-sm font-semibold">
+              <Icon name={x.icon} class="h-4 w-4 text-link" />
+              {x.text}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</Section>

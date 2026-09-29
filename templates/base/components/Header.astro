@@ -1,0 +1,41 @@
+---
+// Sticky header: logo, section links (desktop) and click-to-call (always).
+import Icon from './Icon.astro';
+import Logo from './Logo.astro';
+interface Props {
+  site: any;
+}
+const { site } = Astro.props;
+const LABELS: Record<string, string> = {
+  services: 'Services',
+  gallery: 'Our work',
+  reviews: 'Reviews',
+  about: 'About',
+  area: 'Service area',
+  faq: 'FAQ',
+  contact: 'Contact',
+};
+const links = site.sections.filter((id: string) => LABELS[id]).map((id: string) => ({ href: `#${id}`, label: LABELS[id] }));
+---
+
+<header class="sticky top-0 z-40 border-b border-line bg-bg/90 backdrop-blur supports-[backdrop-filter]:bg-bg/75">
+  <div class="container-x flex h-16 items-center justify-between gap-4">
+    <a href="#top" class="flex min-w-0 items-center gap-3" aria-label={`${site.business.name} home`}>
+      <Logo site={site} class="truncate" />
+    </a>
+    <nav aria-label="Sections" class="hidden lg:block">
+      <ul class="flex items-center gap-6 text-sm font-semibold text-muted">
+        {links.map((l: any) => (
+          <li>
+            <a href={l.href} class="hover:text-ink">{l.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <a href={site.business.telHref} class="btn btn-primary min-h-11 shrink-0 px-4 py-2 text-sm sm:px-5 sm:text-base">
+      <Icon name="phone" class="h-4 w-4" />
+      <span class="sm:hidden">Call</span>
+      <span class="hidden sm:inline">{site.business.phoneDisplay}</span>
+    </a>
+  </div>
+</header>

@@ -1,0 +1,28 @@
+---
+// Trust bar: Google rating, years in business, "Serving <cities>",
+// licensed/insured (only when site.json says so) and the variant badge.
+import Icon from './Icon.astro';
+interface Props {
+  site: any;
+}
+const { site } = Astro.props;
+---
+
+<section aria-label="Why customers choose us" class="border-b border-line bg-surface">
+  <ul class="container-x grid grid-cols-1 gap-x-6 gap-y-3 py-5 text-sm font-semibold sm:grid-cols-2 sm:text-base lg:flex lg:flex-wrap lg:justify-center lg:gap-x-12">
+    {
+      site.trust.map((t: any) => (
+        <li class="flex items-center gap-2.5">
+          <Icon name={t.icon} filled={t.icon === 'star'} class:list={['h-5 w-5 shrink-0', t.icon === 'star' ? 'text-[#fbbc04]' : 'text-link']} />
+          {t.href ? (
+            <a href={t.href} target="_blank" rel="noopener" class="underline-offset-4 hover:underline">
+              {t.text}
+            </a>
+          ) : (
+            <span>{t.text}</span>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</section>

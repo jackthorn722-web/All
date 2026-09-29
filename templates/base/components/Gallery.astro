@@ -1,0 +1,72 @@
+---
+// Work gallery: before/after pairs first, then a photo grid.
+import { Image } from 'astro:assets';
+import Section from './Section.astro';
+import { clientImage } from '../images.js';
+interface Props {
+  site: any;
+}
+const { site } = Astro.props;
+const { business } = site;
+const where = `${business.serviceArea.homeCity}, ${business.serviceArea.state}`;
+const pairs = await Promise.all(
+  site.gallery.beforeAfter.map(async (p: any) => ({
+    ...p,
+    before: await clientImage(site.slug, p.before),
+    after: await clientImage(site.slug, p.after),
+  })),
+);
+const photos = await Promise.all(site.gallery.photos.map(async (p: any) => ({ ...p, img: await clientImage(site.slug, p.src) })));
+const label = 'absolute top-3 left-3 rounded-full bg-black/70 px-3 py-1 text-xs font-bold tracking-wider text-white uppercase';
+---
+
+<Section id="gallery" eyebrow="Our work" title={site.copy.galleryTitle} intro={site.copy.galleryIntro} tone="surface">
+  {
+    pairs.length > 0 && (
+      <div class="grid gap-8 md:grid-cols-2">
+        {pairs.map((p: any) => (
+          <figure>
+            <div class="grid grid-cols-2 gap-1.5 overflow-hidden rounded-3xl">
+              {[
+                ['Before', p.before],
+                ['After', p.after],
+              ].map(([tag, img]) => (
+                <div class="relative">
+                  <Image
+                    src={img}
+                    alt={`${tag}: ${p.caption ?? business.industry} by ${business.name}`}
+                    width={640}
+                    widths={[320, 480, 640]}
+                    sizes="(min-width: 768px) 25vw, 50vw"
+                    class="aspect-[3/4] h-full w-full object-cover"
+                  />
+                  <span class={label}>{tag}</span>
+                </div>
+              ))}
+            </div>
+            {p.caption && <figcaption class="mt-3 font-semibold">{p.caption}</figcaption>}
+          </figure>
+        ))}
+      </div>
+    )
+  }
+  {
+    photos.length > 0 && (
+      <div class:list={['grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3', pairs.length > 0 && 'mt-10']}>
+        {photos.map((p: any) => (
+          <figure class="group">
+            <Image
+              src={p.img}
+              alt={p.alt ?? p.caption ?? `${business.industry} by ${business.name} in ${where}`}
+              width={960}
+              widths={[320, 480, 640, 960]}
+              sizes="(min-width: 768px) 33vw, 50vw"
+              class="aspect-[4/3] w-full rounded-2xl object-cover"
+            />
+            {p.caption && <figcaption class="mt-2 text-sm font-semibold text-muted">{p.caption}</figcaption>}
+          </figure>
+        ))}
+      </div>
+    )
+  }
+</Section>

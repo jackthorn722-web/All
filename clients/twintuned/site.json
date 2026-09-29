@@ -1,0 +1,132 @@
+{
+  "$schema": "../../lib/site.schema.json",
+  "template": "detailer",
+  "business": {
+    "name": "TwinTuned Detailing",
+    "phone": "(801) 555-0142",
+    "textsOk": true,
+    "email": "TODO@example.com",
+    "serviceArea": {
+      "homeCity": "Woodland Hills",
+      "state": "UT",
+      "nearbyCities": ["Salem", "Elk Ridge", "Payson", "Spanish Fork", "Santaquin", "Mapleton"]
+    },
+    "hours": {
+      "mon": "08:00-18:00",
+      "tue": "08:00-18:00",
+      "wed": "08:00-18:00",
+      "thu": "08:00-18:00",
+      "fri": "08:00-18:00",
+      "sat": "08:00-16:00",
+      "sun": "closed"
+    },
+    "ownerName": "TODO Owner Name",
+    "licensed": false,
+    "insured": false
+  },
+  "brand": {
+    "primary": "#2563eb",
+    "accent": "#22d3ee",
+    "theme": "dark"
+  },
+  "images": {
+    "hero": "placeholder-hero.jpg",
+    "owner": "placeholder-owner.jpg"
+  },
+  "services": [
+    {
+      "name": "Maintenance Wash",
+      "description": "A careful hand wash that keeps a clean car clean.",
+      "features": [
+        "Foam pre-wash and two-bucket hand wash",
+        "Wheels, tires, and door jambs",
+        "Windows inside and out",
+        "Quick interior vacuum and wipe-down"
+      ]
+    },
+    {
+      "name": "Interior Detail",
+      "description": "A deep clean for the inside: pet hair, kid messes, coffee spills and all.",
+      "features": [
+        "Full vacuum including trunk and mats",
+        "Carpets and seats shampooed",
+        "Leather cleaned and conditioned",
+        "Dash, console, and vents detailed"
+      ]
+    },
+    {
+      "name": "Full Detail",
+      "description": "Inside and out. The full reset for your vehicle.",
+      "features": [
+        "Everything in the Interior Detail",
+        "Hand wash and clay bar decontamination",
+        "Hand-applied wax or sealant",
+        "Tires dressed and trim restored"
+      ]
+    },
+    {
+      "name": "Ceramic Coating",
+      "description": "Long-lasting gloss and protection that makes every future wash easier.",
+      "features": [
+        "Paint prep and polish",
+        "Professional-grade ceramic coating",
+        "Water beads and sheets off",
+        "Multi-year protection options"
+      ]
+    }
+  ],
+  "reviews": {
+    "googleReviewsUrl": "https://example.com/TODO-twintuned-google-reviews-link",
+    "items": [
+      {
+        "name": "TODO Customer 1",
+        "text": "TODO sample, replace with a real review: Showed up right on time and my truck looks brand new inside. The dog hair is finally gone.",
+        "rating": 5,
+        "source": "Google"
+      },
+      {
+        "name": "TODO Customer 2",
+        "text": "TODO sample, replace with a real review: So easy. They detailed my car in the driveway while I worked from home.",
+        "rating": 5,
+        "source": "Google"
+      },
+      {
+        "name": "TODO Customer 3",
+        "text": "TODO sample, replace with a real review: Paint looks better than when I bought it. Booking over text was quick.",
+        "rating": 5,
+        "source": "Google"
+      }
+    ]
+  },
+  "gallery": {
+    "beforeAfter": [
+      {
+        "before": "placeholder-before-1.jpg",
+        "after": "placeholder-after-1.jpg",
+        "caption": "TODO caption, e.g. Interior detail, Salem"
+      },
+      {
+        "before": "placeholder-before-2.jpg",
+        "after": "placeholder-after-2.jpg",
+        "caption": "TODO caption, e.g. Paint correction, Payson"
+      }
+    ],
+    "photos": [
+      { "src": "placeholder-work-1.jpg", "alt": "TODO what the photo shows" },
+      { "src": "placeholder-work-2.jpg", "alt": "TODO what the photo shows" },
+      { "src": "placeholder-work-3.jpg", "alt": "TODO what the photo shows" },
+      { "src": "placeholder-work-4.jpg", "alt": "TODO what the photo shows" },
+      { "src": "placeholder-work-5.jpg", "alt": "TODO what the photo shows" },
+      { "src": "placeholder-work-6.jpg", "alt": "TODO what the photo shows" }
+    ]
+  },
+  "socials": {
+    "googleBusinessProfile": "https://example.com/TODO-twintuned-google-business-profile"
+  },
+  "cta": {
+    "primary": "call"
+  },
+  "seo": {
+    "keywords": ["mobile detailing", "car detailing Woodland Hills", "auto detailing Payson"]
+  }
+}

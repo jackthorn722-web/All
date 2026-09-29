@@ -1,0 +1,25 @@
+---
+// Call / Text / Book buttons. The primary action (cta.primary) is filled.
+import Icon from './Icon.astro';
+interface Props {
+  site: any;
+  class?: string;
+}
+const { site, class: cls = '' } = Astro.props;
+---
+
+<div class:list={['flex flex-wrap gap-3', cls]}>
+  {
+    site.buttons.map((b: any) => (
+      <a
+        href={b.href}
+        class:list={['btn', b.primary ? 'btn-primary' : 'btn-outline']}
+        {...(b.external ? { target: '_blank', rel: 'noopener' } : {})}
+      >
+        <Icon name={b.icon} />
+        {b.label}
+        {b.kind === 'call' && b.primary && <span class="hidden font-semibold opacity-80 sm:inline">{site.business.phoneDisplay}</span>}
+      </a>
+    ))
+  }
+</div>

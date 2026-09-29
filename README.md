@@ -69,6 +69,55 @@ risk, competition, scalability, required human effort, and legality for a
 | [outreach/templates.md](outreach/templates.md) | Outreach scripts (email, follow-ups, close, delivery) |
 | [outreach/lead-criteria.md](outreach/lead-criteria.md) | How leads are found and qualified |
 | [SOP.md](SOP.md) | The whole operation in 30 min/week, plus pivot rules |
+| [CLAUDE.md](CLAUDE.md) | Site pipeline conventions and exact commands |
+| `clients/<slug>/` | One folder per client: `site.json` + `images/` |
+| `templates/` | Astro base template (every section) + industry variants |
+| `lib/`, `scripts/` | Spec schema/validation and the `npm run` commands |
+| [kit/](kit/) | The standalone HTML template kit (Gumroad product, not the pipeline) |
+
+## Add a new client in 30 minutes
+
+The site pipeline turns one filled-out `site.json` into a finished static site. You need
+Node 22.12+ ([nodejs.org](https://nodejs.org), LTS installer) and, once, `npm install` in this folder.
+Every command works the same in PowerShell, cmd or VS Code's terminal on Windows.
+
+**Before the call (2 min)**: pick a short slug (lowercase, dashes ok) and the closest template:
+
+```
+npm run new -- twintuned --template detailer
+```
+
+This creates `clients/twintuned/site.json` (every unknown is a `TODO`), labeled placeholder photos
+in `clients/twintuned/images/`, and prints the **intake checklist**: every field to collect, required
+ones starred. Keep it open during the call.
+
+**On the call (15 min)**: go down the checklist. Ask them to text or email 5-10 photos (best work,
+before/afters, one of themselves, the logo). Big phone photos are fine; iPhone photos must be JPG, not
+HEIC (Settings > Camera > Formats > Most Compatible). Read them the default services and FAQ answers and
+note changes. Only mark licensed/insured if they confirm it, and only use real reviews, word for word.
+
+**Fill it in (10 min)**: open `site.json` in VS Code (it autocompletes and underlines mistakes).
+Replace every `TODO`, drop their photos into `images/`, point the image fields at them, and delete the
+`placeholder-*.jpg` files. Anything you leave out of `copy`, `services` or `faq` uses the template's
+default copy. Then:
+
+```
+npm run check -- twintuned     # lists every missing field and leftover placeholder by exact name
+npm run dev -- twintuned       # live preview at http://localhost:4321, updates as you edit
+```
+
+Keep going until `check` says **READY**.
+
+**Build (1 min)**:
+
+```
+npm run build -- twintuned     # finished static site in dist/twintuned/
+npm run preview -- twintuned   # look at exactly what will be deployed
+```
+
+The contact form sends to the Web3Forms inbox in `.env` (copy `.env.example` to `.env`; add
+`WEB3FORMS_KEY_TWINTUNED=...` to route one client's leads to their own inbox). Deploying to Cloudflare
+Pages (`npm run deploy`) arrives in Phase 2.
 
 ## Legal & boundaries (standing rules)
 

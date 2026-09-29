@@ -1,0 +1,126 @@
+---
+// Contact: quick call/text options + a quote form posted to Web3Forms
+// (no server). The access key comes from .env, never from site.json.
+import Section from './Section.astro';
+import CtaButtons from './CtaButtons.astro';
+import Icon from './Icon.astro';
+interface Props {
+  site: any;
+}
+const { site } = Astro.props;
+const { business: b, form } = site;
+---
+
+<Section id="contact" eyebrow="Contact" title={site.copy.contactTitle}>
+  <div class="grid gap-10 lg:grid-cols-5">
+    <div class="lg:col-span-2">
+      <p class="-mt-4 text-lg text-muted">{site.copy.contactText}</p>
+      <CtaButtons site={site} class="mt-6" />
+      <ul class="mt-8 space-y-3">
+        <li class="flex items-center gap-3">
+          <Icon name="phone" class="h-5 w-5 text-link" />
+          <a href={b.telHref} class="font-bold hover:underline">{b.phoneDisplay}</a>
+          {b.textsOk && <span class="text-sm text-muted">(call or text)</span>}
+        </li>
+        <li class="flex items-center gap-3">
+          <Icon name="mail" class="h-5 w-5 text-link" />
+          <a href={`mailto:${b.email}`} class="font-bold break-all hover:underline">{b.email}</a>
+        </li>
+      </ul>
+    </div>
+
+    <form
+      id="quote-form"
+      action="https://api.web3forms.com/submit"
+      method="POST"
+      class="rounded-3xl border border-line bg-surface p-6 sm:p-8 lg:col-span-3"
+      data-key={form.key ? 'set' : ''}
+    >
+      <input type="hidden" name="access_key" value={form.key} />
+      <input type="hidden" name="subject" value={form.subject} />
+      <input type="hidden" name="from_name" value={`${b.name} website`} />
+      <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
+
+      <div class="grid gap-5 sm:grid-cols-2">
+        <label class="block font-semibold">
+          Name
+          <input class="field" type="text" name="name" autocomplete="name" required />
+        </label>
+        <label class="block font-semibold">
+          Phone
+          <input class="field" type="tel" name="phone" autocomplete="tel" inputmode="tel" required />
+        </label>
+        <label class="block font-semibold sm:col-span-2">
+          Email <span class="font-normal text-muted">(optional)</span>
+          <input class="field" type="email" name="email" autocomplete="email" />
+        </label>
+        <label class="block font-semibold">
+          Service
+          <select class="field" name="service">
+            {site.services.map((s: any) => <option>{s.name}</option>)}
+            <option>Something else</option>
+          </select>
+        </label>
+        {
+          form.extraField ? (
+            <label class="block font-semibold">
+              {form.extraField.label}
+              <input class="field" type="text" name={form.extraField.name} placeholder={form.extraField.placeholder} />
+            </label>
+          ) : (
+            <label class="block font-semibold">
+              City
+              <input class="field" type="text" name="city" placeholder={b.serviceArea.homeCity} autocomplete="address-level2" />
+            </label>
+          )
+        }
+        <label class="block font-semibold sm:col-span-2">
+          Details
+          <textarea class="field min-h-32" name="message" rows="4" placeholder={form.messagePlaceholder}></textarea>
+        </label>
+      </div>
+      <button type="submit" class="btn btn-primary mt-6 w-full sm:w-auto">
+        Send my request <Icon name="arrow" class="h-5 w-5" />
+      </button>
+      <p class="mt-4 text-sm font-semibold" data-status role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</Section>
+
+<script is:inline define:vars={{ phone: b.phoneDisplay }}>
+  (() => {
+    const form = document.getElementById('quote-form');
+    const status = form.querySelector('[data-status]');
+    // "Get a quote" links on service cards pre-select that service.
+    document.querySelectorAll('[data-service]').forEach((a) =>
+      a.addEventListener('click', () => {
+        form.elements.service.value = a.dataset.service;
+      }),
+    );
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('button[type=submit]');
+      if (!form.dataset.key) {
+        status.textContent = `The form is not connected yet. Please call or text ${phone}.`;
+        return;
+      }
+      btn.disabled = true;
+      status.textContent = 'Sending...';
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(Object.fromEntries(new FormData(form))),
+        });
+        const out = await res.json();
+        if (!out.success) throw new Error(out.message);
+        form.reset();
+        status.textContent = 'Thanks! We got your request and will get back to you soon.';
+      } catch {
+        status.textContent = `Sorry, that did not go through. Please call or text ${phone}.`;
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  })();
+</script>

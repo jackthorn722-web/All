@@ -1,0 +1,39 @@
+---
+// The one-page site. Sections render in the order from site.json `sections`
+// (or the variant's default order). A variant can replace any section by
+// adding templates/<variant>/components/<Name>.astro.
+import Site from '../../templates/base/layouts/Site.astro';
+import Hero from '../../templates/base/components/Hero.astro';
+import TrustBar from '../../templates/base/components/TrustBar.astro';
+import Services from '../../templates/base/components/Services.astro';
+import Gallery from '../../templates/base/components/Gallery.astro';
+import Reviews from '../../templates/base/components/Reviews.astro';
+import About from '../../templates/base/components/About.astro';
+import ServiceArea from '../../templates/base/components/ServiceArea.astro';
+import Faq from '../../templates/base/components/Faq.astro';
+import Contact from '../../templates/base/components/Contact.astro';
+import { getSite } from '../../templates/base/site.js';
+
+const site = await getSite();
+const BASE: Record<string, any> = { Hero, TrustBar, Services, Gallery, Reviews, About, ServiceArea, Faq, Contact };
+const NAMES: Record<string, string> = {
+  hero: 'Hero',
+  trust: 'TrustBar',
+  services: 'Services',
+  gallery: 'Gallery',
+  reviews: 'Reviews',
+  about: 'About',
+  area: 'ServiceArea',
+  faq: 'Faq',
+  contact: 'Contact',
+};
+const overrides: Record<string, any> = import.meta.glob(['/templates/*/components/*.astro', '!/templates/base/**'], { eager: true });
+const sections = site.sections.map((id: string) => {
+  const name = NAMES[id];
+  return overrides[`/templates/${site.template}/components/${name}.astro`]?.default ?? BASE[name];
+});
+---
+
+<Site site={site}>
+  {sections.map((Section: any) => <Section site={site} />)}
+</Site>

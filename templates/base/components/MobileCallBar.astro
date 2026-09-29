@@ -1,0 +1,28 @@
+---
+// Sticky bottom bar on phones: always one tap from calling (or texting/booking).
+import Icon from './Icon.astro';
+interface Props {
+  site: any;
+}
+const { site } = Astro.props;
+const cols = ['', 'grid-cols-1', 'grid-cols-2', 'grid-cols-3'][site.buttons.length];
+---
+
+<div
+  class="fixed inset-x-0 bottom-0 z-50 border-t border-line bg-bg/95 px-3 pt-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] backdrop-blur md:hidden"
+>
+  <div class:list={['grid gap-2', cols]}>
+    {
+      site.buttons.map((b: any) => (
+        <a
+          href={b.href}
+          class:list={['btn min-h-12 px-3 text-sm', b.primary ? 'btn-primary' : 'border-2 border-line']}
+          {...(b.external ? { target: '_blank', rel: 'noopener' } : {})}
+        >
+          <Icon name={b.icon} class="h-5 w-5" />
+          {b.kind === 'call' ? 'Call' : b.kind === 'text' ? 'Text' : 'Book'}
+        </a>
+      ))
+    }
+  </div>
+</div>

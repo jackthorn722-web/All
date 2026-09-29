@@ -1,0 +1,26 @@
+---
+// "★★★★★ 4.9 on Google (37 reviews)" line. Renders nothing without a rating.
+import Icon from './Icon.astro';
+interface Props {
+  reviews: any;
+  class?: string;
+}
+const { reviews, class: cls = '' } = Astro.props;
+const rating = reviews.googleRating;
+const label = rating ? `${rating.toFixed(1)} on Google${reviews.googleReviewCount ? ` (${reviews.googleReviewCount} reviews)` : ''}` : '';
+const Tag = reviews.googleReviewsUrl ? 'a' : 'p';
+---
+
+{
+  rating && (
+    <Tag
+      class:list={['flex items-center gap-2 text-sm font-semibold', cls]}
+      {...(reviews.googleReviewsUrl ? { href: reviews.googleReviewsUrl, target: '_blank', rel: 'noopener' } : {})}
+    >
+      <span class="flex text-[#fbbc04]" aria-hidden="true">
+        {[1, 2, 3, 4, 5].map((n) => <Icon name="star" filled={n <= Math.round(rating)} class="h-4 w-4" />)}
+      </span>
+      {label}
+    </Tag>
+  )
+}
