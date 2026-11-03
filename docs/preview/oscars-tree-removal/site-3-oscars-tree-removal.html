@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oscars Tree Removal — Spanish Fork, UT | Free Estimates</title>
+<meta name="description" content="Tree removal, stump grinding, trimming, and emergency tree service in Spanish Fork, Utah. Call Oscars Tree Removal for a free estimate: (801) 227-4654.">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --char:#191d1a; --char2:#22271f; --pine:#2f5138; --safety:#e86a17; --safety-dark:#c8540d;
+    --paper:#f6f4ee; --ink:#23282a; --muted:#5d6862; --line:#ddd7c8; --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6}
+  h1,h2,h3,.disp{font-family:'Archivo',system-ui,sans-serif;text-transform:uppercase;letter-spacing:.01em}
+  a{text-decoration:none}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+
+  .alert{background:var(--safety);color:#fff;font-weight:700;font-size:.92rem}
+  .alert .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;padding-top:9px;padding-bottom:9px}
+  .alert a{color:#fff;text-decoration:underline}
+
+  header{background:var(--char);color:#fff}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:16px;padding-bottom:16px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand .saw{width:48px;height:48px;border-radius:10px;background:var(--safety);display:flex;align-items:center;justify-content:center;font-size:1.45rem}
+  .brand .name{font-family:'Archivo',sans-serif;font-weight:900;font-size:1.3rem;line-height:1.05;text-transform:uppercase}
+  .brand .name span{display:block;font-size:.7rem;font-weight:700;letter-spacing:.22em;color:#f0a05a}
+  .btn{display:inline-block;background:var(--safety);color:#fff;font-weight:800;padding:13px 24px;border-radius:8px;transition:.15s;text-transform:uppercase;font-size:.9rem;letter-spacing:.04em}
+  .btn:hover{background:var(--safety-dark)}
+  .btn.dark{background:var(--char)}
+  .btn.dark:hover{background:#000}
+
+  .hero{background:linear-gradient(120deg,var(--char) 55%,var(--char2));color:#fff;padding:64px 0 70px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent 0 46px,rgba(232,106,23,.06) 46px 48px)}
+  .hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center}
+  .eyebrow{color:#f0a05a;font-weight:800;letter-spacing:.18em;text-transform:uppercase;font-size:.78rem}
+  .hero h2{font-size:2.9rem;line-height:1.02;font-weight:900;margin:12px 0 16px}
+  .hero h2 em{font-style:normal;color:var(--safety)}
+  .hero p{color:#cfd6cf;font-size:1.07rem;max-width:33rem}
+  .hero .cta{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+  .factbox{background:#fff;color:var(--ink);border-radius:var(--radius);overflow:hidden;box-shadow:0 20px 44px rgba(0,0,0,.35)}
+  .factbox .fb-head{background:var(--safety);color:#fff;font-family:'Archivo',sans-serif;font-weight:800;text-transform:uppercase;padding:13px 20px;font-size:.92rem;letter-spacing:.06em}
+  .factbox ul{list-style:none;padding:10px 20px 16px}
+  .factbox li{padding:9px 0;border-bottom:1px dashed var(--line);font-size:.97rem}
+  .factbox li:last-child{border-bottom:0}
+  .factbox li b{color:var(--pine)}
+
+  section{padding:58px 0}
+  .sec-head{max-width:660px;margin-bottom:28px}
+  .sec-head h3{font-size:1.9rem;font-weight:900;color:var(--char);margin-bottom:8px}
+  .sec-head p{color:var(--muted)}
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .card{background:#fff;border:1px solid var(--line);border-left:6px solid var(--pine);border-radius:var(--radius);padding:26px 24px}
+  .card.hot{border-left-color:var(--safety)}
+  .card h4{font-size:1.15rem;font-weight:800;margin-bottom:6px;text-transform:uppercase;font-family:'Archivo',sans-serif}
+  .card p{color:var(--muted);font-size:.97rem}
+
+  .band{background:var(--pine);color:#e8f0e8}
+  .band .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding-top:34px;padding-bottom:34px}
+  .band h5{font-family:'Archivo',sans-serif;color:#fff;text-transform:uppercase;font-size:1rem;margin-bottom:6px}
+  .band p{font-size:.95rem;color:#cfe0cf}
+
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+  .panel h4{font-family:'Archivo',sans-serif;font-size:1.25rem;text-transform:uppercase;margin-bottom:14px}
+  .steps{list-style:none;counter-reset:s}
+  .steps li{counter-increment:s;display:flex;gap:14px;padding:10px 0;border-bottom:1px dashed var(--line)}
+  .steps li:last-child{border-bottom:0}
+  .steps li::before{content:counter(s);flex:0 0 auto;width:30px;height:30px;background:var(--char);color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;border-radius:6px}
+  .steps b{display:block}
+  .steps span{color:var(--muted);font-size:.95rem}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+  .chip{background:#eef2ec;color:var(--pine);font-weight:700;font-size:.85rem;padding:6px 12px;border-radius:999px}
+
+  .final{background:var(--char);color:#fff;border-radius:18px;padding:44px 34px;text-align:center}
+  .final h3{font-size:2rem;margin-bottom:10px}
+  .final p{color:#cfd6cf;max-width:34rem;margin:0 auto 22px}
+  .final .phone-big{display:block;font-size:1.8rem;font-weight:900;color:#fff;margin-top:14px;font-family:'Archivo',sans-serif}
+
+  footer{padding:28px 0 90px;color:var(--muted);font-size:.9rem;text-align:center}
+  .sticky-call{display:none}
+
+  @media (max-width:820px){
+    .hero .wrap{grid-template-columns:1fr}
+    .cards{grid-template-columns:1fr}
+    .band .wrap{grid-template-columns:1fr}
+    .split{grid-template-columns:1fr}
+    .hero h2{font-size:2.15rem}
+    header .btn{display:none}
+    .sticky-call{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:20;background:var(--safety);color:#fff;font-weight:800;align-items:center;justify-content:center;padding:15px;border-radius:10px;box-shadow:0 12px 28px rgba(0,0,0,.4);text-transform:uppercase}
+  }
+</style>
+</head>
+<body>
+
+<div class="alert">
+  <div class="wrap">
+    <div>⚠ Emergency tree service available</div>
+    <div>Free estimates — <a href="tel:+18012274654">call (801) 227-4654</a></div>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <div class="saw">🌲</div>
+      <div class="name">Oscars<span>Tree Removal</span></div>
+    </div>
+    <a class="btn" href="tel:+18012274654">Free Estimate</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Spanish Fork, Utah</div>
+      <h2>Big tree. <em>Bigger problem.</em> Gone.</h2>
+      <p>Oscars Tree Removal takes down trees of every size in Spanish Fork — safely, cleanly, and for a fair price. From a massive elm to a storm-damaged hazard leaning over your roof, one call gets you a free estimate and a crew that handles the whole job.</p>
+      <div class="cta">
+        <a class="btn" href="tel:+18012274654">📞 Call (801) 227-4654</a>
+        <a class="btn dark" href="#services" style="background:#fff;color:var(--char)">See Services</a>
+      </div>
+    </div>
+    <div class="factbox">
+      <div class="fb-head">The job, handled start to finish</div>
+      <ul>
+        <li><b>Removal</b> — trees cut down and hauled out</li>
+        <li><b>Stump grinding</b> — nothing left sticking out of your yard</li>
+        <li><b>Cleanup</b> — cut, cleared, and cleaned when we're done</li>
+        <li><b>Free estimates</b> — get a quote before you commit</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <h3>Tree services</h3>
+      <p>Residential tree work in Spanish Fork — done by a local, family-run crew.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h4>Tree Removal</h4>
+        <p>Dead, diseased, overgrown, or just in the way — we remove trees of all sizes, including large and difficult removals near homes and fences.</p>
+      </div>
+      <div class="card hot">
+        <h4>Emergency Tree Service</h4>
+        <p>Storm damage or a tree threatening your house can't wait. We offer emergency services for urgent tree situations — call and tell us what's going on.</p>
+      </div>
+      <div class="card">
+        <h4>Stump Grinding</h4>
+        <p>After the tree comes down, we grind the stump out so you get your yard back — no tripping hazard, no eyesore, no mower damage.</p>
+      </div>
+      <div class="card">
+        <h4>Trimming &amp; Pruning</h4>
+        <p>Keep healthy trees healthy. We trim back overgrowth, remove dead and hazardous limbs, and open up your canopy for light and safety.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band">
+  <div class="wrap">
+    <div>
+      <h5>Family owned</h5>
+      <p>A local family company — the crew that quotes your job is the crew that does it.</p>
+    </div>
+    <div>
+      <h5>Efficient &amp; clean</h5>
+      <p>Big jobs handled in days, not weeks, with the site cleaned up when we leave.</p>
+    </div>
+    <div>
+      <h5>Reasonable pricing</h5>
+      <p>Get our quote before you decide — homeowners are often surprised how much they save.</p>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="split">
+      <div class="panel">
+        <h4>How it works</h4>
+        <ol class="steps">
+          <li><div><b>Call for a free estimate</b><span>Tell us about the tree at (801) 227-4654.</span></div></li>
+          <li><div><b>We look and quote</b><span>We assess the tree, the access, and what removal involves — then give you a straight price.</span></div></li>
+          <li><div><b>We cut, grind, and clean up</b><span>Tree down, stump ground, yard cleared. Done.</span></div></li>
+        </ol>
+      </div>
+      <div class="panel">
+        <h4>Service area</h4>
+        <p style="color:var(--muted);margin-bottom:10px">Based in Spanish Fork and serving nearby Utah County communities.</p>
+        <div class="chips">
+          <span class="chip">Spanish Fork</span>
+          <span class="chip">Utah County</span>
+        </div>
+        <p style="color:var(--muted);font-size:.95rem;margin-top:14px">Don't see your town? Call and ask — if we can get a crew to you, we will.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="final">
+      <h3>Get the quote before you hire anyone</h3>
+      <p>Tree removal prices vary wildly. Make sure one of your bids is ours — it's free, and it might save you thousands.</p>
+      <a class="btn" href="tel:+18012274654">Call for a Free Estimate</a>
+      <a class="phone-big" href="tel:+18012274654">(801) 227-4654</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Oscars Tree Removal · Spanish Fork, UT · <a href="tel:+18012274654" style="color:var(--pine);font-weight:700">(801) 227-4654</a></div>
+</footer>
+
+<a class="sticky-call" href="tel:+18012274654">📞 Free Estimate — Call Now</a>
+
+</body>
+</html>
