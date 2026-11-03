@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Epic Services — Window Cleaning &amp; Christmas Lights | Spanish Fork, UT</title>
+<meta name="description" content="My Epic Services in Spanish Fork, UT: window cleaning, gutter and window well cleaning, custom-fit Christmas light installation, and post-construction cleaning. Call or text Skyler: (801) 362-3743.">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0d1526; --navy2:#131f3a; --gold:#f2b33d; --gold-dark:#d19422;
+    --ice:#a9c8ff; --paper:#f7f8fc; --ink:#1b2432; --muted:#5a6678;
+    --line:#e2e7f0; --radius:18px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6}
+  h1,h2,h3,.disp{font-family:'Sora',system-ui,sans-serif}
+  a{text-decoration:none}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+
+  .topbar{background:#080d18;color:#c8d4ea;font-size:.9rem}
+  .topbar .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;padding-top:8px;padding-bottom:8px}
+  .topbar a{color:var(--gold);font-weight:800}
+
+  header{background:var(--navy);color:#fff;border-bottom:1px solid rgba(255,255,255,.08)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:15px;padding-bottom:15px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand .bolt{width:48px;height:48px;border-radius:12px;background:linear-gradient(150deg,var(--gold),var(--gold-dark));display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 8px 20px rgba(242,179,61,.35)}
+  .brand .name{font-family:'Sora',sans-serif;font-weight:800;font-size:1.3rem;line-height:1.05}
+  .brand .name span{display:block;font-family:'Inter',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ice)}
+  .btn{display:inline-block;background:var(--gold);color:#23180a;font-weight:800;padding:13px 24px;border-radius:999px;box-shadow:0 8px 20px rgba(242,179,61,.35);transition:.15s}
+  .btn:hover{background:var(--gold-dark);color:#fff}
+  .btn.ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5);box-shadow:none}
+  .btn.ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+
+  .hero{background:radial-gradient(800px 400px at 90% -80px,rgba(242,179,61,.22),transparent 55%),linear-gradient(150deg,var(--navy) 0%,var(--navy2) 80%);color:#fff;padding:62px 0 70px;position:relative;overflow:hidden}
+  .lights{position:absolute;top:0;left:0;right:0;height:26px;display:flex;justify-content:space-around;pointer-events:none}
+  .lights i{width:9px;height:9px;border-radius:50%;margin-top:8px;box-shadow:0 0 12px 2px currentColor}
+  .lights i:nth-child(4n){color:#f2b33d;background:#f2b33d}
+  .lights i:nth-child(4n+1){color:#ff6b5e;background:#ff6b5e}
+  .lights i:nth-child(4n+2){color:#7ee2a0;background:#7ee2a0}
+  .lights i:nth-child(4n+3){color:#a9c8ff;background:#a9c8ff}
+  .hero .wrap{position:relative;display:grid;grid-template-columns:1.12fr .88fr;gap:36px;align-items:center}
+  .eyebrow{color:var(--gold);font-weight:800;letter-spacing:.16em;text-transform:uppercase;font-size:.78rem}
+  .hero h2{font-size:2.7rem;line-height:1.07;font-weight:800;margin:12px 0 14px}
+  .hero h2 em{font-style:normal;color:var(--gold)}
+  .hero p{color:#c8d4ea;font-size:1.07rem;max-width:33rem}
+  .hero .cta{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+  .hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);padding:24px;backdrop-filter:blur(4px)}
+  .hero-card h4{font-family:'Sora',sans-serif;font-size:1.05rem;margin-bottom:12px;color:#fff}
+  .hero-card ul{list-style:none}
+  .hero-card li{padding:8px 0 8px 26px;position:relative;color:#dbe5f5;font-size:.97rem;border-bottom:1px dashed rgba(255,255,255,.14)}
+  .hero-card li:last-child{border-bottom:0}
+  .hero-card li::before{content:"✦";position:absolute;left:2px;color:var(--gold)}
+
+  section{padding:58px 0}
+  .sec-head{max-width:660px;margin-bottom:28px}
+  .sec-head h3{font-size:1.9rem;font-weight:800;color:var(--navy);margin-bottom:8px}
+  .sec-head p{color:var(--muted)}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;box-shadow:0 8px 22px rgba(13,21,38,.05)}
+  .card .icon{font-size:1.6rem;margin-bottom:10px}
+  .card h4{font-size:1.1rem;font-weight:800;margin-bottom:6px;color:var(--navy)}
+  .card p{color:var(--muted);font-size:.97rem}
+  .card.feature{border:2px solid var(--gold);background:linear-gradient(180deg,#fffaf0,#fff)}
+
+  .detail-band{background:#fff;border:1px solid var(--line);border-radius:22px;padding:32px;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center}
+  .detail-band .big{font-family:'Sora',sans-serif;font-size:2.2rem;font-weight:800;color:var(--navy);line-height:1.1}
+  .detail-band .big span{color:var(--gold-dark)}
+  .detail-band p{color:var(--muted)}
+
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+  .panel h4{font-family:'Sora',sans-serif;font-size:1.22rem;color:var(--navy);margin-bottom:14px}
+  .steps{list-style:none;counter-reset:s}
+  .steps li{counter-increment:s;display:flex;gap:14px;padding:10px 0;border-bottom:1px dashed var(--line)}
+  .steps li:last-child{border-bottom:0}
+  .steps li::before{content:counter(s);flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:.92rem}
+  .steps b{display:block}
+  .steps span{color:var(--muted);font-size:.95rem}
+  .hours{width:100%;border-collapse:collapse;font-size:.97rem}
+  .hours td{padding:7px 0;border-bottom:1px dashed var(--line)}
+  .hours tr:last-child td{border-bottom:0}
+  .hours td:last-child{text-align:right;font-weight:800;color:var(--navy)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .chip{background:#eef3ff;color:#2c4a7c;font-weight:700;font-size:.85rem;padding:6px 12px;border-radius:999px}
+
+  .final{background:linear-gradient(140deg,var(--navy),var(--navy2));color:#fff;border-radius:24px;padding:46px 34px;text-align:center;position:relative;overflow:hidden}
+  .final h3{font-size:2rem;margin-bottom:10px}
+  .final p{color:#c8d4ea;max-width:34rem;margin:0 auto 22px}
+  .final .phone-big{display:block;font-size:1.7rem;font-weight:800;color:#fff;margin-top:14px}
+
+  footer{padding:28px 0 90px;color:var(--muted);font-size:.9rem;text-align:center}
+  .sticky-call{display:none}
+
+  @media (max-width:820px){
+    .hero .wrap{grid-template-columns:1fr}
+    .cards{grid-template-columns:1fr}
+    .split{grid-template-columns:1fr}
+    .detail-band{grid-template-columns:1fr}
+    .hero h2{font-size:2.1rem}
+    header .btn{display:none}
+    .sticky-call{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:20;background:var(--gold);color:#23180a;font-weight:800;align-items:center;justify-content:center;padding:15px;border-radius:999px;box-shadow:0 12px 28px rgba(13,21,38,.4)}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div>Window cleaning &amp; more in <b>Spanish Fork, Utah</b></div>
+    <div>Call or text Skyler · <a href="tel:+18013623743">(801) 362-3743</a></div>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <div class="bolt">⚡</div>
+      <div class="name">My Epic Services<span>Spanish Fork, UT</span></div>
+    </div>
+    <a class="btn" href="tel:+18013623743">Get a Bid</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="lights" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Window Cleaning · Lights · Gutters</div>
+      <h2>Clean windows make an <em>epic</em> difference.</h2>
+      <p>My Epic Services is a local Spanish Fork crew for window cleaning, gutter and window well cleaning, post-construction cleanup, and custom-fit Christmas light installation — for homes and businesses that want it done right, down to the details.</p>
+      <div class="cta">
+        <a class="btn" href="tel:+18013623743">📞 Call or Text (801) 362-3743</a>
+        <a class="btn ghost" href="#services">See Services</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h4>One call handles the whole list</h4>
+      <ul>
+        <li>Window cleaning — residential &amp; business</li>
+        <li>Custom-fit holiday light installation</li>
+        <li>Gutter &amp; window well cleaning</li>
+        <li>Post-construction cleaning</li>
+        <li>Yard aeration</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <h3>Services</h3>
+      <p>We take pride in our work and always do our best to make our customers happy.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="icon">🪟</div>
+        <h4>Window Cleaning</h4>
+        <p>Professional window cleaning for homes and businesses. Notice the difference clean glass makes — brighter rooms, better curb appeal, zero streaks left behind.</p>
+      </div>
+      <div class="card feature">
+        <div class="icon">🎄</div>
+        <h4>Custom-Fit Christmas Lights</h4>
+        <p>Holiday lights cut and fitted to your roofline for a clean, professional look — installed for you, so the ladder stays in the garage this year. Book early: the schedule fills fast.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🍂</div>
+        <h4>Gutter Cleaning</h4>
+        <p>Clogged gutters overflow where you least want water. We'll clear them out so rain and snowmelt go where they're supposed to.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🕳️</div>
+        <h4>Window Well Cleaning</h4>
+        <p>Window wells collect leaves, dirt, and worse. We clean them out so your basement windows let light in instead of holding debris.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🏗️</div>
+        <h4>Post-Construction Cleaning</h4>
+        <p>New build or remodel? We handle the post-construction cleanup so the finished project actually looks finished.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🌱</div>
+        <h4>Yard Aeration</h4>
+        <p>Seasonal aeration to help your lawn breathe, drink, and come back thicker. Ask about getting on the schedule when aeration season opens.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="detail-band">
+      <div class="big">It's the<br><span>details</span> that<br>do it.</div>
+      <p>Most companies rush through windows chasing quantity, not quality — and rushing puts your windows at risk. We pay attention to the process and the details on every job, because that's the difference between "cleaned" and <b>epic</b>. Looking for a window cleaner who actually sweats the small stuff? You found him.</p>
+    </div>
+
+    <div class="split">
+      <div class="panel">
+        <h4>Get on the schedule</h4>
+        <ol class="steps">
+          <li><div><b>Call or text Skyler</b><span>(801) 362-3743 — tell us what you need done.</span></div></li>
+          <li><div><b>Get a bid</b><span>We'll give you a clear bid for the work.</span></div></li>
+          <li><div><b>We handle it</b><span>Show up, do it right, and leave it looking epic.</span></div></li>
+        </ol>
+      </div>
+      <div class="panel">
+        <h4>Hours &amp; service area</h4>
+        <table class="hours">
+          <tr><td>Monday – Friday</td><td>8:00 AM – 6:00 PM</td></tr>
+          <tr><td>Saturday – Sunday</td><td>Closed</td></tr>
+        </table>
+        <div class="chips">
+          <span class="chip">Spanish Fork</span>
+          <span class="chip">Homes</span>
+          <span class="chip">Businesses</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="final">
+      <div class="lights" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <h3>Ready when you are.</h3>
+      <p>Spring-clean windows, holiday lights, gutters that actually drain — get a bid and get on the schedule today.</p>
+      <a class="btn" href="tel:+18013623743">Call or Text Skyler</a>
+      <a class="phone-big" href="tel:+18013623743">(801) 362-3743</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">My Epic Services · Spanish Fork, UT · <a href="tel:+18013623743" style="color:var(--navy);font-weight:700">(801) 362-3743</a></div>
+</footer>
+
+<a class="sticky-call" href="tel:+18013623743">📞 Call or Text (801) 362-3743</a>
+
+</body>
+</html>
