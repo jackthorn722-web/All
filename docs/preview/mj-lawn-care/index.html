@@ -2,178 +2,69 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<title>MJ Lawn Care &amp; Snow Removal LLC | Lawn care and snow removal in Salem, UT (preview)</title>
-<meta name="description" content="MJ Lawn Care &amp; Snow Removal LLC: lawn care and snow removal in Salem, Utah. Call or text (801) 471-9461.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>MJ Lawn Care &amp; Snow Removal | Salem, UT (preview)</title>
+<meta name="description" content="Lawn mowing and maintenance in summer, snow removal in winter. Serving Salem, Utah.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --accent: #2e8b57;
-    --dark: #14281d;
-    --soft: #e6f4ec;
-    --text: #1d2125;
-    --muted: #5d6670;
-    --bg: #ffffff;
-    --line: #e7e9ec;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { font-family: "Outfit", system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--text); background: var(--bg); line-height: 1.55; -webkit-font-smoothing: antialiased; }
-  a { color: inherit; }
-  .wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 20px; }
-  .ribbon { background: #fff6d6; color: #6b5300; font-size: 13px; text-align: center; padding: 8px 16px; border-bottom: 1px solid #f1e3a8; }
-  header.top { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
-  header.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 12px; }
-  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -.01em; text-decoration: none; min-width: 0; }
-  .brand .mark { flex: none; width: 36px; height: 36px; border-radius: 10px; background: var(--accent); color: #fff; display: grid; place-items: center; font-size: 14px; }
-  .brand span.n { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-weight: 700; text-decoration: none; border-radius: 999px; padding: 14px 22px; font-size: 16px; transition: transform .15s ease, box-shadow .15s ease; }
-  .btn:active { transform: translateY(1px); }
-  .btn.primary { background: var(--accent); color: #fff; box-shadow: 0 6px 18px -8px var(--accent); }
-  .btn.ghost { background: rgba(255,255,255,.12); color: #fff; border: 1.5px solid rgba(255,255,255,.4); }
-  .btn.small { padding: 9px 16px; font-size: 14px; flex: none; }
-  .hero { background: radial-gradient(1200px 500px at 85% -10%, color-mix(in srgb, var(--accent) 45%, transparent), transparent 60%), var(--dark); color: #fff; padding: 64px 0 72px; }
-  .kicker { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: color-mix(in srgb, var(--accent) 55%, #fff); margin-bottom: 16px; }
-  .hero h1 { font-size: clamp(34px, 8vw, 58px); line-height: 1.05; letter-spacing: -.025em; font-weight: 800; max-width: 14ch; }
-  .hero p.lead { margin-top: 18px; font-size: 18px; color: rgba(255,255,255,.8); max-width: 46ch; }
-  .hero .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-  .hero .meta { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 30px; font-size: 14px; color: rgba(255,255,255,.75); }
-  .hero .meta span { display: inline-flex; align-items: center; gap: 6px; }
-  section { padding: 64px 0; }
-  .eyebrow { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); }
-  h2 { font-size: clamp(26px, 5vw, 36px); letter-spacing: -.02em; line-height: 1.15; margin-top: 8px; }
-  .grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
-  .card { border: 1px solid var(--line); border-radius: 18px; padding: 24px; background: #fff; }
-  .card .ic { width: 48px; height: 48px; border-radius: 14px; background: var(--soft); color: var(--accent); display: grid; place-items: center; margin-bottom: 14px; }
-  .card h3 { font-size: 19px; letter-spacing: -.01em; }
-  .card p { color: var(--muted); margin-top: 6px; }
-  .note { margin-top: 14px; font-size: 13px; color: var(--muted); }
-  .why { background: var(--soft); }
-  .why .cols { display: grid; grid-template-columns: 1fr; gap: 28px; align-items: center; }
-  .why ul { list-style: none; display: grid; gap: 12px; }
-  .why li { display: flex; align-items: center; gap: 12px; background: #fff; border-radius: 14px; padding: 14px 16px; font-weight: 600; }
-  .why li svg { color: var(--accent); flex: none; }
-  .reviews .ph { margin-top: 24px; border: 2px dashed var(--line); border-radius: 18px; padding: 28px; text-align: center; color: var(--muted); }
-  .contact { background: var(--dark); color: #fff; text-align: center; }
-  .contact h2 { color: #fff; }
-  .contact p { color: rgba(255,255,255,.75); margin-top: 10px; }
-  .contact .phone { display: block; font-size: clamp(30px, 8vw, 44px); font-weight: 800; letter-spacing: -.02em; margin-top: 18px; text-decoration: none; }
-  .contact .ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 24px; }
-  footer { padding: 28px 0 96px; font-size: 13px; color: var(--muted); text-align: center; }
-  footer .built { margin-top: 6px; }
-  .callbar { position: fixed; left: 12px; right: 12px; bottom: 12px; display: flex; gap: 10px; z-index: 20; }
-  .callbar .btn { flex: 1; box-shadow: 0 10px 30px -10px rgba(0,0,0,.45); }
-  .callbar .btn.ghost { background: #fff; color: var(--dark); border: 1px solid var(--line); }
-  @media (min-width: 760px) {
-    .grid { grid-template-columns: repeat(3, 1fr); }
-    .why .cols { grid-template-columns: 1fr 1fr; }
-    .hero { padding: 96px 0 104px; }
-    section { padding: 88px 0; }
-    .callbar { display: none; }
-    footer { padding-bottom: 32px; }
-  }
+.dl-ribbon{background:#ffe14d;color:#1a1a1a;font:600 13px/1.4 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;text-align:center;padding:8px 14px;position:relative;z-index:50}
+.dl-foot{font:500 12px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;opacity:.7;text-align:center;padding:14px 16px 90px}
+.dl-callbar{position:fixed;left:0;right:0;bottom:0;display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));z-index:60}
+.dl-callbar a{flex:1;text-align:center;text-decoration:none;font:700 15px/1 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;padding:15px 10px;border-radius:12px}
+@media(min-width:760px){.dl-callbar{display:none}.dl-foot{padding-bottom:18px}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;display:block}a{color:inherit}
+
+:root{--g:#2e8b3a;--gd:#14361a;--b:#2a5d9f;--bd:#0f2440;--w:#f4f8fb}
+body{background:#fff;color:#14231a;font-family:'Rubik',sans-serif;font-size:17px}
+h1,h2,h3{margin:0;font-weight:800;letter-spacing:-.02em}
+.brand{position:absolute;top:16px;left:18px;right:18px;display:flex;justify-content:space-between;color:#fff;font-weight:700;z-index:2}
+.brand span{background:rgba(255,255,255,.18);padding:6px 12px;border-radius:30px;font-size:14px}
+.split{position:relative;display:grid;grid-template-columns:1fr;min-height:540px}
+@media(min-width:760px){.split{grid-template-columns:1fr 1fr}}
+.half{padding:90px 24px 40px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end}
+.sum{background:linear-gradient(160deg,#4fb35b,var(--gd))}
+.sum:after{content:"";display:block;height:28px;margin-top:22px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.25) 0 6px,transparent 6px 14px);-webkit-mask:linear-gradient(transparent 40%,#000)}
+.win{background:linear-gradient(200deg,#7fb2ea,var(--bd));padding-top:40px}
+.win:before{content:"\2744";font-size:46px;opacity:.6;margin-bottom:auto}
+.half small{text-transform:uppercase;letter-spacing:.14em;font-weight:700;opacity:.8}
+.half h1,.half h2{font-size:clamp(38px,7vw,64px);line-height:1;margin:8px 0 10px}
+.half p{margin:0;max-width:420px;line-height:1.55;opacity:.92}
+.cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;padding:26px 18px;background:var(--w)}
+.cta a{padding:15px 24px;border-radius:12px;font-weight:700;text-decoration:none}
+.c1{background:var(--g);color:#fff}.c2{background:var(--b);color:#fff}
+.year{max-width:1000px;margin:auto;padding:60px 22px}
+.year h2{font-size:clamp(28px,5vw,42px);margin-bottom:22px;text-align:center}
+.cal{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.cal div{border-radius:16px;padding:20px;color:#fff}
+.cal div:nth-child(1){background:#7cc66f;color:#14361a}.cal div:nth-child(2){background:var(--g)}.cal div:nth-child(3){background:#c07a2c}.cal div:nth-child(4){background:var(--b)}
+.cal b{display:block;font-size:20px;margin-bottom:6px}.cal span{font-size:15px;line-height:1.45}
+.care{background:var(--w);padding:56px 22px;text-align:center}
+.care h2{font-size:clamp(26px,5vw,38px)}.care p{max-width:600px;margin:12px auto 0;line-height:1.6;color:#33473c}
+
+.dl-callbar{background:#fff;box-shadow:0 -4px 18px rgba(0,0,0,.1)} .dl-c1{background:#2e8b3a;color:#fff} .dl-c2{background:#2a5d9f;color:#fff}
+.dl-foot{color:#14231a}
 </style>
 </head>
 <body>
-  <div class="ribbon">Preview site. Services, wording and photos are placeholders until confirmed with MJ Lawn Care &amp; Snow Removal LLC.</div>
-  <header class="top">
-    <div class="wrap">
-      <a class="brand" href="#top"><span class="mark">ML</span><span class="n">MJ Lawn Care &amp; Snow Removal LLC</span></a>
-      <a class="btn primary small" href="tel:+18014719461">Call</a>
-    </div>
-  </header>
+<div class="dl-ribbon">Preview site. Services, wording and photos are placeholders until confirmed with MJ Lawn Care &amp; Snow Removal LLC.</div>
 
-  <main id="top">
-    <section class="hero">
-      <div class="wrap">
-        <div class="kicker"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Lawn care and snow removal · Salem, UT</div>
-        <h1>A yard you&#x27;re proud to come home to.</h1>
-        <p class="lead">Lawn care in summer and snow removal in winter, around Salem.</p>
-        <div class="ctas">
-          <a class="btn primary" href="tel:+18014719461"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg> Call (801) 471-9461</a>
-          <a class="btn ghost" href="sms:+18014719461"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H8l-4 4V5z"/></svg> Text us</a>
-        </div>
-        <div class="meta">
-          <span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Salem, Utah</span>
-          <span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg> (801) 471-9461</span>
-        </div>
-      </div>
-    </section>
+<div class="split">
+<div class="brand"><b>MJ Lawn Care &amp; Snow Removal</b><span>Salem, UT</span></div>
+<div class="half sum"><small>Spring &amp; summer</small><h1>Fresh cut lawns.</h1><p>Weekly mowing and lawn maintenance around Salem, so your yard stays sharp all season.</p></div>
+<div class="half win"><small>Fall &amp; winter</small><h2>Clear drives.</h2><p>When the snow comes, we clear driveways and walks so you can get out the door.</p></div>
+</div>
+<div class="cta"><a class="c1" href="tel:+18014719461">Call (801) 471-9461</a><a class="c2" href="sms:+18014719461">Text for a quote</a></div>
+<section class="year"><h2>One crew, all year long</h2><div class="cal">
+<div><b>Spring</b><span>Cleanup and first cuts of the year.</span></div>
+<div><b>Summer</b><span>Mowing, edging and regular upkeep.</span></div>
+<div><b>Fall</b><span>Leaves and getting the yard ready for winter.</span></div>
+<div><b>Winter</b><span>Snow removal for driveways and sidewalks.</span></div>
+</div></section>
+<section class="care"><h2>Polite crews, careful work.</h2><p>We keep your neighbors in mind too. If someone needs to get by on the sidewalk, the equipment stops until they&rsquo;re through. Call or text any day, we pick up until 5 PM.</p></section>
 
-    <section id="services">
-      <div class="wrap">
-        <div class="eyebrow">Services</div>
-        <h2>What we do</h2>
-        <div class="grid">
-      <article class="card">
-        <div class="ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 5-14 15-14 0 10-6 15-14 15"/><path d="M5 19l7-7"/></svg></div>
-        <h3>Mowing and edging</h3>
-        <p>Clean lines and a sharp lawn, week after week.</p>
-      </article>
-      <article class="card">
-        <div class="ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></svg></div>
-        <h3>Yard cleanup</h3>
-        <p>Spring and fall cleanups, trimming and hauling away the mess.</p>
-      </article>
-      <article class="card">
-        <div class="ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M4 6l16 12M20 6L4 18"/></svg></div>
-        <h3>Snow removal</h3>
-        <p>Driveways and walks cleared so you can get out the door.</p>
-      </article>
-        </div>
-        <p class="note">Sample services for this preview. We'll swap in the exact list and pricing you offer.</p>
-      </div>
-    </section>
-
-    <section class="why">
-      <div class="wrap cols">
-        <div>
-          <div class="eyebrow">Why MJ Lawn Care &amp; Snow Removal LLC</div>
-          <h2>Local, easy to reach, and ready to help.</h2>
-        </div>
-        <ul>
-        <li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg><span>Reliable, local crew</span></li>
-        <li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg><span>Serving Salem and nearby</span></li>
-        <li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg><span>Quick quotes by phone or text</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="reviews">
-      <div class="wrap">
-        <div class="eyebrow">Reviews</div>
-        <h2>What customers say</h2>
-        <div class="ph">Your real Google reviews go here once the site is live.</div>
-      </div>
-    </section>
-
-    <section class="contact" id="contact">
-      <div class="wrap">
-        <div class="eyebrow">Get in touch</div>
-        <h2>Ready when you are.</h2>
-        <p>Call or text for a quote. Serving Salem and the surrounding area.</p>
-        <a class="phone" href="tel:+18014719461">(801) 471-9461</a>
-        <div class="ctas">
-          <a class="btn primary" href="tel:+18014719461"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg> Call now</a>
-          <a class="btn ghost" href="sms:+18014719461"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H8l-4 4V5z"/></svg> Send a text</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap">
-      <div>© 2026 MJ Lawn Care &amp; Snow Removal LLC · Salem, Utah</div>
-      <div class="built">Preview built by DialedIn Sites</div>
-    </div>
-  </footer>
-
-  <div class="callbar">
-    <a class="btn primary" href="tel:+18014719461"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg> Call</a>
-    <a class="btn ghost" href="sms:+18014719461"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H8l-4 4V5z"/></svg> Text</a>
-  </div>
+<div class="dl-foot">&copy; 2026 MJ Lawn Care &amp; Snow Removal LLC &middot; Salem, Utah<br>Preview built by DialedIn Sites</div>
+<nav class="dl-callbar" aria-label="Contact"><a class="dl-c1" href="tel:+18014719461">Call</a><a class="dl-c2" href="sms:+18014719461">Text</a></nav>
 </body>
 </html>
